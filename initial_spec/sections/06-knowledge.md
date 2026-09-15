@@ -1,47 +1,34 @@
 ## 6. Knowledge model
 
-Agents have two distinct, first-class knowledge types:
-
-1. **Skills** — what they know how to do, and how well.
-2. **Problem context** — how many things they know about a problem or feature before they start.
-
-Ideal: reduce unknowns toward zero before implementation. Do not implement against assumptions.
+Two knowledge types: skills, and problem context. Do not implement against assumptions.
 
 ### 6.1 Skill loading
 
-Spawn reads that agent type’s init file (`DesignArchitect-warm.md`, `KanbanMaster-cold.md`, `Worker-cold.md`).
+Spawn reads that type’s init file.
 
-### 6.2 Problem-context loading (living-knowledge)
+### 6.2 Living-knowledge
 
-Repo-relative `/app-name-1/living-knowledge/`.
-
-Project design spec (proposal: `/app-name-1/living-knowledge/project-design-spec.md`): only DesignArchitect-warm and the human write it. KanbanMaster-cold reads it to cut tickets.
-
-Paths starting with `/app-name-1/` are repo-relative. Files are pushed as soon as they change. Workers do not write living-knowledge. Source of truth is files, not session memory.
+Repo-relative `/app-name-1/living-knowledge/`. Design spec written only by DesignArchitect-warm + human. KanbanMaster-cold reads it to cut tickets. Workers do not write living-knowledge.
 
 ### 6.3 File types
 
-Overview vs detail per module+layer. Body policy and the ~30k / 3–4-file size cap: unchanged from the previous writing of this section (decisions, conventions, integrations, principles, -ilities, gotchas, avoid/instead, stack usage). No javadoc theatre.
+Overview vs detail per module+layer. Size cap: 3–4 detail files must not become a ~30k-token beast.
 
-### 6.4 Transient extra skills mid-ticket
+### 6.4 Transient extra skills
 
-Named in a ticket comment. KanbanMaster-cold may later promote repeats into the area file.
+Named on the ticket. Repeats may be promoted into the area file by KanbanMaster-cold.
 
-### 6.5 Cross-cutting discovery mid-ticket
+### 6.5 Cross-cutting discovery
 
-Load the other file, comment the extra work. Design-level coupling → TA ticket, not a cute follow-on.
+Load the other file, comment the extra work. Design-level coupling → TA ticket.
 
-### 6.6 Skills required to *write* living-knowledge
+### 6.6 Skills to write living-knowledge
 
-Must: software development; domain UL; propositional-logic discipline; uncertainty honesty; specification drafting; UL discipline; architecture as decision writing; cohesion/coupling as writing; audience split; edit policy.
+Must: software development, domain UL, propositional-logic discipline, uncertainty honesty, spec drafting, UL discipline, architecture as decision writing, cohesion/coupling as writing, audience split, edit policy.
 
-Should: requirements framing; contracts; what a later worker needs; corpus IA; stack literacy; git.
-
-Writers: KanbanMaster-cold (module files), DesignArchitect-warm (design spec + design-required edits), human.
+Should: requirements framing, contracts, what a later worker needs, corpus IA, stack literacy, git.
 
 ### 6.7 Living-knowledge file header
-
-Fixed block at the top of every living-knowledge file (not called “module card”):
 
 ```text
 ## Living-knowledge file header
@@ -52,8 +39,11 @@ Fixed block at the top of every living-knowledge file (not called “module card
 - Does-not-cover: <explicit out-of-scope>
 ```
 
-### 6.8 Per-project ticket type abbreviations
+### 6.8 Per-project abbreviation lists
 
-Not a global list in this workflow spec (a website and a Unity project do not share layers).
+Two lists, both written by DesignArchitect-warm in Phase 1, both living-knowledge (not this workflow spec):
 
-DesignArchitect-warm writes the list into living-knowledge during Phase 1 (same time as the module/layer map). KanbanMaster-cold may only use abbreviations from that list. Adding a new abbreviation later is a living-knowledge edit, not a silent invention on a ticket filename.
+1. **Module abbreviations** — product areas in this repo (`AM`, `CHANADV`, `RECIPES`, plus a reserved cross-cut token such as `XCUT`). Used as the first token of every ticket filename (§8.3).
+2. **Layer / ticket-type abbreviations** — technical slices (`DB`, `UI`, `API`, …). Used after the kind token.
+
+KanbanMaster-cold may only use tokens from these lists. Adding a token later is a living-knowledge edit, not a silent invention on a filename.
