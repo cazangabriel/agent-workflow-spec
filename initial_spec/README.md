@@ -2,8 +2,6 @@
 
 Live spec = one markdown file per numbered section under `initial_spec/sections/`.
 
-Do not treat `agent_workflow_pro_spec_v01.md` as source of truth.
-
 | File | Section |
 |---|---|
 | [sections/00-front-matter.md](sections/00-front-matter.md) | Title, status, versioning |
