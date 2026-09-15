@@ -1,53 +1,41 @@
 ## 7. Mandatory worker initialisation and ticket loop
 
-This sequence is mandatory. It must appear as a list of steps every worker always completes.
+This sequence is mandatory.
 
 **Step 1 — Init.**
-The human initialises a new worker by pointing a non-initialised agent at `Worker-cold.md`. That file instructs the worker to acquire generic skills needed:
+Human points a non-initialised agent at `Worker-cold.md`. Load software engineering, this app’s domain, project-specific standing skills — not every layer. Also load §7.1. Load git / containers / deploy only if the ticket needs those artifacts (§4.6).
 
-- software engineering expertise, plus
-- general expertise in the business domain of that project, plus
-- anything technical or topical that is specific for that project,
-
-but **not** yet all expertise in all project-layer areas (not yet UX, DB, SQL, etc. as a full set).
-
-Also load §7.1 (OOP/OOD/SOLID, pitfalls, readable names). If the ticket needs git, containers, or deploy, load those skills before touching those artifacts (§4.6).
-
-**Step 2 — Show the board, then propose.**
-The worker’s first visible act is to show the human the current `/app-name-1/kanban.md` board (generated from ticket files). Then the worker may suggest 4–5 next tasks from `open` (and mention `blocked` if relevant). KanbanMaster-cold built that list in the last ceremony.
+**Step 2 — Show the board, then propose clusters.**
+First visible act: show `/app-name-1/kanban.md`. Then suggest which `open` cluster (`C<n>`) or singleton to take next. Do this from the generated board and filenames (code + cluster + slug). Do not open every ticket body just to pick. Mention `blocked` if any exist — blocked work is higher priority than a new cluster (§8.4).
 
 **Step 3 — Human picks.**
-The human picks 1 ticket from those 4–5 proposals.
+Human picks one ticket, or confirms the suggested cluster. Same Worker-cold instance may then walk the rest of that cluster (§5.11) after each ticket’s test step, unless the human says to stop.
 
 **Step 4 — Approach discussion (mandatory).**
-Worker proposes one or more approaches. Prefer simplest approaches first that still produce maintainable professional code (see §4.4–§4.5). Human chooses an approach as-is or alters it.
+Worker proposes one or more approaches. Prefer simplest approaches that still produce maintainable professional code (§4.4–§4.5). Human chooses or alters.
+
+If the worker believes the ticket would burn on the order of 15–20% of the weekly planning budget (§5.8), they say so **here**, with the estimate and the uncertainty, and wait. They do not start the expensive work.
 
 **Step 5 — Implement.**
-Only after agreement does the worker implement as discussed.
+Only after agreement.
 
-**Step 6 — Commit and push.**
-Worker commits and pushes to `dev`, either as direct commit(s) or via a feature branch when appropriate, then merge into `dev`. Commit line: `Worker-cold F-10-DB add recipe table`.
+**Step 6 — Commit and push to `dev`.**
+Direct commits on `dev`. No feature branch. Commit line: `Worker-cold F-10-DB add recipe table`.
 
-**Step 7 — Human test (required step; human may skip the actual exercise).**
-Human pulls latest `dev`. The workflow asks the human to test the ticket in the app (start containers etc. as needed) and confirm to the worker whether it works. The human may make a gut decision not to run the test that time. That does not remove the step from the workflow and does not authorise an agent-tester substitute.
+Do not start the next ticket’s push until the current ticket has left `in-testing` (accepted or sent back), unless the human explicitly says “keep going on this cluster; I will test the bundle.”
 
-**Step 8 — Mark done or continue. Do not mark closed.**
-If the human confirms it works as expected, the worker (or the human) moves the ticket file into `tickets/done/` and updates the state field inside the file. **Closed is a KanbanMaster-cold ceremony** (§8.8), not a worker action. If it does not work, work continues until it does.
+**Step 7 — Move to `in-testing`.**
+Worker moves the file `in-progress` → `in-testing`, regenerates `kanban.md`, and asks the human to pull `dev` and test (or gut-skip). Agent-tester is still rejected.
 
-If during Steps 4–8 the worker hits the §5.7 stop-rule, they comment the ticket, tell the human, and do not invent the missing rule.
+**Step 8 — Human moves it on.**
+Pass or gut-skip accept: human moves `in-testing` → `done`.
+Fail: human moves `in-testing` → `in-progress` (or `blocked`); worker increments friction and continues.
+Worker does **not** mark `done`. Worker never marks `closed`.
 
-Related checklist item for every worker session: do not forget commit + push (see §4.3).
+If during Steps 4–8 the worker hits the §5.7 stop-rule, they comment, tell the human, and do not invent the missing rule.
 
-Same Worker-cold instance may continue onto a related next ticket (§5.11).
+Same Worker-cold instance may continue onto the next ticket in the same `C<n>` cluster.
 
 ### 7.1 Worker construction skills (decided)
 
-When writing application code the worker must know and use:
-
-- OOP and OOD
-- SOLID
-- Temporal coupling (and that it is a coupling)
-- Common software-development pitfalls and anti-patterns — avoid them
-- Readability: method and variable names that a human can read; no throwaway names like `x` for a domain idea
-
-These are standing worker skills, not optional style.
+OOP, OOD, SOLID, temporal coupling, common pitfalls and anti-patterns, readable names. Standing skills, not optional style.
