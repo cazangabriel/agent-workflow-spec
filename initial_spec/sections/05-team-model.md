@@ -98,3 +98,59 @@ Tangible. Human gated: the Design architect must ask the human to approve Phase 
 8. Human answers the explicit question: “Do you accept Phase 1 as done for this spec version?”
 
 A first thin slice through the test loop is **useful** but is Phase 2 evidence, not a hidden extra Phase 1 gate, unless the human adds it.
+
+### 5.6 Option 1 cons — token arithmetic (what Con 1 actually is)
+
+Con 1 is not “one mixed ceremony costs 50k+50k=100k instead of two 50k ceremonies.” Two ceremonies **in the same standing session** still share one growing input context.
+
+It is also not “triage × design = 100k from 10k×10k.” A single prompt’s cost is roughly **input tokens + output tokens**. Input is (system) + (skills files) + (living-knowledge loaded) + (tickets opened) + (conversation so far). Design material and triage material **add** inside that input.
+
+What *does* blow up: after N turns with no reset, each new turn re-sends the accumulated history. Total cost across the session is roughly the **triangle number** of that growth. That is **quadratic in session length**. Writing the result into files and resetting makes cost additive-per-ceremony instead of quadratic-per-week.
+
+The two-image split attacks this: ticket junk dies with KanbanMaster-cold; design talk stays with DesignArchitect-warm. It does **not** make long-lived design free if that session never writes-to-spec-and-resets.
+
+### 5.7 Stop-rule and who gets spawned
+
+The worker may open another **already existing** living-knowledge file only when the current ticket or an already-loaded file **points at it**.
+
+The worker **stops** when: they are not sure how to approach the ticket; they hit a boundary living-knowledge does not cover; the next needed fact is not written; or the work looks like a design-level coupling change.
+
+Then: comment (self-contained; address Kanban master by name if escalating), tell the human, increment friction (§8.9). Do not create a TA ticket. Do not edit the design spec.
+
+Escalation ladder (human still drives spawns):
+
+1. Worker ↔ human (always first).
+2. If both agree it needs the board role: human spawns **KanbanMaster-cold**.
+3. If that is not enough or it is design-level: Kanban master writes a **TA ticket** (problem only). Human spawns **DesignArchitect-warm** on that TA ticket only.
+4. Worker-spawns-Design-architect is **forbidden** until the human separately approves that evolution.
+
+### 5.8 Planning token budget (user estimate, not a vendor fact)
+
+User planning assumption: on the order of **6 million tokens per week**. “Expensive” is judged against that until replaced.
+
+Proposed escalate band (not frozen): if one ticket or design change looks like 15–20% of 6M (~0.9–1.2M tokens), ask the human first.
+
+### 5.9 Defects of the two-image split
+
+- Extra hop Worker → Kanban master → TA → Design architect. Worth it only if TA tickets stay self-contained.
+- Two writers of living-knowledge can drift. Design-shaped changes go through the spec or a TA; Kanban master writes gotchas; if unsure, ask the human.
+- `kanban.md` is generated from ticket files. Human does not edit it by hand.
+- Workers do not create tickets (§8.11).
+- Phase 1 exit is *sufficient spec to break tickets*, not every class named.
+- Cold Kanban master ticket quality = design spec quality. Intended.
+- A bad TA ticket yields a bad design if the Design architect must not read non-TA tickets.
+
+### 5.10 Init files versus commit names
+
+Init file: `DesignArchitect-warm.md`, `KanbanMaster-cold.md`, `Worker-cold.md`.
+Commit line: `KanbanMaster-cold F-10-DB add recipe table`. Do not put the init filename in the commit line.
+
+### 5.11 Reuse the same Worker-cold on related tickets
+
+Use the **same** Worker-cold instance when the next ticket depends on the one just finished, or both sit in the same module (layer set may grow or shrink).
+
+Start a **new** Worker-cold when the next ticket is a different module with no dependency on what this instance just loaded.
+
+Still one worker at a time. Do not keep one instance for a whole 10-ticket `open` slice if later tickets are unrelated.
+
+KanbanMaster-cold should **cluster** `backlog → open` pulls toward related tickets so this reuse is possible on purpose.
