@@ -24,7 +24,23 @@ DesignArchitect-warm + KanbanMaster-cold + Worker-cold. Defects in §5.9.
 
 ### 5.5 Phase 1 and Phase 2
 
-Unchanged lock: Phase 1 = design spec accepted (contexts, UL, 3–4 -ilities, module/layer map, stack, component order, type-abbrev list). Phase 2 = ticketed delivery. Mini Phase 1 = new bounded context. Human declares phase changes.
+Phase 1 = design spec accepted. That spec includes: bounded contexts and UL starter; 3–4 architectural characteristics; module/layer map; stack and how it will be used; component-level implementation order; per-project ticket-type abbreviation list (§6.8). Not a ticket list.
+
+Phase 2 = ticketed delivery against that spec. Ceremonies cannot be skipped.
+
+Mini Phase 1 = a **new bounded context** is added. Routine features inside an already-mapped module are not Mini Phase 1. Human declares phase changes.
+
+Phase 1 exit (human must accept):
+
+1. Bounded contexts named; UL starter written.
+2. 3–4 -ilities ranked and written.
+3. Module + layer map written.
+4. Technology choices written.
+5. Component-level implementation order written.
+6. Remaining unknowns listed as unknowns.
+7. Living-knowledge skeletons exist for mapped modules.
+8. Type-abbreviation list written (§6.8).
+9. Human answers: “Do you accept Phase 1 as done for this spec version?”
 
 ### 5.6 Token arithmetic
 
@@ -42,7 +58,7 @@ If an agent believes **this ticket or this design change** would burn on the ord
 
 ### 5.9 Defects of the two-image split
 
-Unchanged: extra hop only works if TAs are complete; two living-knowledge writers can drift; `kanban.md` must stay generated; workers do not create tickets; Phase 1 is sufficient-spec not every-class-named.
+Extra hop only works if TAs are complete; two living-knowledge writers can drift; `kanban.md` must stay generated; workers do not create tickets; Phase 1 is sufficient-spec not every-class-named.
 
 New: title slugs and cluster tokens in filenames can rot if KM regroups often (rename cost). Soft `open` cap can still inflate if “cluster” is used as an excuse. Filename slugs are not the full title — body remains authoritative.
 
