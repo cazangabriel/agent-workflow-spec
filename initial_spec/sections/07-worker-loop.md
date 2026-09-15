@@ -3,39 +3,36 @@
 This sequence is mandatory.
 
 **Step 1 — Init.**
-Human points a non-initialised agent at `Worker-cold.md`. Load software engineering, this app’s domain, project-specific standing skills — not every layer. Also load §7.1. Load git / containers / deploy only if the ticket needs those artifacts (§4.6).
+Human points a non-initialised agent at `Worker-cold.md`. Load software engineering, this app’s domain, project standing skills — not every layer. Load §7.1. Load git / containers / deploy only if the ticket needs those artifacts (§4.6).
 
-**Step 2 — Show the board, then propose clusters.**
-First visible act: show `/app-name-1/kanban.md`. Then suggest which `open` cluster (`C<n>`) or singleton to take next. Do this from the generated board and filenames (code + cluster + slug). Do not open every ticket body just to pick. Mention `blocked` if any exist — blocked work is higher priority than a new cluster (§8.4).
+**Step 2 — Show the board, then suggest.**
+First visible act: show `/app-name-1/kanban.md`. Suggest next work from the board and filenames (module + number + layers + slug). Do not open every body just to pick. Mention `blocked` if any exist.
 
 **Step 3 — Human picks.**
-Human picks one ticket, or confirms the suggested cluster. Same Worker-cold instance may then walk the rest of that cluster (§5.11) after each ticket’s test step, unless the human says to stop.
+The human drives which ticket to work. Several tickets may already be `in-progress` or `in-testing`. Same Worker-cold instance may continue on the next ticket the human picks if it is the same module or a declared dependency (§5.11).
 
-**Step 4 — Approach discussion (mandatory).**
-Worker proposes one or more approaches. Prefer simplest approaches that still produce maintainable professional code (§4.4–§4.5). Human chooses or alters.
+**Step 4 — Approach discussion.**
+Worker proposes approaches. Human chooses or alters.
 
-If the worker believes the ticket would burn on the order of 15–20% of the weekly planning budget (§5.8), they say so **here**, with the estimate and the uncertainty, and wait. They do not start the expensive work.
+A worker ticket that looks too big for §8.14 is a **split request**, not a 15–20% weekly-budget estimate. The 15–20% band belongs to DesignArchitect-warm and KanbanMaster-cold talking about design/architecture scope (§5.8). If a worker ticket would take on the order of a million tokens, the ticket is already wrong.
 
-**Step 5 — Implement.**
-Only after agreement.
+**Step 5 — Implement** after agreement.
 
 **Step 6 — Commit and push to `dev`.**
-Direct commits on `dev`. No feature branch. Commit line: `Worker-cold F-10-DB add recipe table`.
+No feature branch. Commit line: `Worker-cold AM-10-F-DB add recipe table`.
 
-Do not start the next ticket’s push until the current ticket has left `in-testing` (accepted or sent back), unless the human explicitly says “keep going on this cluster; I will test the bundle.”
+The human may start another ticket while one sits in `in-testing`. No wait-for-testing constraint.
 
 **Step 7 — Move to `in-testing`.**
-Worker moves the file `in-progress` → `in-testing`, regenerates `kanban.md`, and asks the human to pull `dev` and test (or gut-skip). Agent-tester is still rejected.
+Worker moves that file, regenerates `kanban.md`, asks the human to pull `dev` and test (or gut-skip).
 
 **Step 8 — Human moves it on.**
-Pass or gut-skip accept: human moves `in-testing` → `done`.
-Fail: human moves `in-testing` → `in-progress` (or `blocked`); worker increments friction and continues.
-Worker does **not** mark `done`. Worker never marks `closed`.
+Pass / gut-skip: human moves `in-testing` → `done`.
+Fail: human moves it back; worker increments friction and continues.
+Worker does not mark `done` or `closed`.
 
-If during Steps 4–8 the worker hits the §5.7 stop-rule, they comment, tell the human, and do not invent the missing rule.
+Stop-rule (§5.7): comment, tell the human, do not invent the missing rule.
 
-Same Worker-cold instance may continue onto the next ticket in the same `C<n>` cluster.
+### 7.1 Worker construction skills
 
-### 7.1 Worker construction skills (decided)
-
-OOP, OOD, SOLID, temporal coupling, common pitfalls and anti-patterns, readable names. Standing skills, not optional style.
+OOP, OOD, SOLID, temporal coupling, pitfalls / anti-patterns, readable names.
