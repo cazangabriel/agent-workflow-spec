@@ -2,21 +2,21 @@
 
 ### 5.1 Skill family and two images
 
-TechnicalSupervisor is the skill family name, not a spawned agent. Spawned types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. Init files and commit names as already written. No non-technical manager. Architect-first.
+TechnicalSupervisor is the skill family name, not a spawned agent. Spawned types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. No non-technical manager. Architect-first.
 
-Worker-cold implements; does not write living-knowledge, design spec, or tickets. May move only the ticket they are executing, and only among `open` / `in-progress` / `in-testing` / `blocked`.
+Worker-cold implements; does not write living-knowledge, design spec, or tickets. Moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
 
-DesignArchitect-warm owns the design spec and TA tickets. Must not read the board or non-TA tickets unless a TA is incomplete.
+DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. Must not read the board or non-TA tickets unless a TA is incomplete.
 
-KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, stamps cluster ids, regenerates `kanban.md`.
+KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. Does not invent module or layer tokens. Does not stamp named cluster ids.
 
 ### 5.2 Cost model
 
-Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker (or cluster run).
+Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker instance.
 
 ### 5.3 Concurrency
 
-One worker at a time. `open` target ~10, hard stop 15 (§8.8). Blocked work outranks starting an unrelated `open` ticket.
+One worker *agent* at a time. Several tickets may be `in-progress` or `in-testing` because the human drives the board. `open` target ~10, hard stop 15.
 
 ### 5.4 Topology
 
@@ -24,52 +24,40 @@ DesignArchitect-warm + KanbanMaster-cold + Worker-cold. Defects in §5.9.
 
 ### 5.5 Phase 1 and Phase 2
 
-Phase 1 = design spec accepted. That spec includes: bounded contexts and UL starter; 3–4 architectural characteristics; module/layer map; stack and how it will be used; component-level implementation order; per-project ticket-type abbreviation list (§6.8). Not a ticket list.
+Phase 1 = design spec accepted: contexts, UL, 3–4 -ilities, module/layer map, stack, component order, **module abbreviation list**, **layer abbreviation list**. Not a ticket list.
 
-Phase 2 = ticketed delivery against that spec. Ceremonies cannot be skipped.
+Phase 2 = ticketed delivery. Mini Phase 1 = new bounded context. Human declares phase changes.
 
-Mini Phase 1 = a **new bounded context** is added. Routine features inside an already-mapped module are not Mini Phase 1. Human declares phase changes.
-
-Phase 1 exit (human must accept):
-
-1. Bounded contexts named; UL starter written.
-2. 3–4 -ilities ranked and written.
-3. Module + layer map written.
-4. Technology choices written.
-5. Component-level implementation order written.
-6. Remaining unknowns listed as unknowns.
-7. Living-knowledge skeletons exist for mapped modules.
-8. Type-abbreviation list written (§6.8).
-9. Human answers: “Do you accept Phase 1 as done for this spec version?”
+Phase 1 exit (human must accept): contexts + UL; 3–4 -ilities; module + layer map; stack; component order; unknowns listed; living-knowledge skeletons; both abbreviation lists; explicit “accept Phase 1?”
 
 ### 5.6 Token arithmetic
 
-Quadratic cost is session length without write-and-reset, not “triage × design.”
+Quadratic cost is session length without write-and-reset.
 
 ### 5.7 Stop-rule
 
-Worker stops on unknown / missing living-knowledge / design-level coupling. Comment, tell human, increment friction. Escalation: human → KanbanMaster-cold → TA → DesignArchitect-warm. Worker must not spawn the Design architect.
+Worker stops on unknown / missing living-knowledge / design-level coupling. Escalation: human → KanbanMaster-cold → TA → DesignArchitect-warm.
 
-### 5.8 Escalate band — what the human actually sees
+### 5.8 Escalate band — who it applies to
 
 Planning assumption: ~6M tokens/week.
 
-If an agent believes **this ticket or this design change** would burn on the order of 15–20% of that (~0.9–1.2M tokens), it must **stop before doing the work** and ping the human with: what it wants to do, the rough estimate, and the uncertainty. The human says go / shrink / drop. It is a warning + hold, not a silent refusal and not a background metric.
+The 15–20% band (~0.9–1.2M tokens) applies to **DesignArchitect-warm** and **KanbanMaster-cold** talking about a design area, a ceremony slice, or a structural change. They stop and ping the human with what they want to do, a ball-park, and the uncertainty. Human says go / shrink / drop.
 
-### 5.9 Defects of the two-image split
+It does **not** apply to Worker-cold tickets. A worker ticket that would cost on that order is already a granularity defect (§8.14). The worker asks to **split** the ticket, not to spend a million tokens on it.
 
-Extra hop only works if TAs are complete; two living-knowledge writers can drift; `kanban.md` must stay generated; workers do not create tickets; Phase 1 is sufficient-spec not every-class-named.
+### 5.9 Defects
 
-New: title slugs and cluster tokens in filenames can rot if KM regroups often (rename cost). Soft `open` cap can still inflate if “cluster” is used as an excuse. Filename slugs are not the full title — body remains authoritative.
+Extra hop only works if TAs are complete. Two living-knowledge writers can drift. `kanban.md` must stay generated. Lazy slugs make the cheap board useless. Module-first filenames only help if the module list is stable — renaming `AM` later means renaming tickets.
 
 ### 5.10 Init file vs commit name
 
-Init file = skills doc. Commit line = spawn name + ticket code + title.
+Init file = skills doc. Commit line: `Worker-cold AM-10-F-DB add recipe table`.
 
-### 5.11 Worker reuse and clusters
+### 5.11 Worker reuse (no named clusters)
 
-KanbanMaster-cold assigns `C<n>` when tickets share a dependency or the same module+layer, and pulls those into `open` together when it is straightforward — no weird stretches.
+Reuse the same Worker-cold instance when the human next picks a ticket in the same module, or one that `Depends on` the ticket just done.
 
-Worker-cold, looking only at `kanban.md` and filenames, suggests which cluster to take. Same instance walks the cluster. New instance when the next work is a different module with no dependency.
+Start a new instance when the next ticket is a different module with no dependency.
 
-Do not keep one worker for the whole `open` column if later tickets are unrelated.
+KanbanMaster-cold may still *prefer* to pull same-module or dependent tickets into `open` together. That is a pull habit, not an id stamped on the file.
