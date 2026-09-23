@@ -39,11 +39,23 @@ Should: requirements framing, contracts, what a later worker needs, corpus IA, s
 - Does-not-cover: <explicit out-of-scope>
 ```
 
-### 6.8 Per-project abbreviation lists
+### 6.8 Abbreviation lists — Phase 1 step, DesignArchitect-warm owns them
 
-Two lists, both written by DesignArchitect-warm in Phase 1, both living-knowledge (not this workflow spec):
+These lists are **not** left as a vague “open item.” They cannot be filled in *this* workflow spec because they name areas of a specific product. They **are** a mandatory Phase 1 living-knowledge artifact.
 
-1. **Module abbreviations** — product areas in this repo (`AM`, `CHANADV`, `RECIPES`, plus a reserved cross-cut token such as `XCUT`). Used as the first token of every ticket filename (§8.3).
-2. **Layer / ticket-type abbreviations** — technical slices (`DB`, `UI`, `API`, …). Used after the kind token.
+**Who.** DesignArchitect-warm proposes both lists while drawing the module/layer map. The human accepts them as part of Phase 1 exit (§5.5). KanbanMaster-cold does not invent tokens. Workers do not invent tokens.
 
-KanbanMaster-cold may only use tokens from these lists. Adding a token later is a living-knowledge edit, not a silent invention on a filename.
+**Where.** One living-knowledge file, proposed path:
+
+`/app-name-1/living-knowledge/abbreviations.md`
+
+That file carries a living-knowledge header (§6.7) and two tables:
+
+1. **Module abbreviations** — product areas in this repo. Example shape: `AM` = Amazon-manager area, `RECIPES` = recipes area. One reserved cross-cut token, default `XCUT`, for work that is not owned by a single module.
+2. **Layer / ticket-type abbreviations** — technical slices used in filenames after the kind token (`DB`, `UI`, `API`, …). Only layers this project actually has.
+
+**When.** Written in Phase 1 before any `F-` / `TA-` ticket is cut. Adding a token later is a living-knowledge edit by DesignArchitect-warm (or a TA if the map itself changed), then human-visible. Not a silent filename invention.
+
+**Stability.** Abbreviations are identifiers in every ticket filename. Do not rename `AM` to `CATALOGUE` without a planned rename of existing ticket files. Prefer boring, short, stable tokens.
+
+**Use.** Every ticket filename starts with a module token from table 1 (§8.3). Layer tokens after the kind token come only from table 2.
