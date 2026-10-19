@@ -11,7 +11,7 @@ This section maps the workflow onto Grok Build as it exists at the time of writi
 - **AGENTS.md** (and `.grok/rules/`, `.grok/agents/`) load every session in that tree. That is the natural home for init-file rules at Gate 4.
 - **Skills / plugins / MCP** exist. They do not replace living-knowledge.
 - **Plan mode** exists. It can host the approach-discussion step; it does not replace human approval.
-- **Memory** (from 2026-09) writes its own markdown notes across sessions. That is a second memory store beside living-knowledge.
+- **Memory** (from 2026-09) is an optional automatic markdown cache of conventions and decisions. It is off by default. It is a generic container; it does not implement the living-knowledge rules in this spec.
 
 ### 14.2 Decisions (locked to match the rest of this spec)
 
@@ -20,22 +20,48 @@ This section maps the workflow onto Grok Build as it exists at the time of writi
 3. **Shared working tree on `dev`.** Ticket files, `kanban.md`, living-knowledge, and app code must be one tree the human pulls and tests. Do **not** put Worker-cold, KanbanMaster-cold, or DesignArchitect-warm in isolated worktrees for normal work. A worktree would fork the board.
 4. **DesignArchitect-warm = resume the same session** when you can. That is what “warm” means on this platform. After a reset, it re-reads the design spec + living-knowledge headers + open TA tickets.
 5. **KanbanMaster-cold and Worker-cold = new session per ceremony / per assignment** (or `/new`). Do not resume a month-old worker thread as if it were still cheap.
-6. **Living-knowledge + tickets + this spec are source of truth.** Grok Build Memory is a cache. Durable facts must be written to git-backed living-knowledge or a ticket. Do not treat `/memory` notes as binding. If Memory contradicts a living-knowledge file, the file wins.
+6. **Grok Build Memory is disabled for this workflow.** Living-knowledge and tickets are the designed contents; Memory is a simpler automatic container that would interfere. Do not enable it. Force it off if a config or managed setting has turned it on.
 7. **Init files at Gate 4** will be Grok Build agent definitions (likely `.grok/agents/` plus pointers from `AGENTS.md`). The names stay `DesignArchitect-warm`, `KanbanMaster-cold`, `Worker-cold`. Exact file format is Gate 4, not a new role design.
 8. **Plan mode** may be used for Step 4 (approach discussion). Implementation still waits for the human.
 9. **Separate terminals are fine.** One terminal window per role, each `cd`’d into the same project folder and running `grok`, is a valid way to spawn the three roles. Each terminal must start a **new session** (not resume the same session). The working tree is shared because no worktree is used.
 
-### 14.3 Still not a vendor fact
+### 14.3 How to keep Memory off
+
+Memory is off by default. Project `.grok/config.toml` does **not** control it (that file only contributes MCP, plugins, and permissions). Disable is user-level or per process.
+
+Preferred for every session in this workflow:
+
+```bash
+grok --no-memory
+```
+
+or
+
+```bash
+export GROK_MEMORY=0
+grok
+```
+
+Persistent user default (if Memory was ever turned on):
+
+```toml
+# ~/.grok/config.toml
+[memory]
+enabled = false
+```
+
+`--no-memory` and `GROK_MEMORY=0` force-disable even if TOML says otherwise. Confirm with `grok inspect` if unsure. Agents must not call `/remember` or rely on `/memory` notes.
+
+### 14.4 Still not a vendor fact
 
 - Weekly token quota. xAI does not publish a precise weekly number. The ~6M figure is a user planning heuristic only (§5.8). The human may form an informal estimate over time from observed burn. The escalate band remains a rough “ask first” signal the human can adjust.
 - Exact on-disk schema of `.grok/agents/` on the day we implement.
-- Whether project Memory can be turned off. If it cannot, §14.2 rule 6 still applies: living-knowledge and tickets win over Grok Build Memory.
 
-### 14.4 Why worktrees are rejected for this team
+### 14.5 Why worktrees are rejected for this team
 
 Worktrees solve *parallel writers*. This team is specified as one implementation writer plus markdown-only overview roles on the same board. Isolated checkouts would mean two `kanban.md` files and two ticket folders. That is the two-boards defect again. If the user later wants two workers, reopen worktrees then — not now.
 
-### 14.5 Guards against the shared-tree failures
+### 14.6 Guards against the shared-tree failures
 
 These five rules exist so the four concrete failures (stale ticket folders, stale `kanban.md`, unseen living-knowledge edits, changes invisible on `dev`) cannot happen silently.
 
@@ -45,9 +71,9 @@ These five rules exist so the four concrete failures (stale ticket folders, stal
 4. **Session naming.** Rename each session on start (`/rename DesignArchitect-warm`, `/rename KanbanMaster-cold`, `/rename Worker-cold`). This makes the three terminals distinguishable and prevents accidental resume of the wrong conversation.
 5. **No subagent isolation.** Init files forbid `isolation: worktree`. A worker that spawns a child must either not spawn a writer, or the child must also run on the shared tree (`isolation: none`).
 
-These rules go into the three init files at Gate 4. They are also the content that the human-guide files (§14.6) must explain in plain language.
+These rules go into the three init files at Gate 4. They are also the content that the human-guide files (§14.7) must explain in plain language.
 
-### 14.6 Human-guide files (how-to-for-human)
+### 14.7 Human-guide files (how-to-for-human)
 
 Once a project is started (Phase 1 begin), three markdown files are generated for the human only. They are not living-knowledge for agents. They are a short operating manual for the person who spawns and talks to the agents.
 
@@ -64,7 +90,7 @@ Each file must answer, in plain language:
 - What this role is for (and what it is not for).
 - Warm or cold: whether to resume the same session or start a new one each time.
 - When to start it (Phase 1, ceremony, ticket assignment, blocker, etc.).
-- How to start it (separate terminal, `cd` into the shared checkout, `grok`, new session, `/rename`).
+- How to start it (separate terminal, `cd` into the shared checkout, `grok --no-memory`, new session, `/rename`).
 - What it is allowed to write, and what it must never write.
 - The session-start worktree check and the commit-and-push proof it must give you.
 - How you interact with it (approach approval, test loop, escalation, Phase 1 exit question).
