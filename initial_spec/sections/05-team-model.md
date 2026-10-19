@@ -10,6 +10,8 @@ DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), a
 
 KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. Does not invent module or layer tokens. Does not stamp named cluster ids.
 
+How the human starts and talks to each role is written in the human-guide files (§14.6), generated once at project start under `/app-name-1/human-guides/`.
+
 ### 5.2 Cost model
 
 Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker instance.
@@ -29,6 +31,8 @@ Phase 1 = design spec accepted: contexts, UL, 3–4 -ilities, module/layer map, 
 Phase 2 = ticketed delivery. Mini Phase 1 = new bounded context. Human declares phase changes.
 
 Phase 1 exit (human must accept): contexts + UL; 3–4 -ilities; module + layer map; stack; component order; unknowns listed; living-knowledge skeletons; both abbreviation lists; explicit “accept Phase 1?”
+
+At Phase 1 start the three human-guide files (§14.6) are generated. They are not part of the Phase 1 exit checklist; they are an operating manual for the human.
 
 ### 5.6 Token arithmetic
 
