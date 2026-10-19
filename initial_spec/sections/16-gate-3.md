@@ -1,6 +1,6 @@
 ## 16. Gate 3 — industry comparison
 
-Written 2026-10-19 after Gate 1 acceptance. This is a comparison, not a rewrite. No section was changed because of it until the human accepts the findings.
+Written 2026-10-19 after Gate 1 acceptance. This is a comparison, not a rewrite.
 
 ### 16.1 What we compared against
 
@@ -62,4 +62,4 @@ None of these are worth a spec edit unless the human asks:
 
 ### 16.7 Status
 
-Awaiting human acceptance of this comparison. No Gate 3 edits to the rest of the spec until then.
+Accepted by the human on 2026-10-19. Recommendation stands: keep this workflow. No Gate 3 edits were applied to the rest of the spec.
