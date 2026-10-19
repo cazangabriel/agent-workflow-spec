@@ -21,3 +21,4 @@ Live spec = one markdown file per numbered section under `initial_spec/sections/
 | [sections/13-decision-log.md](sections/13-decision-log.md) | §13 Decision log |
 | [sections/14-grok-build.md](sections/14-grok-build.md) | §14 Grok Build platform |
 | [sections/15-workflow-steward.md](sections/15-workflow-steward.md) | §15 WorkflowSteward-warm |
+| [sections/16-gate-3.md](sections/16-gate-3.md) | §16 Gate 3 industry comparison |
