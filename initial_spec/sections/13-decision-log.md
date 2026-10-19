@@ -14,16 +14,16 @@
 10. Human marks `done`. No feature branches. Push `dev`; human releases to `main`.
 11. Escalate band: DA-warm / KM-cold only. The ~6M figure is a user planning heuristic only; xAI does not publish a precise weekly quota. The human may form an informal estimate over time from observed burn. The band stays a rough “ask first” signal the human can adjust.
 12. No epics. Granularity = one testable outcome + one approach discussion.
-13. Grok Build mapping locked in §14: human-spawned roles; no write-capable worker subagents; shared tree on `dev` (no worktrees for this team); DA-warm resumes; KM/Worker are fresh sessions; living-knowledge wins over Grok Memory.
-14. Shared-tree guards (§14.5): session-start worktree check, commit+push proof, session rename, no subagent worktree isolation.
-15. Human-guide files (§14.6): three `how-to-for-human` markdown files under `/app-name-1/human-guides/`, generated once at project start, for the human only.
-16. Spec lives as `initial_spec/sections/`.
+13. Grok Build mapping locked in §14: human-spawned roles; no write-capable worker subagents; shared tree on `dev` (no worktrees for this team); DA-warm resumes; KM/Worker are fresh sessions.
+14. **Grok Build Memory is disabled.** It is a simpler automatic cache, not living-knowledge. Start sessions with `grok --no-memory` or `GROK_MEMORY=0`. Living-knowledge and tickets remain the only source of truth.
+15. Shared-tree guards (§14.6): session-start worktree check, commit+push proof, session rename, no subagent worktree isolation.
+16. Human-guide files (§14.7): three `how-to-for-human` markdown files under `/app-name-1/human-guides/`, generated once at project start, for the human only.
+17. Spec lives as `initial_spec/sections/`.
 
 ### 13.2 Still open
 
 1. Exact on-disk shape of `.grok/agents/` init files — Gate 4.
-2. Whether Grok Build Memory can be disabled per project — if not, §14.2 rule 6 still applies (files win).
-3. Who owns changes to *this* workflow once a product project is running (product architect vs a higher layer). See discussion; not yet locked.
+2. Who owns changes to *this* workflow once a product project is running (product architect vs a higher layer). See discussion; not yet locked.
 
 ### 13.3 Next
 
