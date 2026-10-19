@@ -12,7 +12,7 @@
 8. `open` target ~10, hard stop 15.
 9. Workers do not create tickets. Human-driven WIP.
 10. Human marks `done`. No feature branches. Push `dev`; human releases to `main`.
-11. Escalate band: DA-warm / KM-cold only.
+11. Escalate band: DA-warm / KM-cold only. The ~6M figure is a user planning heuristic only; xAI does not publish a precise weekly quota. The human may form an informal estimate over time from observed burn. The band stays a rough “ask first” signal the human can adjust.
 12. No epics. Granularity = one testable outcome + one approach discussion.
 13. Grok Build mapping locked in §14: human-spawned roles; no write-capable worker subagents; shared tree on `dev` (no worktrees for this team); DA-warm resumes; KM/Worker are fresh sessions; living-knowledge wins over Grok Memory.
 14. Shared-tree guards (§14.5): session-start worktree check, commit+push proof, session rename, no subagent worktree isolation.
@@ -21,9 +21,9 @@
 
 ### 13.2 Still open
 
-1. Weekly token budget remains a user planning assumption (~6M), not a vendor quota (§5.8, §14.3).
-2. Exact on-disk shape of `.grok/agents/` init files — Gate 4.
-3. Whether Grok Build Memory can be disabled per project — if not, §14.2 rule 6 still applies (files win).
+1. Exact on-disk shape of `.grok/agents/` init files — Gate 4.
+2. Whether Grok Build Memory can be disabled per project — if not, §14.2 rule 6 still applies (files win).
+3. Who owns changes to *this* workflow once a product project is running (product architect vs a higher layer). See discussion; not yet locked.
 
 ### 13.3 Next
 
