@@ -10,11 +10,11 @@ Work proceeds in this order. Do not collapse gates.
 4. Ask questions rather than inventing wild assumptions. The user prefers time spent on clarification over a high-quality-looking document that means something else.
 5. This rewrite is **not** yet the design of the agent interaction workflow.
 
-**Current position:** Gate 1 deliverable exists and is being refined in place as section files. Spawned roles are DesignArchitect-warm, KanbanMaster-cold, Worker-cold. Gate 3 (industry comparison as a separate exercise) has not been run as a full survey. Implementation is still Gate 4.
+**Status:** Accepted. User accepted the rewrite on 2026-10-19. The remaining init-file on-disk shape is Gate 4, not a Gate 1 blocker.
 
 ### Gate 2 — User accepts the rewrite
 
-Only after the user is happy with this organised rewrite do we continue.
+**Status:** Done. User accepted Gate 1 on 2026-10-19.
 
 ### Gate 3 — Discussion, comparison, refinement
 
@@ -29,11 +29,7 @@ Discuss:
 
 Only after that discussion do we decide what changes to make to the spec that resulted from the brief.
 
-The original brief also listed these questions under “What I need.” They belong at Gate 3, not Gate 1:
-
-- Assess the idea against industry standards. What is better or worse?
-- Recommend this approach or another, as a whole or for any subsection.
-- Name weaknesses and improvements.
+**Status:** In progress. Comparison written in §16. No spec changes from Gate 3 until the user accepts the comparison.
 
 ### Gate 4 — Implement the workflow
 
