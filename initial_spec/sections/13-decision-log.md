@@ -21,7 +21,7 @@
 17. Ticket body template and `kanban.md` layout locked in §8.12 and §8.10.
 18. Spec lives as `initial_spec/sections/`.
 19. **WorkflowSteward-warm owns this workflow spec** (§15). Product roles must not edit it and must not spawn the steward. It lives in the workflow-spec repo. A lost conversation is recovered by spawning it there and pointing it at the README and the decision log. Section files are the knowledge.
-20. Gate 1 accepted 2026-10-19. Gate 2 done. Gate 3 comparison is §16.
+20. Gate 1 accepted 2026-10-19. Gate 2 done. Gate 3 accepted 2026-10-19. Comparison is §16. Recommendation: keep this workflow.
 
 ### 13.2 Still open
 
@@ -29,4 +29,6 @@
 
 ### 13.3 Next
 
-Gate 1 accepted 2026-10-19. Gate 3 comparison is in §16, awaiting human acceptance. No implementation until the user says so (Gate 4).
+Gate 3 accepted. Gate 4 starts only when the user explicitly says to implement.
+
+A human-only starter prompt lives at `for-human-only/precision-starter.md`. It is not part of this workflow. Agents must not treat it as spec.
