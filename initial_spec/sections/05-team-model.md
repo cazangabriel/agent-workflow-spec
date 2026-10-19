@@ -2,19 +2,19 @@
 
 ### 5.1 Skill family and two images
 
-TechnicalSupervisor is the skill family name, not a spawned agent. Spawned types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. No non-technical manager. Architect-first.
+TechnicalSupervisor is the skill family name, not a spawned agent. Spawned product types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. A fourth role, WorkflowSteward-warm, owns the workflow spec itself and does not live in the product repo (§15). No non-technical manager. Architect-first.
 
-Worker-cold implements; does not write living-knowledge, design spec, or tickets. Moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
+Worker-cold implements; does not write living-knowledge, design spec, tickets, or the workflow spec. Moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
 
-DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. Must not read the board or non-TA tickets unless a TA is incomplete.
+DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. Must not read the board or non-TA tickets unless a TA is incomplete. Must not edit the workflow spec.
 
-KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. Does not invent module or layer tokens. Does not stamp named cluster ids.
+KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. Does not invent module or layer tokens. Does not stamp named cluster ids. Must not edit the workflow spec.
 
-How the human starts and talks to each role is written in the human-guide files (§14.6), generated once at project start under `/app-name-1/human-guides/`.
+How the human starts and talks to each product role is written in the human-guide files (§14.7), generated once at project start under `/app-name-1/human-guides/`.
 
 ### 5.2 Cost model
 
-Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker instance.
+Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker instance. Workflow-spec talk stays with WorkflowSteward-warm and the section files.
 
 ### 5.3 Concurrency
 
@@ -22,7 +22,9 @@ One worker *agent* at a time. Several tickets may be `in-progress` or `in-testin
 
 ### 5.4 Topology
 
-DesignArchitect-warm + KanbanMaster-cold + Worker-cold. Defects in §5.9.
+Product: DesignArchitect-warm + KanbanMaster-cold + Worker-cold. Defects in §5.9.
+
+Workflow: WorkflowSteward-warm, outside the product repo (§15). Product agents must not spawn it and must not edit its files.
 
 ### 5.5 Phase 1 and Phase 2
 
@@ -32,7 +34,7 @@ Phase 2 = ticketed delivery. Mini Phase 1 = new bounded context. Human declares 
 
 Phase 1 exit (human must accept): contexts + UL; 3–4 -ilities; module + layer map; stack; component order; unknowns listed; living-knowledge skeletons; both abbreviation lists; explicit “accept Phase 1?”
 
-At Phase 1 start the three human-guide files (§14.6) are generated. They are not part of the Phase 1 exit checklist; they are an operating manual for the human.
+At Phase 1 start the product human-guide files (§14.7) are generated. They are not part of the Phase 1 exit checklist; they are an operating manual for the human.
 
 ### 5.6 Token arithmetic
 
@@ -40,7 +42,7 @@ Quadratic cost is session length without write-and-reset.
 
 ### 5.7 Stop-rule
 
-Worker stops on unknown / missing living-knowledge / design-level coupling. Escalation: human → KanbanMaster-cold → TA → DesignArchitect-warm.
+Worker stops on unknown / missing living-knowledge / design-level coupling. Escalation: human → KanbanMaster-cold → TA → DesignArchitect-warm. Workflow-spec problems go to the human, who may spawn WorkflowSteward-warm. Product agents do not spawn the steward.
 
 ### 5.8 Escalate band — who it applies to
 
@@ -65,3 +67,7 @@ Reuse the same Worker-cold instance when the human next picks a ticket in the sa
 Start a new instance when the next ticket is a different module with no dependency.
 
 KanbanMaster-cold may still *prefer* to pull same-module or dependent tickets into `open` together. That is a pull habit, not an id stamped on the file.
+
+### 5.12 Workflow owner
+
+WorkflowSteward-warm (§15). Not a product role. Owns `initial_spec/sections/`. Recovery from a lost conversation is: spawn it in the workflow-spec repo and point it at the README and the decision log.
