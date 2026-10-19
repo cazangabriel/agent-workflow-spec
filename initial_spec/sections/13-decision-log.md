@@ -20,11 +20,11 @@
 16. Human-guide files (§14.7): three role manuals plus `glossary.md` under `/app-name-1/human-guides/`, generated once at project start, for the human only.
 17. Ticket body template and `kanban.md` layout locked in §8.12 and §8.10.
 18. Spec lives as `initial_spec/sections/`.
+19. **WorkflowSteward-warm owns this workflow spec** (§15). Product roles must not edit it and must not spawn the steward. It lives in the workflow-spec repo. A lost conversation is recovered by spawning it there and pointing it at the README and the decision log. Section files are the knowledge.
 
 ### 13.2 Still open
 
-1. Exact on-disk shape of `.grok/agents/` init files — Gate 4.
-2. Who owns changes to *this* workflow once a product project is running (product architect vs a higher layer). See discussion; not yet locked.
+1. Exact on-disk shape of `.grok/agents/` init files — Gate 4. Includes `WorkflowSteward-warm.md`.
 
 ### 13.3 Next
 
