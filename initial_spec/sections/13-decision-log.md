@@ -15,7 +15,9 @@
 11. Escalate band: DA-warm / KM-cold only.
 12. No epics. Granularity = one testable outcome + one approach discussion.
 13. Grok Build mapping locked in §14: human-spawned roles; no write-capable worker subagents; shared tree on `dev` (no worktrees for this team); DA-warm resumes; KM/Worker are fresh sessions; living-knowledge wins over Grok Memory.
-14. Spec lives as `initial_spec/sections/`.
+14. Shared-tree guards (§14.5): session-start worktree check, commit+push proof, session rename, no subagent worktree isolation.
+15. Human-guide files (§14.6): three `how-to-for-human` markdown files under `/app-name-1/human-guides/`, generated once at project start, for the human only.
+16. Spec lives as `initial_spec/sections/`.
 
 ### 13.2 Still open
 
