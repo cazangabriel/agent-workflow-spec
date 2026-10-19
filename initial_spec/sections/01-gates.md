@@ -29,7 +29,7 @@ Discuss:
 
 Only after that discussion do we decide what changes to make to the spec that resulted from the brief.
 
-**Status:** In progress. Comparison written in §16. No spec changes from Gate 3 until the user accepts the comparison.
+**Status:** Accepted 2026-10-19. Comparison is §16. Recommendation was to keep this workflow. No further Gate 3 edits unless the user reopens them.
 
 ### Gate 4 — Implement the workflow
 
