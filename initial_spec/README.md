@@ -20,3 +20,4 @@ Live spec = one markdown file per numbered section under `initial_spec/sections/
 | [sections/12-non-goals.md](sections/12-non-goals.md) | §12 Non-goals |
 | [sections/13-decision-log.md](sections/13-decision-log.md) | §13 Decision log |
 | [sections/14-grok-build.md](sections/14-grok-build.md) | §14 Grok Build platform |
+| [sections/15-workflow-steward.md](sections/15-workflow-steward.md) | §15 WorkflowSteward-warm |
