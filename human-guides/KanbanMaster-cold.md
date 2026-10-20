@@ -45,17 +45,10 @@ Ceremonies cannot be skipped. Without one, no new backlog tickets can legally ap
 grok --no-memory
 ```
 
-4. Choose **new session**. Do not resume the previous KanbanMaster-cold session.
-5. Rename it:
+4. Choose **new session**. Do not resume the previous ceremony session.
+5. First message (this assigns the role; `/rename` is not required):
 
-```text
-/rename KanbanMaster-cold
-```
-
-6. Point it at its init file (`KanbanMaster-cold.md`).
-7. First message:
-
-> Confirm you are not in a worktree. Read the design spec and `kanban.md`. Then run a ceremony: report what you would pull from backlog into open, and wait for me to agree before writing tickets.
+> Read `.grok/agents/kanban-master-cold.md` and obey it. Confirm you are not in a worktree. Read the design spec and `kanban.md`. Report what you would pull from backlog into open, and wait for me to agree before writing tickets.
 
 ## How you interact
 
@@ -79,7 +72,7 @@ grok --no-memory
 
 ## Good first message
 
-> Confirm you are not in a worktree. Read the design spec and kanban.md. Propose the next backlog → open pull and wait.
+> Read `.grok/agents/kanban-master-cold.md` and obey it. Confirm you are not in a worktree. Propose the next backlog → open pull and wait.
 
 ## Bad first message
 
