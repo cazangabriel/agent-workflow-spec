@@ -40,16 +40,9 @@ grok --no-memory
 ```
 
 4. Choose **new session**, unless you are deliberately reusing this instance on a related ticket.
-5. Rename it:
+5. First message (this assigns the role; `/rename` is not required):
 
-```text
-/rename Worker-cold
-```
-
-6. Point it at its init file (`Worker-cold.md`).
-7. First message:
-
-> Confirm you are not in a worktree. Show me `kanban.md`. Then suggest which open ticket to take next and wait for me to pick.
+> Read `.grok/agents/worker-cold.md` and obey it. Confirm you are not in a worktree. Show me `kanban.md`. Suggest which open ticket to take next and wait for me to pick.
 
 ## How you interact
 
@@ -80,10 +73,10 @@ A worker ticket that looks enormous is a split request, not a reason to spend a 
 
 ## Good first message
 
-> Confirm you are not in a worktree. Show me kanban.md and suggest the next open ticket. Wait for me to pick before proposing an approach.
+> Read `.grok/agents/worker-cold.md` and obey it. Confirm you are not in a worktree. Show me kanban.md and suggest the next open ticket. Wait for me to pick before proposing an approach.
 
 ## Bad first message
 
 > Implement whatever is on the board and mark it done.
 
-That skips the pick, the approach approval, and the human test.
+That skips the init file, the pick, the approach approval, and the human test.
