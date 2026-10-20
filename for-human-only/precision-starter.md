@@ -1,8 +1,10 @@
 # Precision starter — for any topic
 
+This file and this folder are for the human only. Agents must not read `for-human-only/` and must not treat this file as a source.
+
 Paste the block below at the start of any Grok conversation that is not this workflow (cooking, gaming, parenting, Path of Exile, anything).
 
-The same 17 rules are also in `AGENTS.md` and in every `.grok/agents/*.md` init file, in force at every step of this workflow. Leaving them only in this file was a defect: agents were told not to read it, so the rules that are the point of the workflow never reached them.
+The same 17 rules are copied into `AGENTS.md` and into every `.grok/agents/*.md` init file. Those copies are what agents obey. This file is not a dependency of those copies.
 
 ---
 
