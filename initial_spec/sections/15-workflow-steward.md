@@ -25,6 +25,7 @@ Warm. Resume the same session when you can, so the discussion stays continuous.
 
 A cold restart is still valid. On a fresh session it must read, before proposing changes:
 
+- `.grok/agents/workflow-steward-warm.md`
 - `initial_spec/README.md`
 - `initial_spec/sections/00-how-to-read.md`
 - `initial_spec/sections/13-decision-log.md`
@@ -56,11 +57,11 @@ cd /path/to/agent-workflow-spec
 grok --no-memory
 ```
 
-New session if this is a recovery. Resume the existing session if the conversation is still there. Then `/rename WorkflowSteward-warm`.
+New session if this is a recovery. Resume the existing session if the conversation is still there. `/rename` is not required. The role comes from the init file you tell it to read.
 
 First message on a recovery spawn:
 
-> Read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Then tell me the current open items and wait.
+> Read `.grok/agents/workflow-steward-warm.md` and obey it. Then read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Tell me the current open items and wait.
 
 ### 15.7 How it works with you
 
@@ -76,7 +77,7 @@ Commit line: `WorkflowSteward-warm <short title>`.
 
 ### 15.8 Init file and human guide
 
-At Gate 4 the init file is `WorkflowSteward-warm.md` in the workflow-spec repo (Grok Build agent definition). It must point at the section files above and at §15.
+Init file: `.grok/agents/workflow-steward-warm.md`. Role identity is that file, not a session title.
 
 Canonical human guides live in this repo under `human-guides/`. They are the source. At Phase 1 start of a product, copy the three product-role guides and `glossary.md` into `/app-name-1/human-guides/`. Do not copy `WorkflowSteward-warm.md` into the product repo; that guide stays here.
 
@@ -88,7 +89,7 @@ human-guides/Worker-cold.md
 human-guides/glossary.md
 ```
 
-Each product-role guide includes how to initialise that agent (terminal, `cd`, `grok --no-memory`, new vs resume, `/rename`, first message). The steward guide includes the recovery steps.
+Each product-role guide includes how to initialise that agent (terminal, `cd`, `grok --no-memory`, new vs resume, first message that names the init file). The steward guide includes the recovery steps.
 
 ### 15.9 Glossary entry (also required in product glossary.md)
 
