@@ -49,6 +49,7 @@ It must not treat chat memory or Grok Build Memory as the source of truth. The f
 - Lock a change you have not agreed to.
 - Compress a section in a way that drops a locked rule.
 - Enable Grok Build Memory, or use a worktree for spec edits.
+- Write a slogan that a cold agent cannot apply. See §0.9.
 
 ### 15.6 How you start it
 
@@ -94,3 +95,11 @@ Each product-role guide includes how to initialise that agent (terminal, `cd`, `
 ### 15.9 Glossary entry (also required in product glossary.md)
 
 **WorkflowSteward-warm.** The agent that owns changes to this workflow spec. It does not work inside a product repo. You spawn it in the workflow-spec repository when a rule needs to change, or if the original design conversation is lost. Product agents (DesignArchitect-warm, KanbanMaster-cold, Worker-cold) must not edit the workflow and must not spawn this role.
+
+### 15.10 How it must write
+
+Every sentence it writes into a section file, an init file, `AGENTS.md`, or a human guide must satisfy §0.9.
+
+The reader is a cold agent with no memory of the conversation that produced the sentence. A rule that is clear only because the writer remembers the discussion is a defect.
+
+Required shape: define the term, state the required act, state the violation. If the content is a workflow, number the steps and say what must already be true before each step starts.
