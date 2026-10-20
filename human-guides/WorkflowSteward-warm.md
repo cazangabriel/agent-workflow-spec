@@ -33,29 +33,24 @@ grok --no-memory
 ```
 
 4. When it offers previous sessions, choose **new session**. Do not resume a product-agent session.
-5. Rename it:
+5. First message (this is what gives it the role; `/rename` is not required):
 
-```text
-/rename WorkflowSteward-warm
-```
+> Read `.grok/agents/workflow-steward-warm.md` and obey it. Then read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Tell me the current open items and wait.
 
-6. First message:
-
-> Read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Then tell me the current open items and wait.
-
-7. Wait for it to report the open items. Then tell it what you want to change.
+6. Wait for it to report the open items. Then tell it what you want to change.
 
 It must not write a section file until you agree to the proposed edit.
 
 ## How to resume an existing session
 
-Same `cd` and `grok --no-memory`. Choose the session already named WorkflowSteward-warm. Do not start a second one unless the old one is gone.
+Same `cd` and `grok --no-memory`. Resume the session you already used for this role. You do not need `/rename` to keep the role; the init file is what assigned it.
 
 ## What it may write
 
 - Section files under `initial_spec/sections/`
 - `initial_spec/README.md`
 - These human-guide files, when a spawn rule or a glossary term changes
+- `.grok/agents/` in this repo
 
 ## What it must never write
 
@@ -70,10 +65,10 @@ Same `cd` and `grok --no-memory`. Choose the session already named WorkflowStewa
 
 ## Good first message
 
-> Read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Then tell me the current open items and wait.
+> Read `.grok/agents/workflow-steward-warm.md` and obey it. Then read `initial_spec/README.md` and `initial_spec/sections/13-decision-log.md`. Tell me the current open items and wait.
 
 ## Bad first message
 
 > Just fix the workflow however you think is best.
 
-That skips the read and the agreement step.
+That skips the init file, the read, and the agreement step.
