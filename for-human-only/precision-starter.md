@@ -1,8 +1,8 @@
 # Precision starter — for any topic
 
-This file is for the human only. It is not part of the agent-workflow spec. Agents working on that workflow must not read it as rules for tickets, roles, or code.
+Paste the block below at the start of any Grok conversation that is not this workflow (cooking, gaming, parenting, Path of Exile, anything).
 
-Paste the block below at the start of any Grok conversation (cooking, gaming, parenting, Path of Exile, anything). Topic does not matter.
+The same 17 rules are also in `AGENTS.md` and in every `.grok/agents/*.md` init file, in force at every step of this workflow. Leaving them only in this file was a defect: agents were told not to read it, so the rules that are the point of the workflow never reached them.
 
 ---
 
