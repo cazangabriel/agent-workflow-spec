@@ -29,29 +29,22 @@ After a reset it must re-read the design spec, living-knowledge file headers, an
 ## How to start it
 
 1. Open a terminal of its own. Do not share this terminal with another role.
-2. `cd` into the **product** repo, on the shared checkout (the same folder you use for the other product roles). Do not use a worktree.
+2. `cd` into the **product** repo, on the shared checkout. Do not use a worktree.
 3. Start with Memory off:
 
 ```bash
 grok --no-memory
 ```
 
-4. Resume the existing DesignArchitect-warm session if it exists. Otherwise choose **new session**.
-5. Rename it:
+4. Resume the existing session if you already have one for this role. Otherwise choose **new session**.
+5. First message (this assigns the role; `/rename` is not required):
 
-```text
-/rename DesignArchitect-warm
-```
-
-6. Point it at its init file (`DesignArchitect-warm.md`) if this is a new session.
-7. First message on a new or reset session:
-
-> Read the design spec and the living-knowledge file headers. Confirm you are not in a worktree. Then wait.
+> Read `.grok/agents/design-architect-warm.md` and obey it. Confirm you are not in a worktree. Then read the design spec and the living-knowledge file headers, and wait.
 
 ## How you interact
 
 - In Phase 1 you discuss structure with it until you can answer: “Do you accept Phase 1 as done for this spec version?”
-- On a TA ticket, it marks the ticket done with a concise solution comment after the spec change is written.
+- On a TA ticket, it writes the solution into the design spec and leaves a concise comment on the TA ticket.
 - If a design change looks like it would burn a large share of the week’s tokens, it must stop and ask you first (escalate band).
 
 ## What it may write
@@ -69,7 +62,7 @@ grok --no-memory
 
 ## Good first message
 
-> Read the design spec and living-knowledge headers. Confirm you are not in a worktree. Then summarise what Phase 1 still needs before I can accept it.
+> Read `.grok/agents/design-architect-warm.md` and obey it. Confirm you are not in a worktree. Then summarise what Phase 1 still needs before I can accept it.
 
 ## Bad first message
 
