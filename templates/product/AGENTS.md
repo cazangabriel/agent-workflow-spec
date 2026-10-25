@@ -58,6 +58,8 @@ Apply each rule to the sentence you are about to emit. Do not read `for-human-on
 
 This is the last step of every sequence. It is enforcement of the rules above. It is not a new prohibition.
 
+Cost: this check re-reads the artifact before the reply. It can use a high number of extra tokens, relative to the human's planning assumption of about 6M tokens a week. If that cost is unacceptable, the human can disable this check. Do not invent a token number. You have not measured it.
+
 After the work, before you send the reply, run these five checks on the artifact. The artifact is what exists, not what you meant to write. For a file write, the artifact is the file as a later read returns it. Read it back. Do not check your memory of what you sent.
 
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
