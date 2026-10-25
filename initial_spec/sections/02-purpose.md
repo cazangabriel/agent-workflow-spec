@@ -2,67 +2,52 @@
 
 ### 2.1 Purpose
 
-Design the workflow for a team of agents running via Grok Build.
+Design the workflow for a team of agents running via Grok Build. The team's job is to build a software development project specified by the human. Example project types, not a closed list: public-facing website with a CMS; mobile store app; mobile game; Unity game; other software the user specifies.
 
-The team’s job is to build a software development project specified by the human user. Example project types (not an exhaustive closed list): public-facing website with a CMS; mobile store app; mobile game; Unity game; other software the user specifies.
+### 2.4 Shared vocabulary between agents
 
-### 2.2 What “optimal” means here
+Original brief: "We must take into account potential language barriers between agents with different skillsets."
 
-Design an optimal team workflow based on proven methods that give good or outstanding results in real-life human teams — then adapt those methods to agents, token cost, and context windows.
+Reading A — natural language: agents mixing English with another language, so the same requirement is not stably worded.
+Reading B — specialist vocabulary: a DB-loaded agent and a UX-loaded agent use different words for the same thing, or the same word for different things. Tickets and living-knowledge then fail to bind.
 
-### 2.3 Suggested targets, and what is now decided
+The surrounding sentence named skillsets, so Reading B is the stronger parse. Reading A can still happen and is cheap to forbid.
 
-Original brief treated these as starting targets, not hard constraints. User decisions since then:
+Decided package: A + B + DDD extra (§2.5).
 
-- **Decided:** no TechnicalSupervisor *instance*. Spawned roles are DesignArchitect-warm, KanbanMaster-cold, and Worker-cold. No non-technical manager. No separate ticket-cutter besides KanbanMaster-cold.
-- DesignArchitect-warm owns the design spec. KanbanMaster-cold cuts tickets and runs the board. Worker-cold implements.
-- Knowledge that must survive a session lives in organised `.md` files on git alongside the project (living-knowledge).
-- Worker agents are transient: spawned for one or a few tasks / features, so their context windows stay short and they stay cheap in prompt-token cost.
-- **Decided:** one worker at a time for now. Do not run parallel workers until the user reopens that constraint.
-- **Decided:** human-approve-then-test loop is required on every ticket. The human may skip actually performing a test as a gut call, but the loop itself stays in the workflow. Reason: the user does not consider current AI reliable for unsupervised work; testing is how the user supervises. Agent-driven testing against requirements is **not viable yet** because it would consume scarce tokens.
-- **Decided:** two staffing phases (§5.5). Phase 1 = design spec accepted (DesignArchitect-warm central). Phase 2 = ticketed delivery (KanbanMaster-cold ceremonies). Mini Phase 1 when a new bounded context is added.
-- **Decided:** workers do not write living-knowledge. They write ticket comments and raise unknowns to the human.
+1. All tickets, living-knowledge files, commit messages, and agent-to-human questions are written in one project language (English, unless the user sets another in living-knowledge).
+   Violation: a ticket body in a second language mid-project.
+   Example: the project language is English. The worker does not write the ticket comment in Romanian.
 
-### 2.4 Shared vocabulary between agents (original phrase: “language barriers”)
+2. Layer jargon is allowed inside a layer's detailed living-knowledge file.
+   Violation: layer jargon in a ticket title that crosses roles.
+   Example: `recipes-db.md` may say `integer not null`. The ticket title says "Add the recipe table", not "ALTER TABLE recipes ADD COLUMN".
 
-Original brief: “We must take into account potential language barriers between agents with different skillsets.”
+3. Anything that crosses agents or roles — ticket titles, type abbreviations, shared terms for modules and layers, status words — must use the shared vocabulary in living-knowledge and in this spec. Do not invent a second name for an existing shared term.
+   Violation: the worker calling the table `recipe_tbl` when living-knowledge says `recipes`.
+   Example: living-knowledge says `recipes`. The migration creates `recipes`. Not `recipe` and not `recipe_tbl`.
 
-That phrase is ambiguous. The two readings, and why the question was asked:
+4. If two skillsets would use different words for the same concept, the first writer picks one term, writes a one-line alias if needed, and later agents reuse that term. Do not translate between agent jargons in flight.
+   Violation: the worker "translating" `cook_time` to `duration` because that is the UX word.
+   Example: living-knowledge says `cook_time`. The worker uses `cook_time`. It does not rename it in the migration.
 
-- **Reading A — natural language:** agents (or agent vs human) mixing English with another spoken/written language, or mixing dialects, so the same requirement is not stably worded.
-- **Reading B — specialist vocabulary:** a worker loaded with DB skills and a worker loaded with UX skills use different words for the same thing, or the same word for different things, or different precision about the same feature. Tickets and living-knowledge then fail to bind.
-
-The surrounding sentence named **skillsets**, not human national languages, so Reading B is the stronger parse of the original brief. Reading A can still happen and is cheap to forbid.
-
-**Decided package:** A + B + DDD extra (§2.5). Rules below are the operational form of that package.
-
-1. All tickets, living-knowledge files, commit messages, and agent-to-human questions are written in one project language (the language of this spec: English), unless the user sets another project language in living-knowledge.
-2. Layer jargon is allowed **inside** a layer’s detailed living-knowledge file.
-3. Anything that crosses agents or roles — ticket titles, ticket type abbreviations, shared terms for modules and layers, status words — must use the shared vocabulary recorded in living-knowledge and in this spec. Do not invent a second name for an existing shared term.
-4. If two skillsets would naturally use different words for the same concept, the first writer picks one term, writes a one-line alias if needed, and later agents reuse that term. Do not “translate” between agent jargons in flight.
-5. Precision differences are not resolved by chat. If a ticket is too vague for a layer specialist to implement without guessing, the worker raises the unknown to the human instead of filling it with assumptions (§0.5).
+5. Precision differences are not resolved by chat. If a ticket is too vague to implement without guessing, the worker raises the unknown to the human instead of filling it (§0.5).
+   Violation: the worker inventing the unit of `cook_time`.
+   Example: the ticket does not state minutes or seconds. The worker comments and stops. It does not write `minutes`.
 
 ### 2.5 Ubiquitous Language (decided: A + B + DDD extra)
 
-The professional name for most of Reading B is **Ubiquitous Language** (domain-driven design): one language shared by the people (and here, agents) who talk about the domain, used in speech, tickets, living-knowledge, and code, with no private translation layer between “business words” and “implementation words.”
+Ubiquitous Language is one language shared by the people and agents who talk about the domain, used in speech, tickets, living-knowledge, and code, with no private translation layer between business words and implementation words.
 
-Overlap with A / B / A+B:
+- A (natural language) is only a precondition. UL can be English or another language. Rule 1 in §2.4 sits under UL, not inside it.
+- B (specialist vocabulary clash) is what UL is for. DB, UX, domain, and planning must not keep private synonyms for the same concept inside one bounded context.
+- A+B is: pick one vehicle language (A) and enforce UL inside each bounded context (B).
 
-- **A (natural language)** is only a precondition. Ubiquitous Language can be English, Romanian, or anything else; it does not choose the vehicle language. Rule 1 in §2.4 (one project natural language) sits *under* UL, not inside it.
-- **B (specialist vocabulary clash)** is what UL is for. DB, UX, domain, and planning must not keep private synonyms for the same concept inside one bounded context.
-- **A+B** is therefore: pick one vehicle language (A) + enforce UL inside each bounded context (B).
+Different bounded contexts may have different ubiquitous languages. That is allowed. An implicit, unwritten translation is not. If two contexts use the same English word for different things, living-knowledge at the boundary records the map. Layer specialists (DB vs UX) are not automatically different bounded contexts; often they are implementation dialects of one context and should collapse onto one term list.
 
-DDD nuance that must not be lost: **different bounded contexts may have different ubiquitous languages.** That is allowed. What is not allowed is an implicit, unwritten translation. If two contexts use the same English word for different things, living-knowledge at the boundary records the map. Layer specialists (DB vs UX) are **not** automatically different bounded contexts; often they are implementation dialects of one context and should collapse onto one term list.
+Violation: two contexts using "order" for different things with no boundary map in living-knowledge.
+Example: billing "order" and kitchen "order" are different. `abbreviations.md` or the boundary file says which is which. Agents do not guess.
 
-Living-knowledge is where the UL is written down so a later cold agent can speak it. Tickets must use that language, not a second dialect.
+Decided: adopt A + B + DDD extra. Not A alone (English with three words for order). Not B alone (shared terms, vehicle language can switch). Not one glossary for the whole app (smashes distinct contexts). Not DDD boxes with informal talk inside each box.
 
-**Decided:** adopt the package **A + B + DDD extra**, not A alone, not B alone, not A+B with a single global glossary.
-
-- A alone: everyone writes English and still says “order” three ways. Useless against the original skillset-barrier sentence.
-- B alone: shared terms, but files may switch vehicle language mid-project. Cheap to prevent; not the core problem.
-- A+B with one glossary for the whole app: smashes distinct bounded contexts into false unity, or produces an unusable mega-glossary.
-- DDD extra without B: boxes on a diagram and informal talk inside each box.
-
-Default vehicle language is English unless the user sets another in living-knowledge. Layer implementation dialect (SQL-ish vs CSS-ish) may appear inside a *detail* file when it names a technical mechanism; domain concepts in that same file still use the context’s UL.
-
-Status: **decided** by the user.
+Default vehicle language is English unless the user sets another in living-knowledge. Layer implementation dialect may appear inside a detail file when it names a technical mechanism. Domain concepts in that same file still use the context's UL.
