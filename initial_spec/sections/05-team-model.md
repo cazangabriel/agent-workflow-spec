@@ -2,72 +2,65 @@
 
 ### 5.1 Skill family and two images
 
-TechnicalSupervisor is the skill family name, not a spawned agent. Spawned product types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. A fourth role, WorkflowSteward-warm, owns the workflow spec itself and does not live in the product repo (§15). No non-technical manager. Architect-first.
+TechnicalSupervisor is the skill family name, not a spawned agent. Spawned product types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. A fourth role, WorkflowSteward-warm, owns the workflow spec and does not live in the product repo (§15). No non-technical manager. Architect-first.
 
-Worker-cold implements; does not write living-knowledge, design spec, tickets, or the workflow spec. Moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
+Worker-cold implements. It does not write living-knowledge, the design spec, tickets, or the workflow spec. It moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
+Violation: the worker creating a ticket or writing a living-knowledge file.
+Example: the worker finds missing work. It comments and stops. It does not create `AM-15-F-DB-....md`.
 
-DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. Must not read the board or non-TA tickets unless a TA is incomplete. Must not edit the workflow spec.
+DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. It must not read the board or non-TA tickets unless a TA is incomplete and the human points at the missing piece. It must not edit the workflow spec.
+Violation: DesignArchitect-warm opening `kanban.md` to pick work.
 
-KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. Does not invent module or layer tokens. Does not stamp named cluster ids. Must not edit the workflow spec.
+KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. It does not invent module or layer tokens. It does not stamp named cluster ids. It must not edit the workflow spec.
+Violation: a ticket filename using a module token not in `abbreviations.md`.
 
 How the human starts and talks to each product role is written in the human-guide files (§14.7), generated once at project start under `/app-name-1/human-guides/`.
 
-### 5.2 Cost model
-
-Design talk stays with DesignArchitect-warm + the spec. Board talk dies with each KanbanMaster-cold. Worker talk dies with each worker instance. Workflow-spec talk stays with WorkflowSteward-warm and the section files.
-
 ### 5.3 Concurrency
 
-One worker *agent* at a time. Several tickets may be `in-progress` or `in-testing` because the human drives the board. `open` target ~10, hard stop 15.
-
-### 5.4 Topology
-
-Product: DesignArchitect-warm + KanbanMaster-cold + Worker-cold. Defects in §5.9.
-
-Workflow: WorkflowSteward-warm, outside the product repo (§15). Product agents must not spawn it and must not edit its files.
+One worker agent at a time. Several tickets may be `in-progress` or `in-testing` because the human drives the board. `open` target ~10, hard stop 15.
+Violation: two Worker-cold sessions writing the same repo at the same time, or a pull that puts `open` at 16.
+Example: the human may have AM-10 in `in-testing` and pick AM-11 next. That is allowed. A second worker session on the same tree is not.
 
 ### 5.5 Phase 1 and Phase 2
 
-Phase 1 = design spec accepted: contexts, UL, 3–4 -ilities, module/layer map, stack, component order, **module abbreviation list**, **layer abbreviation list**. Not a ticket list.
-
-Phase 2 = ticketed delivery. Mini Phase 1 = new bounded context. Human declares phase changes.
-
-Phase 1 exit (human must accept): contexts + UL; 3–4 -ilities; module + layer map; stack; component order; unknowns listed; living-knowledge skeletons; both abbreviation lists; explicit “accept Phase 1?”
-
-At Phase 1 start the product human-guide files (§14.7) are generated. They are not part of the Phase 1 exit checklist; they are an operating manual for the human.
-
-### 5.6 Token arithmetic
-
-Quadratic cost is session length without write-and-reset.
+Phase 1 = design spec accepted. Exit items: contexts and UL, 3–4 architectural characteristics, module and layer map, stack, component order, unknowns listed, living-knowledge skeletons, both abbreviation lists, and an explicit "accept Phase 1?" Not a ticket list.
+Phase 2 = ticketed delivery. A mini Phase 1 is a new bounded context that rewrites the skeleton. The human declares phase changes.
+Violation: cutting an F ticket before the human accepts Phase 1, or asking for exit while an exit item is missing.
+Example: the stack is not written. DesignArchitect-warm does not ask "do you accept Phase 1?"
 
 ### 5.7 Stop-rule
 
-Worker stops on unknown / missing living-knowledge / design-level coupling. Escalation: human → KanbanMaster-cold → TA → DesignArchitect-warm. Workflow-spec problems go to the human, who may spawn WorkflowSteward-warm. Product agents do not spawn the steward.
+The worker stops when it is unsure, when living-knowledge does not cover the case, or when the change looks like design-level coupling.
+Required: comment on the ticket, tell the human, do not invent the missing rule, do not create a ticket.
+Escalation path: human → KanbanMaster-cold → TA ticket → DesignArchitect-warm. Workflow-spec problems go to the human, who may spawn WorkflowSteward-warm. Product agents do not spawn the steward.
+Violation: the worker inventing the missing rule and continuing.
+Example: living-knowledge does not state the unit of `cook_time`. The worker comments "unit not stated" and stops. It does not write "minutes".
 
 ### 5.8 Escalate band — who it applies to
 
-Planning assumption: ~6M tokens/week.
+Planning assumption: ~6M tokens/week. This is the user's planning figure, not a published vendor quota.
+The 15–20% band (~0.9–1.2M tokens) applies to DesignArchitect-warm and KanbanMaster-cold talking about a design area, a ceremony slice, or a structural change. They stop and tell the human what they want to do, a ball-park, and the uncertainty. The human says go, shrink, or drop.
+It does not apply to Worker-cold tickets. A worker ticket that would cost on that order is already a granularity defect (§8.14). The worker asks to split the ticket, not to spend a million tokens on it.
+Violation: a worker quoting "this is 15% of the week" instead of asking for a split.
 
-The 15–20% band (~0.9–1.2M tokens) applies to **DesignArchitect-warm** and **KanbanMaster-cold** talking about a design area, a ceremony slice, or a structural change. They stop and ping the human with what they want to do, a ball-park, and the uncertainty. Human says go / shrink / drop.
+### 5.9 Defects that are not papered over
 
-It does **not** apply to Worker-cold tickets. A worker ticket that would cost on that order is already a granularity defect (§8.14). The worker asks to **split** the ticket, not to spend a million tokens on it.
-
-### 5.9 Defects
-
-Extra hop only works if TAs are complete. Two living-knowledge writers can drift. `kanban.md` must stay generated. Lazy slugs make the cheap board useless. Module-first filenames only help if the module list is stable — renaming `AM` later means renaming tickets.
-
-### 5.10 Init file vs commit name
-
-Init file = skills doc. Commit line: `Worker-cold AM-10-F-DB add recipe table`.
+Extra hop (KanbanMaster → TA → DesignArchitect) only works if TA bodies are complete. A TA that says only "see AM-33" is a defect.
+Two living-knowledge writers (DesignArchitect-warm and KanbanMaster-cold) can drift. A later edit must check the other writer's last version.
+`kanban.md` must stay generated from the column folders. A hand-edited `kanban.md` that disagrees with the folders is a defect.
+Lazy slugs make the cheap board useless. A slug that says `update` instead of `add-recipe-table` is a defect.
+Module-first filenames only help if the module list is stable. Renaming `AM` later means renaming ticket files.
 
 ### 5.11 Worker reuse (no named clusters)
 
 Reuse the same Worker-cold instance when the human next picks a ticket in the same module, or one that `Depends on` the ticket just done.
-
 Start a new instance when the next ticket is a different module with no dependency.
-
-KanbanMaster-cold may still *prefer* to pull same-module or dependent tickets into `open` together. That is a pull habit, not an id stamped on the file.
+KanbanMaster-cold may prefer to pull same-module or dependent tickets into `open` together. That is a pull habit, not an id stamped on the file.
+Violation: a `cluster: C3` field on a ticket, or a filename token that is a cluster id.
+Example: AM-10 and AM-11 are both module AM. The human may keep the same worker. There is no `C3` in the filename.
 
 ### 5.12 Workflow owner
 
-WorkflowSteward-warm (§15). Not a product role. Owns `initial_spec/sections/`. Recovery from a lost conversation is: spawn it in the workflow-spec repo and point it at the README and the decision log.
+WorkflowSteward-warm (§15) owns `initial_spec/sections/`. It is not a product role. Recovery from a lost conversation is: spawn it in the workflow-spec repo and point it at the README and the decision log.
+Violation: a product agent editing `initial_spec/sections/`.
