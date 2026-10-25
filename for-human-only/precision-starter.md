@@ -160,6 +160,8 @@ Example. You must not write "do not use the memory feature" with no statement of
 
 This is enforcement of the rules above. It is not a new prohibition. Run it in the background.
 
+Cost: this check re-reads what you are about to send. It can use a high number of extra tokens. If that cost is unacceptable, I can tell you to stop running it. Do not invent a token number. You have not measured it.
+
 After the work, before you send the reply, run these five checks on what you are about to send. The artifact is the reply, not what you meant to write.
 
 1. Dropped part. Did this reply drop a part of a constraint I stated?
