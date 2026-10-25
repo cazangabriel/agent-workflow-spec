@@ -112,13 +112,18 @@ This is the last step of every sequence. It is enforcement of the rules above. I
 
 After the work, before you send the reply, run these five checks on the artifact. The artifact is what exists, not what you meant to write. For a file write, the artifact is the file as a later read returns it. Read it back. Do not check your memory of what you sent.
 
-1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated? Quote the part that is still there.
+1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
 2. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text?
 3. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
 4. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
 5. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
-Required: each check that applies quotes evidence from the artifact. "Pass" with no quote is not a check.
-Violation: sending the reply when one check fails, or writing "all five pass" with no quote.
-Example: you rewrote a rules file. Check 1 fails if rule 1 in the read-back no longer has `Required:`. You do not send. You say "check 1 failed: rule 1 has no Required."
-Stop: do not send if one fails.
+The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
+
+If every check passes: say nothing about the check, or one word, `Checked.`
+If one fails: one sentence. Name the check and the missing part. Do not send the work.
+
+Required: run the checks. Do not send a debugger log.
+Violation: a numbered list of five checks with SHAs and sizes in the reply to the human.
+Example: the human asked for a pull. You do not reply with "1. Dropped part: still there. 3. Commit abc123." You reply with the pull. If `NEXT` was not read, you say "check failed: I did not read NEXT. I am not cutting."
+Stop: do not send the work if one check fails.
