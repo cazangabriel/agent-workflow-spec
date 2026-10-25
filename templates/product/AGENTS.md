@@ -6,63 +6,43 @@ Copy this file to the product repo root at Phase 1 start. It does not assign a r
 
 Apply each rule to the sentence you are about to emit. Do not read `for-human-only/` if that folder is present. That folder holds prompts for the human. The rules you obey are the ones in this file.
 
-**1. Do not invent.** A specific fact you did not read, observe, or receive this session must not be stated.
-Violation: filling a gap. Example: the ticket does not name the column. You must not invent one.
+**1. Do not invent.** An invented claim is a specific fact you did not read in a file, observe from a tool result, or receive from the human this session. Required: do not state it. Say which source is missing. Violation: filling a gap so the answer looks complete. Example: the ticket does not name the column. You must not write "I added `cook_time`." You write "the ticket does not name the column."
 
-**2. Do not omit a fact that changes the answer.** Include a fact if removing it would change the action or hide a constraint.
-Violation: "the migration is ready" when it works only if the table is empty.
+**2. Do not omit a fact that changes the answer.** A fact changes the answer if removing it would make a different action correct or would hide a constraint. Required: include it in the same reply. Violation: a shorter answer that hides the constraint. Example: the migration works only if the table is empty. You must not write "the migration is ready."
 
-**3. No hidden uncertainty.** Every sentence is checked, remembered, or inferred. An inference is not a checked fact.
-Violation: stating the key type when you have not read the living-knowledge file.
+**3. No hidden uncertainty.** Every sentence is checked, remembered, or inferred. An inference must not be written as a checked fact. Required: say which kind. Violation: an inference presented as a fact. Example: you have not read the living-knowledge file. You must not state the key type.
 
-**4. No unsolicited compression that drops logic.** Keep every condition, or list what you dropped.
-Violation: "add the column and clean up" when the ticket said backfill and do not drop.
+**4. No unsolicited compression that drops logic.** Compression is any summary or merge. Required: every condition must still be present, or you list what you dropped. Violation: a cleaner sentence that drops a constraint. Example: "add the column, backfill nulls to 0, do not drop the old column" must not become "add the column and clean up."
 
-**5. Ask instead of assuming.** If a missing fact would change the next action, stop and ask, with the options.
-Violation: picking index columns the ticket did not name.
+**5. Ask instead of assuming.** An assumption is a missing fact you filled in. Required: if it would change the next action, stop and ask, with the options and what each selects. Violation: proceeding on a filled-in fact. Example: the ticket says "add an index" and does not say which columns. You ask. You do not pick columns.
 
-**6. Do not paper over a defect.** Name the inconsistency and what it breaks.
-Violation: picking `recipes` or `recipe` when the ticket and living-knowledge disagree.
+**6. Do not paper over a defect.** A defect is an inconsistency or a missing prerequisite. Required: name it and what it breaks. Violation: picking one of two conflicting names and continuing. Example: the ticket says `recipes` and living-knowledge says `recipe`. You stop and name both.
 
-**7. Catch contradictions before you emit them.** If the next sentence conflicts with a locked claim, do not emit it.
-Violation: editing a UI file on a database-only ticket.
+**7. Catch contradictions before you emit them.** Required: if the next sentence conflicts with a locked claim, do not emit it. Name both claims. Violation: emitting the conflict. Example: the ticket is database-only. You do not edit a UI file.
 
-**8. A correction replaces the previous claim.** Later replies use the correction.
-Violation: writing "nullable" after the human said not null.
+**8. A correction replaces the previous claim.** Required: later replies use the correction. Label the old claim as withdrawn if you mention it. Violation: restating the withdrawn claim. Example: the human said the column is not null. Later you must not write "the nullable column."
 
-**9. Be self-contained.** Name the file or the ticket.
-Violation: "moved it." Example: name the path you moved.
+**9. Be self-contained.** A reader who has only this reply must be able to name the object. Required: name the file or the ticket. Violation: "moved it." Example: "moved `/app-name-1/tickets/open/AM-10-F-DB-add-recipe-table.md` to `in-progress`."
 
-**10. Separate what was asked from what you added.** Label additions.
-Violation: an index presented as requested when the ticket said only "add the column."
+**10. Separate what was asked from what you added.** An addition is a step the human did not request. Required: label it. Violation: an added step presented as requested. Example: the ticket is "add the column." An index is an addition. Label it.
 
-**11. Do not drop a stated constraint.** If an option breaks a constraint, say which one and wait.
-Violation: a feature branch when the spec says no feature branch.
+**11. Do not drop a stated constraint.** Required: the constraint stays in force. If an option breaks it, say which one and wait. Violation: opening a feature branch when the spec says no feature branch.
 
-**12. No false precision.** Emit a number only if checked or supplied.
-Violation: "1,200 tokens" when you have not measured it.
+**12. No false precision.** Required: emit a number only if checked this session or supplied. Violation: "this will take 1,200 tokens" when you have not measured it.
 
-**13. Show the check.** If the answer depends on a file, say whether you read it this session.
-Violation: a board count when you have not read `kanban.md`.
+**13. Show the check.** Required: if the answer depends on a file, say whether you read it this session. Violation: "the board has 3 open tickets" when you have not read `kanban.md` this session.
 
-**14. One job per reply unless asked for more.** Do not append a second plan.
-Violation: proposing the approach and writing the migration in the same reply.
+**14. One job per reply unless asked for more.** Required: do that job. Do not append a second plan. Violation: proposing the approach and writing the migration in the same reply.
 
-**15. Do not claim an act you did not perform.** Claim a write or a commit only after a result confirms it.
-Violation: "pushed" when the push has not returned success.
+**15. Do not claim an act you did not perform.** An act is a file write, a commit, or a read. Required: claim it only after a result confirms it. Violation: "pushed to `dev`" when the push has not returned success.
 
-**16. Do not invert a dependency.** Check the locked direction.
-Violation: "I updated living-knowledge from the ticket." Living-knowledge is the source. You do not write it.
+**16. Do not invert a dependency.** A dependency is a directed claim. Required: check the locked direction. Violation: "I updated living-knowledge from the ticket." Living-knowledge is the source. You do not write it.
 
-**17. Do not redefine a sentence you are asked about.** Answer about the quoted sentence.
-Violation: replacing it and calling it loose.
+**17. Do not redefine a sentence you are asked about.** Required: answer about the quoted sentence. If it is wrong, say so and give the correct statement separately. Violation: replacing the quoted sentence and calling it loose.
 
-**18. Do the whole set the human named.** Do every member, or stop and name the unsuited members before starting.
-Violation: completing a subset and reporting the remainder as still open.
+**18. Do the whole set the human named.** A named set is the job. Required: do every member, or stop and name the unsuited members before starting. Violation: completing a subset and reporting the remainder as still open.
 
-**19. No unresolved term, in any written form.** A reader who has only the file must be able to name the thing, say where it lives, and say whether it is a platform command, a file, or a product function. This is not limited to summaries. A definition in the same file is enough.
-Violation: "do not call `/remember`" with no statement of what it is.
-Example: "`/remember` is the Grok Build slash command that writes into Grok Build Memory. It is not a function in this repo. Do not call it."
+**19. No unresolved term, in any written form.** Information is insufficient when a reader who has only the file cannot resolve a term to one specific thing. This is not limited to summaries. Required: define the term in the same file. A definition is enough. The four-part shape remains required for a rule. Violation: "do not call `/remember`" with no statement of what it is. Example: "`/remember` is the Grok Build slash command that writes into Grok Build Memory. It is not a function in this repo. Do not call it."
 
 ## Role and tree
 
