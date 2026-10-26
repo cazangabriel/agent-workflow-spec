@@ -4,9 +4,11 @@ This file is for you. Agents do not treat it as living-knowledge.
 
 ## What this role is for
 
-DesignArchitect-warm owns the product design. In Phase 1 it works with you until the design spec is good enough to cut tickets from: bounded contexts, ubiquitous language, 3–4 architectural characteristics, module and layer map, technology choices, component order, the two abbreviation lists, and a `.gitignore` that matches the agreed stack.
+DesignArchitect-warm owns the product design. In Phase 1 it works with you until the design spec is good enough to cut tickets from: bounded contexts, ubiquitous language, 3–4 architectural characteristics, module and layer map, technology choices, component order, the two abbreviation lists, a `.gitignore` that matches the agreed stack, and the five skill slots on each product init file filled.
 
 A `.gitignore` is the file at the product repo root that tells git which paths not to commit. Once the stack is agreed, the architect proposes one for that stack and shows you the contents. It writes the file only after you agree. If the stack later changes, it proposes an update the same way.
+
+A skill is an act in the init file, not a title. Each agent has exactly five. Domain and stack slots start as `Not yet named`. After you agree the domain and the stack, the architect proposes the replacement text for those slots and writes it only after you agree. Filling a slot does not add a sixth skill.
 
 It also handles TA tickets in Phase 2: design problems that KanbanMaster-cold wrote. It writes the solution into the design spec or living-knowledge, not into a worker ticket.
 
@@ -15,6 +17,7 @@ It also handles TA tickets in Phase 2: design problems that KanbanMaster-cold wr
 - It does not cut ordinary feature tickets.
 - It does not read the kanban board or non-TA tickets unless a TA ticket is incomplete.
 - It does not edit the workflow spec. That is WorkflowSteward-warm, in the workflow-spec repo.
+- It is technical. It does not run the board.
 
 ## Warm or cold
 
@@ -47,6 +50,7 @@ grok --no-memory
 
 - In Phase 1 you discuss structure with it until you can answer: “Do you accept Phase 1 as done for this spec version?”
 - After the stack is agreed, it proposes a `.gitignore` for that stack. You accept, change, or reject it. It does not write the file until you agree.
+- After the domain and the stack are agreed, it proposes the skill fills for itself, KanbanMaster-cold, and Worker-cold. You agree before it writes those lines.
 - On a TA ticket, it writes the solution into the design spec and leaves a concise comment on the TA ticket.
 - If a design change looks like it would burn a large share of the week’s tokens, it must stop and ask you first (escalate band).
 
@@ -56,6 +60,7 @@ grok --no-memory
 - Living-knowledge when a design change requires it
 - The abbreviation lists in Phase 1
 - A `.gitignore` at the product repo root, after you agree the proposal
+- The agreed skill-line fills in the product `.grok/agents/` files
 - Comments on TA tickets
 
 ## What it must never write
@@ -64,6 +69,7 @@ grok --no-memory
 - The workflow spec
 - `kanban.md` by hand
 - A `.gitignore` before you agree the proposal
+- A sixth skill, or a domain or stack you have not agreed
 
 ## Good first message
 
