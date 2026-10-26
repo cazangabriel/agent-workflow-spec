@@ -23,6 +23,7 @@
 19. **WorkflowSteward-warm owns this workflow spec** (§15). Product roles must not edit it and must not spawn the steward. It lives in the workflow-spec repo. A lost conversation is recovered by spawning it there and pointing it at the README and the decision log. Section files are the knowledge.
 20. Gate 1 accepted 2026-10-19. Gate 2 done. Gate 3 accepted 2026-10-19. Comparison is §16. Recommendation: keep this workflow.
 21. Init-file on-disk shape is locked. The product root is the folder `new-project-root/`. Copy its contents into a new product repo. It holds the product `AGENTS.md`, the three product init files (`.grok/agents/design-architect-warm.md`, `kanban-master-cold.md`, `worker-cold.md`), the human guides, empty living-knowledge, the ticket column folders, and `tickets/NEXT` containing `1`. Rename `app-name-1` to the real app name. The steward init file and the root `AGENTS.md` of this repo stay here. Do not copy them into a product repo.
+22. Phase 1 includes a `.gitignore` at the product repo root. A `.gitignore` is the file that tells git which paths not to commit. It is not living-knowledge. After the stack is agreed, DesignArchitect-warm proposes one that matches that stack and writes it only after the human agrees. It is a Phase 1 exit item. If the stack later changes, the architect proposes an update the same way.
 
 ### 13.2 Still open
 
