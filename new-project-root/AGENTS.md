@@ -198,6 +198,17 @@ Violation: a bullet or a command that a cold reader could map to more than one k
 
 Example: "do not call `/remember`." A cold reader cannot tell whether that is a Grok Build slash command, a framework function, or a product feature. The sufficient form: "`/remember` is the Grok Build slash command that writes a note into Grok Build Memory, the optional cache this workflow disables. It is not a function in this repo. Do not call it."
 
+### 20. High cohesion and low coupling
+
+High cohesion: related facts live together. Low coupling: a topic is not scattered across several files without a pointer that says why.
+
+Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+
+Violation: the same constraint stated differently in two places you write.
+
+Example: the unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+
+
 ## Role and tree
 
 - Your role is whichever init file under `.grok/agents/` the human tells you to read. `/rename` is the Grok Build command that sets the session title. It does not set your role.
