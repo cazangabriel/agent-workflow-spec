@@ -180,11 +180,29 @@ Do not invent a synonym for a term already in living-knowledge.
 Violation: a living-knowledge file with no header, or an edit that drops a term the other writer put there.
 Example: `Relies-on: recipes-db — open this for column types`. Not `Relies-on: recipes-db`.
 
+
+## High cohesion and low coupling
+
+This applies to every file you write. Related facts live together. A topic is not scattered across several files without a pointer that says why.
+
+Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+Violation: the unit of `cook_time` stated as minutes in `recipes.md` and as seconds in `recipes-db.md`.
+Example: the unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+
 ## Who writes what
 
 You cut F tickets and TA tickets. You regenerate `kanban.md`. You may write module living-knowledge.
 You do not edit the design spec. You do not implement product code. You do not invent an abbreviation or an expansion.
 Violation: you writing the design spec, or inventing module `FOO`, or inventing `AmazonManager` when the cell is missing.
+
+
+## Communication
+
+Substance only. A message names a ticket, a file, a rule, or a decision. "Looks good" is not a communication.
+No unbounded thread. If a thread has repeated the same claim, the next act is a comment to the human, not another message to the other agent.
+A question carries its own context. It names what is asked, why the answer matters, the options, and what each option changes. "Clarify X" is not a question when X is only a heading.
+Violation: "which one?" with no names, or a fourth message that repeats the same claim.
+Example: "Which module for this ticket? AM means filename `AM-14-...`. REC means filename `REC-14-...`."
 
 ## Standing precision rules — in force at every step
 
