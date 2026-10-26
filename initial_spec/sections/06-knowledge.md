@@ -76,17 +76,45 @@ Example: `Relies-on: recipes-db — open this for column types`. Not `Relies-on:
 
 These lists are not an open item. They cannot be filled in this workflow spec because they name areas of a specific product. They are a mandatory Phase 1 living-knowledge artifact.
 
-Who. DesignArchitect-warm proposes both lists while drawing the module and layer map. The human accepts them as part of Phase 1 exit (§5.5). KanbanMaster-cold does not invent tokens. Workers do not invent tokens.
-Violation: a ticket filename using a token that is not in `abbreviations.md`.
+Who. DesignArchitect-warm proposes both lists while drawing the module and layer map. The human accepts them as part of Phase 1 exit (§5.5). KanbanMaster-cold does not invent tokens and does not invent the unabbreviated form of a token. Workers do not invent tokens.
+Violation: a ticket filename using a token that is not in `abbreviations.md`, or an `Unabbreviated ID` that is not a lookup from that file.
 Example: `abbreviations.md` has `AM` and `RECIPES`. A filename `FOO-14-F-DB-....md` is a defect.
 
-Where. `/app-name-1/living-knowledge/abbreviations.md`. That file carries a living-knowledge header (§6.7) and two tables:
+Where. `/app-name-1/living-knowledge/abbreviations.md`. That file carries a living-knowledge header (§6.7) and two tables. Each row has three columns: `Token`, `Unabbreviated`, `Meaning`.
 
-1. Module abbreviations — product areas in this repo. Example shape: `AM` = Amazon-manager area, `RECIPES` = recipes area. One reserved cross-cut token, default `XCUT`, for work that is not owned by a single module.
-2. Layer / ticket-type abbreviations — technical slices used in filenames after the kind token (`DB`, `UI`, `API`). Only layers this project actually has.
+```markdown
+## Module abbreviations
+
+| Token | Unabbreviated | Meaning |
+|---|---|---|
+| AM | AmazonManager | Amazon manager area |
+| XCUT | CrossCut | Work not owned by one module |
+
+## Layer abbreviations
+
+| Token | Unabbreviated | Meaning |
+|---|---|---|
+| DM | DataModel | Data model and schema |
+| DB | Database | Database access |
+| UI | UserInterface | User interface |
+```
+
+Rules for the two tables:
+
+1. Module abbreviations are product areas in this repo. One reserved cross-cut token, default `XCUT`, for work that is not owned by a single module.
+2. Layer abbreviations are technical slices used in filenames after the kind token. Only layers this project actually has.
+3. `Unabbreviated` is the exact string used in a ticket's `Unabbreviated ID`. No spaces. No approximation. `AmazonManager`, not `Amazon manager area` and not `AM area`.
+4. `Meaning` is a short sentence for a cold reader. It is not the expansion.
+
+Kind tokens are not in this file. They are fixed by the workflow.
+
+| Token | Unabbreviated |
+|---|---|
+| F | Feature |
+| TA | TechnicalArchitecture |
 
 When. Written in Phase 1 before any F or TA ticket is cut. Adding a token later is a living-knowledge edit by DesignArchitect-warm (or a TA if the map itself changed), then human-visible. Not a silent filename invention.
 
-Stability. Abbreviations are identifiers in every ticket filename. Do not rename `AM` to `CATALOGUE` without a planned rename of existing ticket files. Prefer boring, short, stable tokens.
+Stability. Abbreviations are identifiers in every ticket filename. Do not rename `AM` to `CATALOGUE` without a planned rename of existing ticket files. Prefer boring, short, stable tokens. Changing `Unabbreviated` changes every future `Unabbreviated ID` that uses that token. Do not change it without saying so.
 
-Use. Every ticket filename starts with a module token from table 1 (§8.3). Layer tokens after the kind token come only from table 2.
+Use. Every ticket filename starts with a module token from table 1 (§8.3). Layer tokens after the kind token come only from table 2. KanbanMaster-cold builds `Unabbreviated ID` by looking up each token. It does not invent a missing expansion. If a token has no `Unabbreviated` cell, it stops and reports the defect.
