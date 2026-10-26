@@ -57,3 +57,38 @@ WorkflowSteward-warm. No product domain. It does not design the product.
 Phase 1 fill. After the human agrees the domain, and after the human agrees the stack, DesignArchitect-warm proposes the replacement text for each `Not yet named` line, one sentence per line, per role. It stops. It writes those lines into the product repo's `.grok/agents/` files only after the human agrees. Filling a slot replaces the placeholder. It does not add a sixth skill. It does not edit `agent-workflow-spec`.
 Violation: a sixth skill, an empty "you are an expert" line, or a filled domain the human did not agree.
 Example: the product is fly fishing. The architect proposes replacing Worker skill 2 with "Fly fishing. Use the agreed terms for gear and water. If a term is not in living-knowledge, stop." It stops. It does not write the line until the human agrees.
+
+### 6.7 Living-knowledge file header
+
+Every living-knowledge file starts with this header. A cold agent reads the header to decide whether to open the body.
+
+```text
+## Living-knowledge file header
+- Id: <stable-id>
+- Audience: overview | detail
+- Provides: <3–7 bullets>
+- Relies-on: <other-id> — <why you would open it>
+- Does-not-cover: <explicit out-of-scope>
+```
+
+Violation: a living-knowledge file with no header, or a `Relies-on` that does not say why.
+Example: `Relies-on: recipes-db — open this for column types`. Not `Relies-on: recipes-db`.
+
+### 6.8 Abbreviation lists — Phase 1 step, DesignArchitect-warm owns them
+
+These lists are not an open item. They cannot be filled in this workflow spec because they name areas of a specific product. They are a mandatory Phase 1 living-knowledge artifact.
+
+Who. DesignArchitect-warm proposes both lists while drawing the module and layer map. The human accepts them as part of Phase 1 exit (§5.5). KanbanMaster-cold does not invent tokens. Workers do not invent tokens.
+Violation: a ticket filename using a token that is not in `abbreviations.md`.
+Example: `abbreviations.md` has `AM` and `RECIPES`. A filename `FOO-14-F-DB-....md` is a defect.
+
+Where. `/app-name-1/living-knowledge/abbreviations.md`. That file carries a living-knowledge header (§6.7) and two tables:
+
+1. Module abbreviations — product areas in this repo. Example shape: `AM` = Amazon-manager area, `RECIPES` = recipes area. One reserved cross-cut token, default `XCUT`, for work that is not owned by a single module.
+2. Layer / ticket-type abbreviations — technical slices used in filenames after the kind token (`DB`, `UI`, `API`). Only layers this project actually has.
+
+When. Written in Phase 1 before any F or TA ticket is cut. Adding a token later is a living-knowledge edit by DesignArchitect-warm (or a TA if the map itself changed), then human-visible. Not a silent filename invention.
+
+Stability. Abbreviations are identifiers in every ticket filename. Do not rename `AM` to `CATALOGUE` without a planned rename of existing ticket files. Prefer boring, short, stable tokens.
+
+Use. Every ticket filename starts with a module token from table 1 (§8.3). Layer tokens after the kind token come only from table 2.
