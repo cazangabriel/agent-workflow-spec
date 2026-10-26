@@ -38,10 +38,11 @@ The worker moves that file, regenerates `kanban.md`, and asks the human to pull 
 Violation: saying "pushed" without the path and the commit.
 Example: "Moved `/app-name-1/tickets/in-testing/AM-10-F-DB-add-recipe-table.md`. Commit `abc123` on `dev`. You should see it after `git pull`."
 
-**Step 8 — Human moves it on.** After Step 7.
-Pass or gut-skip: the human moves `in-testing` → `done`. The worker does not.
-Fail: the human moves it back. The worker increments `friction` by 1, writes one comment, and returns to Step 4 or Step 5 as the human says.
-Violation: the worker moving the file to `done` or `closed`.
+**Step 8 — Human signals, worker moves.** After Step 7.
+Pass or gut-skip: the human signals the ticket is done. The signal is the human saying the test passed, gut-skipping, or saying to consider the ticket done. Silence is not a signal. Worker-cold then moves `in-testing` → `done`. Worker-cold does not move to `done` before that signal. Worker-cold does not move to `closed`.
+Fail: the human says it failed, or moves it back. The worker increments `friction` by 1, writes one comment, and returns to Step 4 or Step 5 as the human says.
+Violation: the worker moving the file to `done` before the signal, or the worker moving it to `closed`.
+Example: the human says "AM-10 is done." The worker moves the file to `done`. The worker does not move it because the human went quiet.
 
 ### 7.1 Worker construction skills
 
