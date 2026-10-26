@@ -22,20 +22,20 @@ Example: AM-10 in `open` is the file `/app-name-1/tickets/open/AM-10-F-DB-add-re
 
 Kind = class of work, which implies the default reader.
 
-- `F` — feature / implementation. Default reader: Worker-cold.
-- `TA` — technical-architecture problem. Default reader: DesignArchitect-warm. Created only by KanbanMaster-cold.
+- `F` — feature / implementation. Default reader: Worker-cold. Unabbreviated: `Feature`.
+- `TA` — technical-architecture problem. Default reader: DesignArchitect-warm. Created only by KanbanMaster-cold. Unabbreviated: `TechnicalArchitecture`.
 
 KanbanMaster-cold has no kind prefix. It cuts tickets; it is not an inbox.
 
 `F` and `TA` share one increment across the whole repo. No zero-padding. The next number lives in `/app-name-1/tickets/NEXT` (§8.15). Do not scan filenames to find it.
 
-Module abbreviations and layer abbreviations are two separate per-project lists in living-knowledge, both written by DesignArchitect-warm in Phase 1 (§6.8).
+Module abbreviations and layer abbreviations are two separate per-project lists in living-knowledge, both written by DesignArchitect-warm in Phase 1 (§6.8). Each row has `Token`, `Unabbreviated`, and `Meaning`.
 
-- Module = product area in this repo (e.g. `AM`, `CHANADV`, `RECIPES`). Not a second git repo.
-- Layer = technical slice (`DB`, `UI`, `API`).
-- Cross-module work uses a reserved module abbrev that DesignArchitect-warm defines (suggested default: `XCUT`), not a silent second name.
+- Module = product area in this repo (e.g. `AM` = `AmazonManager`). Not a second git repo.
+- Layer = technical slice (`DM` = `DataModel`, `DB` = `Database`, `UI` = `UserInterface`).
+- Cross-module work uses a reserved module abbrev that DesignArchitect-warm defines (suggested default: `XCUT` = `CrossCut`), not a silent second name.
 
-KanbanMaster-cold may only use abbreviations from those lists.
+KanbanMaster-cold may only use abbreviations from those lists. It builds `Unabbreviated ID` by lookup. It does not invent a word.
 Violation: a filename `AM-010-F-DB-....md` (zero-padded), or a module token not in `abbreviations.md`.
 Example: `NEXT` contains `14`. The next file is `AM-14-F-DB-add-recipe-table.md`, then `NEXT` becomes `15` in the same commit.
 
@@ -162,14 +162,15 @@ Example: the worker finds a missing index. It comments on AM-10. It does not cre
 ### 8.12 Ticket body template (locked)
 
 ```markdown
-# AM-10-F-DB add recipe table
+# AM-7-F-DM add recipe table
 
 - Created by: KanbanMaster-cold
 - DateTimeCreated: 2026-10-19T14:00:00Z
 - Module: AM
-- TicketType: Database
+- TicketType: DataModel
+- Unabbreviated ID: AmazonManager-7-Feature-DataModel
 - friction: 0
-- Depends on: AM-7-F-DM
+- Depends on: AM-6-F-DM
 - State: open
 
 ## Title
@@ -185,12 +186,25 @@ One human-testable outcome. Enough context that a cold Worker-cold can propose a
 - 2026-10-19T15:10:00Z Worker-cold: friction +1 — test failed: migration does not create index. Addressed to KanbanMaster-cold.
 ```
 
-Rules: filename is the identity. The H1 is the human title. `TicketType` is the unabbreviated layer name, matching the abbreviation list. `State` must match the folder. Comments are append-only, timestamped, and say who wrote them. A comment addressed to the Kanban master must say so. TA tickets use the same shape. The Body is the problem, impact, and needs — no recommended solution.
+`Unabbreviated ID` is the ticket code with each token expanded. Pattern: `<module unabbreviated>-<n>-<kind unabbreviated>-<layer unabbreviated>`.
+
+Source of each word:
+
+- Module and layer expansions come only from `/app-name-1/living-knowledge/abbreviations.md`, column `Unabbreviated` (§6.8). KanbanMaster-cold reads that file. It does not invent or approximate the word.
+- Kind expansions are fixed. `F` is `Feature`. `TA` is `TechnicalArchitecture`. These are not in `abbreviations.md`.
+- The number is copied. It is not expanded.
+
+Example: `abbreviations.md` has `AM` = `AmazonManager` and `DM` = `DataModel`. The code `AM-7-F-DM` becomes `AmazonManager-7-Feature-DataModel`. It does not become `Amazon manager-7-Feature-data model`.
+
+If a token has no `Unabbreviated` cell, KanbanMaster-cold stops and reports the missing cell. It does not guess a word.
+Violation: an `Unabbreviated ID` that is not a lookup, or a ticket body with no `Unabbreviated ID`.
+
+Other rules: filename is the identity. The H1 is the human title. `TicketType` is the unabbreviated layer name, the same cell used in `Unabbreviated ID`. `State` must match the folder. Comments are append-only, timestamped, and say who wrote them. A comment addressed to the Kanban master must say so. TA tickets use the same shape. The Body is the problem, impact, and needs — no recommended solution.
 Violation: a TA body that says "see AM-33", or a `State: open` on a file in the `in-progress` folder.
 
 ### 8.13 TA tickets
 
-Same filename pattern. Example: `XCUT-13-TA-name-billing-boundary.md`. Self-contained problem, impact, needs. No recommended design solution. No "see AM-10" as the body.
+Same filename pattern. Example: `XCUT-13-TA-name-billing-boundary.md`. Self-contained problem, impact, needs. No recommended design solution. No "see AM-10" as the body. `Unabbreviated ID` uses `TechnicalArchitecture` for `TA`.
 Violation: a TA body that contains the solution.
 Example: "living-knowledge does not state whether `cook_time` is minutes or seconds. Impact: the migration cannot be written. Need: a unit." Not "use minutes."
 
