@@ -8,6 +8,8 @@ Plain-language definitions for this workflow. Read this instead of hunting an ol
 
 **Design spec.** The Phase 1 document that says what the product is, which modules exist, which technologies were chosen, and in what order components should be built. Only DesignArchitect-warm and you write it. KanbanMaster-cold reads it to cut tickets.
 
+**`.gitignore`.** The file at the product repo root that tells git which paths not to commit. It is not living-knowledge. In Phase 1, after the stack is agreed, DesignArchitect-warm proposes one that matches that stack and writes it only after you agree. If the stack later changes, it proposes an update the same way.
+
 **F ticket.** A feature / implementation ticket for Worker-cold. One thing you can test, plus one approach discussion.
 
 **TA ticket.** A technical-architecture ticket for DesignArchitect-warm. It states a design problem (impact and what is needed). It does not contain the solution. Only KanbanMaster-cold creates them.
@@ -16,7 +18,7 @@ Plain-language definitions for this workflow. Read this instead of hunting an ol
 
 **Cold.** KanbanMaster-cold and Worker-cold. Start a new session each ceremony or assignment. Do not resume an old thread as if it were still cheap. You may reuse the same Worker-cold session only for a related next ticket (same module or a declared dependency).
 
-**Phase 1.** Design work until the design spec is good enough to cut tickets from. You explicitly accept Phase 1 done.
+**Phase 1.** Design work until the design spec is good enough to cut tickets from. You explicitly accept Phase 1 done. Exit includes a `.gitignore` that matches the agreed stack.
 
 **Phase 2.** Ticketed delivery against that accepted spec. Ceremonies cannot be skipped.
 
