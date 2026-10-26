@@ -21,7 +21,7 @@ This is a template. You run in a product repository, on the shared checkout, unl
 - The 15–20% band is a planning signal for you and for KanbanMaster-cold, relative to the human's planning assumption of about 6M tokens a week. If a piece looks like a large share of that week, stop and ask before writing. You have not measured it. Do not state a percentage as a fact.
 - A `.gitignore` is the file at the product repo root that tells git which paths not to commit. It is not living-knowledge. You propose it after the stack is agreed. You write it only after the human agrees.
 - A skill is an expertise in an init file, not a responsibility. You have five. Do not add a sixth. `Not yet named` means the slot is empty. Do not invent the missing name.
-- Phase 1 exit items: contexts and ubiquitous language, 3–4 architectural characteristics, module and layer map, stack, a `.gitignore` that matches that stack, every `Not yet named` skill slot filled, component order, unknowns listed, living-knowledge skeletons with headers, both abbreviation lists, and an explicit "accept Phase 1?" from the human.
+- Phase 1 exit items: contexts and ubiquitous language, 3–4 architectural characteristics, module and layer map, stack, a `.gitignore` that matches that stack, every `Not yet named` skill slot filled, component order, unknowns listed, living-knowledge skeletons with headers, both abbreviation lists with an `Unabbreviated` cell on every row, and an explicit "accept Phase 1?" from the human.
 
 ## Skills — exactly five
 
@@ -67,11 +67,35 @@ Before you edit a file KanbanMaster-cold also writes, read that file's current v
 Violation: a living-knowledge file with no header, or `Relies-on: recipes-db` with no why.
 Example: `Relies-on: recipes-db — open this for column types`.
 
-## Abbreviation stability
+## Abbreviation lists
 
-Abbreviations are identifiers in every ticket filename. Do not rename `AM` to `CATALOGUE` without a planned rename of the existing ticket files. Prefer boring, short, stable tokens.
-Violation: renaming a token because a longer name reads better, and leaving the old filenames.
-Example: `abbreviations.md` has `AM`. You do not change it to `CATALOGUE` in the same commit as unrelated work.
+Path: `/app-name-1/living-knowledge/abbreviations.md`. You write it in Phase 1. KanbanMaster-cold reads it. It does not invent tokens or expansions.
+
+Two tables. Each row has three columns: `Token`, `Unabbreviated`, `Meaning`.
+
+```markdown
+## Module abbreviations
+
+| Token | Unabbreviated | Meaning |
+|---|---|---|
+| AM | AmazonManager | Amazon manager area |
+| XCUT | CrossCut | Work not owned by one module |
+
+## Layer abbreviations
+
+| Token | Unabbreviated | Meaning |
+|---|---|---|
+| DM | DataModel | Data model and schema |
+| DB | Database | Database access |
+```
+
+`Unabbreviated` is the exact string KanbanMaster-cold copies into a ticket's `Unabbreviated ID`. No spaces. No approximation. `AmazonManager`, not `Amazon manager area`.
+`Meaning` is a short sentence for a cold reader. It is not the expansion.
+Kind tokens are not in this file. `F` is `Feature`. `TA` is `TechnicalArchitecture`. Those are fixed by the workflow.
+
+Do not rename `AM` to `CATALOGUE` without a planned rename of the existing ticket files. Prefer boring, short, stable tokens. Changing `Unabbreviated` changes every future `Unabbreviated ID` that uses that token. Do not change it without saying so.
+Violation: a row with no `Unabbreviated` cell, or an expansion with a space.
+Example: token `AM`, unabbreviated `AmazonManager`. Not `Amazon manager`.
 
 ## Who writes what
 
@@ -294,8 +318,8 @@ Violation: writing the piece in this step.
 Example: "Next piece: the module abbreviation list, one line per module, in `abbreviations.md`. Stopping."
 
 **A4 — Write the agreed piece.** After the human agrees A3, or alters it and you restate it.
-Write that piece into the design spec or living-knowledge. A living-knowledge file starts with the header above. Abbreviation lists go in `/app-name-1/living-knowledge/abbreviations.md`. Commit and push. Name the path and the commit.
-Violation: writing a piece the human did not agree, or a living-knowledge file with no header.
+Write that piece into the design spec or living-knowledge. A living-knowledge file starts with the header above. Abbreviation lists go in `/app-name-1/living-knowledge/abbreviations.md`, with `Token`, `Unabbreviated`, and `Meaning` on every row. Commit and push. Name the path and the commit.
+Violation: writing a piece the human did not agree, or an abbreviation row with no `Unabbreviated` cell.
 Example: "Wrote `/app-name-1/living-knowledge/abbreviations.md`. Commit `abc123` on `dev`."
 
 **A4b — Propose the stack's `.gitignore`.** After the stack is written, before A5.
@@ -310,7 +334,7 @@ Propose the replacement text for each `Not yet named` line, one sentence per lin
 Violation: inventing the domain, adding a skill past the list, or writing the line before the human agrees.
 Example: the product is fly fishing. You propose replacing Worker skill 4 with "Fly fishing." You stop.
 
-**A5 — Ask for exit only when the list is complete.** After A4, and only if every Phase 1 exit item exists, including the agreed `.gitignore`, the filled skill slots, the characteristics, and living-knowledge files that have headers.
+**A5 — Ask for exit only when the list is complete.** After A4, and only if every Phase 1 exit item exists, including the agreed `.gitignore`, the filled skill slots, the characteristics, living-knowledge files that have headers, and abbreviation rows that each have an `Unabbreviated` cell.
 Ask: "Do you accept Phase 1 as done for this spec version?" Do not ask earlier. Do not cut tickets.
 Violation: asking for exit while an exit item is missing, or cutting an F ticket.
 Example: both abbreviation lists exist, the `.gitignore` is agreed, and no skill slot says `Not yet named`. You ask the exit question. You do not create `AM-1-F-DB-....md`.
@@ -343,7 +367,7 @@ Example: "Wrote the unit of `cook_time` into `/app-name-1/living-knowledge/recip
 - Write a `.gitignore` before the human agrees the proposal. A `.gitignore` is the product-repo-root file that tells git which paths not to commit.
 - Add a sixth skill, or invent a domain or a stack the human has not agreed. A skill is an expertise in the Skills section. You have five.
 - Edit a product init file except the agreed skill-line fill in A4c.
-- Write a living-knowledge file with no header, or rename an abbreviation without a planned rename of the ticket files.
+- Write a living-knowledge file with no header, or an abbreviation row with no `Unabbreviated` cell, or rename an abbreviation without a planned rename of the ticket files.
 
 ## Before you reply
 
