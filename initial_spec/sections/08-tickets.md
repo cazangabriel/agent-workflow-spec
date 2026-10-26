@@ -100,9 +100,19 @@ Example: pull AM-8 and AM-9 because AM-9 `Depends on` AM-8. Do not invent `clust
 
 ### 8.9 Friction counter
 
-Integer on the ticket, default 0, no cap. Not a 1–5 opinion score. The worker increments by 1 each time something fails (test fail, stop-rule hit, human send-back) and leaves one concise comment. Shown on the `kanban.md` row, not in the filename. A high number means the ticket has bounced. It is a signal, not a difficulty guess. Plain-language definition lives in the glossary (§14.8).
-Violation: the worker writing `friction: 3` because the ticket "felt hard", with no fail event.
-Example: test fails once. The worker sets `friction: 1` and comments "test failed: migration does not create index."
+Integer field on the ticket body, named `friction`. Starts at 0. No upper limit. Not a difficulty score. Not a 1–5 opinion. Shown on the `kanban.md` row. Not in the filename. A high number means the ticket has bounced: repeated test fails, stop-rule hits, or human send-backs.
+
+Who sets it. KanbanMaster-cold writes `friction: 0` when it cuts the ticket. Worker-cold is the only role that increments it. Worker-cold adds 1 only for one of these three events. This is the closed set. Nothing else counts.
+
+1. Test fail. The human tested the ticket and said it failed, or moved it back from `in-testing`.
+2. Stop-rule hit. The worker stopped because it was unsure, living-knowledge did not cover the fact, or the work looked like a design change.
+3. Human send-back. The human rejected the work and sent it back, other than a test fail already counted in 1.
+
+Each event is +1, once, in the same edit as one comment that names the event and why. A ticket that fails testing three times and is sent back twice can reach 5. That is correct.
+
+Worker-cold does not invent a number. It does not write `friction: 3` because the ticket felt hard. It does not write `friction: 1` because it expects the ticket to be hard.
+Violation: `friction: 3` with no fail event, or a +1 with no comment.
+Example: the human says the test failed. The worker sets `friction: 1` and comments "friction +1 — test failed: migration does not create index."
 
 ### 8.10 Kanban board file (generated)
 
