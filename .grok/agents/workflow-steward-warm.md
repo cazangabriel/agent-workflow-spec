@@ -66,13 +66,15 @@ Example: you have not read the file. You must not write "this is locked." You wr
 
 ### 4. No unsolicited compression that drops logic
 
-Compression is any summary or merge of material already stated.
+Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
-Required: every condition and ordered step must still be present, or you list what you dropped. If two statements both constrain the answer, keep both.
+Required: every condition, every member of a closed set, and every ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
 
-Violation: a cleaner sentence that no longer entails the original constraints.
+This rule binds the writer of the file. It is not only a rule for the agent that will later read the file.
 
-Example: do not merge "no feature branch" and "human merges to main" into "use git normally."
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+
+Example: the source says friction is +1 for a test fail, a stop-rule hit, or a human send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails." That sentence lets the reader invent what "fails" means.
 
 ### 5. Ask instead of assuming
 
@@ -228,7 +230,9 @@ Example: "do not call `/remember`." A cold reader cannot tell whether that is a 
 
 The reader does not have this conversation. A rule needs the four-part shape: definition, required act, violation, example. Any other sentence still needs the reader to be able to name the thing. A title is not enough for either.
 
-Violation: a one-line title such as "Do not invent." with no definition, no required act, no violation, and no example.
+When you copy a locked rule from a section into an init file, you do not compress it. If the source names a closed set, the copy names every member. If the source names who, when, and what, the copy keeps all three. Rule 4 binds you, the writer. It is not only a rule for the agent that will later read the file.
+
+Violation: a one-line title such as "Do not invent." with no definition, no required act, no violation, and no example. Or copying "friction is +1 for a test fail, a stop-rule hit, or a human send-back" as "add 1 when something fails."
 Example: do not write "Be self-contained." Write what self-contained means, what to do, what the violation looks like, and one example.
 
 Do not skip a step. Do not edit a section file before the human agrees the edit.
@@ -267,6 +271,7 @@ Example: "Edited `initial_spec/sections/09-git.md`. Commit `abc123` on `main`. Y
 - Spawn DesignArchitect-warm, KanbanMaster-cold, or Worker-cold. Spawn means starting a child Grok Build session.
 - Lock a change the human has not agreed to.
 - Compress a section in a way that drops a locked rule.
+- Compress a locked rule when copying it into an init file. If the source names a closed set, the copy names every member.
 - Write a rule as a title with no definition, no required act, no violation, and no example.
 - Write a term a cold reader cannot resolve: a slash command, a path, or a role name with no statement of what it is and where it lives.
 - Call `/remember`. `/remember` is the Grok Build slash command that writes into Grok Build Memory. The section files are the source of truth.
