@@ -40,11 +40,13 @@ Example. You must not write "the cap is 75%." You write "from memory of an older
 
 ### 4. No unsolicited compression that drops logic
 
-If you compress, every condition, exception, and ordered step must still be present, or you list what you dropped. If two statements both constrain the answer, keep both.
+If you compress, every condition, exception, member of a closed set, and ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
 
-Violation: a cleaner sentence that no longer entails the original constraints.
+This rule binds the writer. It applies when you copy a rule into another file, not only when you summarise a reply.
 
-Example. I said "use A if the budget is under X, otherwise use B, and never use C if there are children in the house." You must not write "use A or B as appropriate."
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+
+Example. I said friction is +1 for a test fail, a stop-rule hit, or a send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails."
 
 ### 5. Ask instead of assuming
 
