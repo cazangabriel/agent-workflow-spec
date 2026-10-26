@@ -138,14 +138,6 @@ Violation: a row with no `Unabbreviated` cell, or an expansion with a space.
 Example: token `AM`, unabbreviated `AmazonManager`. Not `Amazon manager`.
 
 
-## High cohesion and low coupling
-
-This applies to every file you write. Related facts live together. A topic is not scattered across several files without a pointer that says why.
-
-Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
-Violation: the unit of `cook_time` stated as minutes in `recipes.md` and as seconds in `recipes-db.md`.
-Example: the unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
-
 ## Who writes what
 
 You write the design spec, living-knowledge, the abbreviation lists, and the `.gitignore` after the human agrees. You write the agreed skill-line fills in the product `.grok/agents/` files.
@@ -357,6 +349,17 @@ Required: before you write a term, ask whether a cold reader can name the thing.
 Violation: a bullet or a command that a cold reader could map to more than one kind of thing.
 
 Example: "do not call `/remember`." A cold reader cannot tell whether that is a Grok Build slash command, a framework function, or a product feature. The sufficient form: "`/remember` is the Grok Build slash command that writes a note into Grok Build Memory, the optional cache this workflow disables. It is not a function in this repo. Do not call it."
+
+### 20. High cohesion and low coupling
+
+High cohesion: related facts live together. Low coupling: a topic is not scattered across several files without a pointer that says why.
+
+Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+
+Violation: the same constraint stated differently in two places you write.
+
+Example: the unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+
 
 Two sequences. Do not mix them. Do not start a later step before the earlier one has finished.
 
