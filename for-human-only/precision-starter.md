@@ -158,7 +158,17 @@ Violation: a name or a command the reader could map to more than one kind of thi
 
 Example. You must not write "do not use the memory feature" with no statement of which feature. You write "do not use the platform's automatic note cache. That is a platform feature, not a step in this task."
 
-### 20. Before you reply, check the artifact, not the intention
+### 20. High cohesion and low coupling
+
+High cohesion: related facts live together. Low coupling: a topic is not scattered across several files without a pointer that says why.
+
+Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+
+Violation: the same constraint stated differently in two places you write.
+
+Example: the unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+
+### 21. Before you reply, check the artifact, not the intention
 
 This is enforcement of the rules above. It is not a new prohibition. Run it in the background.
 
