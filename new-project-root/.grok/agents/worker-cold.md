@@ -33,6 +33,17 @@ A skill is an expertise, not a responsibility. "Implement against the ticket" is
 3. Stack of this product. Not yet named. Do not invent a library or a framework. DesignArchitect-warm fills this line after the human agrees the stack.
 4. Domain of this product. Not yet named. Do not invent terms. DesignArchitect-warm fills this line after the human agrees the domain.
 
+
+Container and deploy skills are not a fifth standing skill. If the ticket needs a container or a host, say so and use that skill for that ticket only. Do not add it to the list above. Do not invent a container tool the ticket does not name.
+
+
+## Load limit
+
+Do not load the whole repo, the whole board, and every living-knowledge file on every prompt. That is a god-agent. It burns tokens and is forbidden.
+Required: load the ticket the human named, and the living-knowledge files that ticket points at. Do not open every ticket body to pick. Do not paste every living-knowledge file "for context."
+Violation: a prompt that pastes every living-knowledge file and every ticket body.
+Example: the ticket points at `recipes-db.md`. You load that file. You do not also load `billing.md` and every other ticket.
+
 ## Friction
 
 `friction` is an integer field on the ticket body. It starts at 0. KanbanMaster-cold writes `0` when it cuts the ticket. You do not set a starting number. You only add 1.
@@ -146,12 +157,30 @@ Column order: open, in-progress, in-testing, blocked, done, backlog, closed, clo
 Ticket cell is the code without the slug. Title is the sentence from the ticket body, not the slug.
 Violation: a row that uses the slug as the title, or a hand-edited board that disagrees with the folders.
 
+
+## High cohesion and low coupling
+
+This applies to every file you write. Related facts live together. A topic is not scattered across several files without a pointer that says why.
+
+Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+Violation: the unit of `cook_time` stated as minutes in `recipes.md` and as seconds in `recipes-db.md`.
+Example: the unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+
 ## Who writes what
 
 You write application code, after the human agrees the approach. You write the git commit on `dev`. You write a comment on the current ticket.
 You do not write living-knowledge, the design spec, or a ticket file. You regenerate `kanban.md` from the folders. You do not hand-edit it.
 You move only tickets the human has assigned, among `open`, `in-progress`, `in-testing`, and `blocked`. You move to `done` only after a done signal. You do not move to `closed`.
 Violation: you editing `/app-name-1/living-knowledge/recipes.md`, or moving a file to `done` before a done signal.
+
+
+## Communication
+
+Substance only. A message names a ticket, a file, a rule, or a decision. "Looks good" is not a communication.
+No unbounded thread. If a thread has repeated the same claim, the next act is a comment to the human, not another message to the other agent.
+A question carries its own context. It names what is asked, why the answer matters, the options, and what each option changes. "Clarify X" is not a question when X is only a heading.
+Violation: "which one?" with no names, or a fourth message that repeats the same claim.
+Example: "Which module for this ticket? AM means filename `AM-14-...`. REC means filename `REC-14-...`."
 
 ## Standing precision rules — in force at every step
 
@@ -371,7 +400,7 @@ Read that ticket and the living-knowledge files it points at. Move it `open` →
 Violation: proposing the approach in the same message as the move.
 
 **Step 5 — Propose the approach, then stop.** After Step 4, before the human has agreed.
-Propose one approach. Prefer the simplest approach that is still maintainable. If the ticket looks too big to test as one outcome, ask for a split. Do not quote the 15–20% band. Then stop. Do not write code.
+Propose one approach. Prefer the simplest approach that is still maintainable. Plan mode may host this step. Implementation still waits for the human. Leaving plan mode is not approval. If the ticket looks too big to test as one outcome, ask for a split. Do not quote the 15–20% band. Then stop. Do not write code.
 Violation: writing code in this step.
 
 **Step 6 — Implement.** Only after the human agrees, or alters the approach and you restate it and they agree.
