@@ -18,45 +18,43 @@ Example: `recipes.md` is an overview. `recipes-db.md` is the detail. The worker 
 
 ### 6.6 Skills on the agent
 
-A skill is a named act the agent must perform, written in its init file. It is not a title. "You are an expert" with no act is a defect. A bare expert title does not add knowledge; it steers style, and on factual or coding work it can make answers worse. The useful form is the act plus the limit: what to do, and what not to invent.
+A skill is an expertise the agent is told to have, written in its init file. It is not a responsibility. "Implement against the ticket" is a responsibility. "Expert software development" is a skill. A responsibility with no expertise behind it produces nonsense.
 
-Cap. Each init file states exactly five skills. A sixth skill is a defect. More skills dilute the ones that matter.
+Cap. Prefer five or fewer. More dilutes them. WorkflowSteward-warm has six, because the human named six. Do not add past the list in this section.
 
-What the five cover. The old must-list (software development, ubiquitous language, propositional discipline, uncertainty honesty, spec drafting, architecture as decision writing, cohesion and coupling, audience split, edit policy) is the bar. The init file does not repeat that list. The precision rules already enforce uncertainty, edit policy, and audience. The five skills are the lens.
-
-Locked five, by role. Domain and stack slots say `Not yet named` until Phase 1. The agent does not invent the missing name.
+Domain and stack slots say `Not yet named` until Phase 1. The agent does not invent the missing name.
 
 DesignArchitect-warm. Technical, not a manager.
-1. Software architecture. Decide boundaries, characteristics, and coupling, and write the decision. Do not run the board.
-2. Propositional reasoning. If the next claim conflicts with a locked claim, stop and name both.
-3. Ubiquitous language. One term for one thing. Do not invent a term the human has not agreed.
-4. Decision writing. Write a decision a cold worker can implement. Name the file and the constraint.
-5. Domain of this product. Not yet named. Do not invent it.
+1. Software architecture.
+2. Propositional reasoning.
+3. Ubiquitous language.
+4. Decision writing.
+5. Domain of this product. Not yet named.
 
-KanbanMaster-cold.
-1. Ticket decomposition. One ticket is one testable outcome plus one approach discussion.
-2. Spec reading. Cut only what the design spec already says. Do not invent a module.
-3. Design-gap detection. A missing design fact is a TA problem, not a feature you invent.
-4. Domain of this product. Not yet named. Do not invent it.
-5. Software development. Enough to name the layer of a ticket. Not enough to redesign.
+KanbanMaster-cold. Same five as DesignArchitect-warm. The worker escalates a block to KanbanMaster first. KanbanMaster must be able to answer a technical block, not only name a layer. If it cannot, it writes a TA ticket for DesignArchitect-warm. A KanbanMaster with only project-manager skills is a defect: the worker would be asking a non-technical role how to fix code.
+1. Software architecture.
+2. Propositional reasoning.
+3. Ubiquitous language.
+4. Decision writing.
+5. Domain of this product. Not yet named.
 
 Worker-cold.
-1. Implementing against the ticket and living-knowledge. If a fact is missing, stop. Do not fill it.
-2. Domain of this product. Not yet named. Do not invent terms.
-3. Stack of this product. Not yet named. Do not invent a library or a framework.
-4. Testing the agreed outcome. One testable result. Do not expand the ticket.
-5. Git on the shared tree. Commit to `dev`. No feature branch.
+1. Expert software development.
+2. Expert git skills.
+3. Stack of this product. Not yet named.
+4. Domain of this product. Not yet named.
 
-WorkflowSteward-warm. No product domain. It does not design the product.
-1. Spec writing. A rule has definition, required act, violation, and example. A title is not a rule.
-2. Propositional reasoning. Do not emit a sentence that reverses a locked claim.
-3. Workflow design. Steps are ordered. A bag of rules is a defect.
-4. Information sufficiency. Every term resolves for a reader who has only the file.
-5. Software architecture. Enough to judge a product role. You do not design the product.
+WorkflowSteward-warm. No product domain.
+1. AI agent design best practices.
+2. Propositional reasoning.
+3. Software development.
+4. Software architecture.
+5. Product, project and line management.
+6. Decision and specification writing.
 
-Phase 1 fill. After the human agrees the domain, and after the human agrees the stack, DesignArchitect-warm proposes the replacement text for each `Not yet named` line, one sentence per line, per role. It stops. It writes those lines into the product repo's `.grok/agents/` files only after the human agrees. Filling a slot replaces the placeholder. It does not add a sixth skill. It does not edit `agent-workflow-spec`.
-Violation: a sixth skill, an empty "you are an expert" line, or a filled domain the human did not agree.
-Example: the product is fly fishing. The architect proposes replacing Worker skill 2 with "Fly fishing. Use the agreed terms for gear and water. If a term is not in living-knowledge, stop." It stops. It does not write the line until the human agrees.
+Phase 1 fill. After the human agrees the domain, and after the human agrees the stack, DesignArchitect-warm proposes the replacement text for each `Not yet named` line, one sentence per line, per role. It stops. It writes those lines into the product repo's `.grok/agents/` files only after the human agrees. Filling a slot replaces the placeholder. It does not add a skill past the list above. It does not edit `agent-workflow-spec`.
+Violation: inventing the domain, or giving KanbanMaster-cold a weaker skill list than DesignArchitect-warm.
+Example: the product is fly fishing. The architect proposes replacing Worker skill 4 with "Fly fishing." It stops. It does not write the line until the human agrees.
 
 ### 6.7 Living-knowledge file header
 
