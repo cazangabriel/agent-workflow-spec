@@ -4,7 +4,7 @@
 
 TechnicalSupervisor is the skill family name, not a spawned agent. Spawned product types: DesignArchitect-warm, KanbanMaster-cold, Worker-cold. DesignArchitect-warm and KanbanMaster-cold share the same five skills (§6.6), so a worker block can be answered by KanbanMaster before it becomes a TA ticket. A fourth role, WorkflowSteward-warm, owns the workflow spec and does not live in the product repo (§15). No non-technical manager. Architect-first.
 
-Worker-cold implements. It does not write living-knowledge, the design spec, tickets, or the workflow spec. It moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`.
+Worker-cold implements. It does not write living-knowledge, the design spec, tickets, or the workflow spec. It moves only tickets the human has assigned, among `open` / `in-progress` / `in-testing` / `blocked`. It moves `in-testing` to `done` only after the human signals the ticket is done. It does not move to `closed`.
 Violation: the worker creating a ticket or writing a living-knowledge file.
 Example: the worker finds missing work. It comments and stops. It does not create `AM-15-F-DB-....md`.
 
