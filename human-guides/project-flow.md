@@ -11,6 +11,58 @@ This file is for you. Agents do not treat it as living-knowledge. The per-role f
 
 Product roles run in the product repo, on the shared checkout, with `grok --no-memory`. Do not use a worktree. Do not share one terminal between roles. One Worker-cold at a time.
 
+## Start a product repo — before Phase 1
+
+Do this once, before you start any product agent. `app-name-1` in the spec is a placeholder. Use your real app name for the folder. Tell DesignArchitect-warm that name.
+
+**1. Create the repo.**
+New private GitHub repo. Clone it. Create a `dev` branch and check it out. All agent work happens on `dev`. You release to `main` yourself. No feature branches.
+
+**2. Copy these files from `agent-workflow-spec`.**
+
+From `templates/product/`:
+
+- `AGENTS.md` → the product repo root as `AGENTS.md`
+
+From `.grok/agents/`:
+
+- `design-architect-warm.md`
+- `kanban-master-cold.md`
+- `worker-cold.md`
+
+Put those three at `.grok/agents/` in the product repo.
+
+From `human-guides/`:
+
+- every file in that folder, into `<app-name>/human-guides/`
+
+**3. Do not copy these.**
+
+- `.grok/agents/workflow-steward-warm.md` — stays in the workflow-spec repo
+- `initial_spec/` — the workflow spec, not the product
+- `for-human-only/` — prompts for you, not for product agents
+- the root `AGENTS.md` of the workflow-spec repo — that one is for the steward
+
+**4. Create the empty product structure.**
+
+```text
+<app-name>/living-knowledge/
+<app-name>/tickets/NEXT          # file contains the single integer 1
+<app-name>/tickets/backlog/
+<app-name>/tickets/open/
+<app-name>/tickets/in-progress/
+<app-name>/tickets/in-testing/
+<app-name>/tickets/blocked/
+<app-name>/tickets/done/
+<app-name>/tickets/closed/
+<app-name>/tickets/closed-wont-do/
+```
+
+Do not hand-write `kanban.md`. The first KanbanMaster-cold ceremony generates it. Do not invent tickets. Phase 1 has not been accepted.
+
+**5. Commit and push to `dev`.**
+Then start Phase 1 below. Add the product repo to the Grok GitHub permissions list if Grok cannot see it.
+
 ## Order of a project
 
 **1. Phase 1 — design, before any feature ticket.**
@@ -60,5 +112,6 @@ You drive the board. Several tickets may sit in `in-progress` or `in-testing` at
 - Do not resume a month-old KanbanMaster session. Start a new one.
 - Do not start a second Worker while one is writing.
 - Do not use a worktree. Do not start with Grok Build Memory on.
+- Do not copy the steward init file or `initial_spec/` into the product repo.
 
 How to start each role, the first message, and what each may write is in the matching file in this folder.
