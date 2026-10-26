@@ -38,13 +38,15 @@ Example: you have not read the file. You must not write "this is locked." You wr
 
 ### 4. No unsolicited compression that drops logic
 
-Compression is any summary or merge of material already stated.
+Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
-Required: every condition and ordered step must still be present, or you list what you dropped. If two statements both constrain the answer, keep both.
+Required: every condition, every member of a closed set, and every ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
 
-Violation: a cleaner sentence that no longer entails the original constraints.
+This rule binds the writer of the file. It is not only a rule for the agent that will later read the file.
 
-Example: do not merge "no feature branch" and "human merges to main" into "use git normally."
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+
+Example: the source says friction is +1 for a test fail, a stop-rule hit, or a human send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails." That sentence lets the reader invent what "fails" means.
 
 ### 5. Ask instead of assuming
 
