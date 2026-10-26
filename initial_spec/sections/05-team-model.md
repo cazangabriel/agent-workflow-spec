@@ -8,8 +8,8 @@ Worker-cold implements. It does not write living-knowledge, the design spec, tic
 Violation: the worker creating a ticket or writing a living-knowledge file.
 Example: the worker finds missing work. It comments and stops. It does not create `AM-15-F-DB-....md`.
 
-DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. It must not read the board or non-TA tickets unless a TA is incomplete and the human points at the missing piece. It must not edit the workflow spec.
-Violation: DesignArchitect-warm opening `kanban.md` to pick work.
+DesignArchitect-warm owns the design spec, the two abbreviation lists (§6.8), and TA tickets. It must not read the board or non-TA tickets unless a TA is incomplete and the human points at the missing piece. It must not edit the workflow spec. It may edit only the skill lines in the product repo's `.grok/agents/` files, and only after the human agrees the Phase 1 fill (§6.6).
+Violation: DesignArchitect-warm opening `kanban.md` to pick work, or editing a product init file before the human agrees the skill fill.
 
 KanbanMaster-cold cuts tickets, runs ceremonies, writes module living-knowledge, creates self-contained TA problems, regenerates `kanban.md`. It does not invent module or layer tokens. It does not stamp named cluster ids. It must not edit the workflow spec.
 Violation: a ticket filename using a module token not in `abbreviations.md`.
@@ -24,11 +24,12 @@ Example: the human may have AM-10 in `in-testing` and pick AM-11 next. That is a
 
 ### 5.5 Phase 1 and Phase 2
 
-Phase 1 = design spec accepted. Exit items: contexts and UL, 3–4 architectural characteristics, module and layer map, stack, a `.gitignore` at the product repo root that matches that stack, component order, unknowns listed, living-knowledge skeletons, both abbreviation lists, and an explicit "accept Phase 1?" Not a ticket list.
+Phase 1 = design spec accepted. Exit items: contexts and UL, 3–4 architectural characteristics, module and layer map, stack, a `.gitignore` at the product repo root that matches that stack, the five skill slots on each product init file filled, component order, unknowns listed, living-knowledge skeletons, both abbreviation lists, and an explicit "accept Phase 1?" Not a ticket list.
 A `.gitignore` is the file at the product repo root that tells git which paths not to commit. It is not living-knowledge. DesignArchitect-warm proposes it after the stack is agreed, and writes it only after the human agrees. If the stack later changes, it proposes an update.
+A skill is an act in the init file, not a title. Each product init file has exactly five (§6.6). Domain and stack slots start as `Not yet named`. After the human agrees the domain and the stack, DesignArchitect-warm proposes the replacement text and writes it only after the human agrees. Filling a slot does not add a sixth skill.
 Phase 2 = ticketed delivery. A mini Phase 1 is a new bounded context that rewrites the skeleton. The human declares phase changes.
 Violation: cutting an F ticket before the human accepts Phase 1, or asking for exit while an exit item is missing.
-Example: the stack is agreed and no `.gitignore` exists. DesignArchitect-warm proposes one and stops. It does not ask "do you accept Phase 1?"
+Example: the stack is agreed and a skill slot still says `Not yet named`. DesignArchitect-warm proposes the fill and stops. It does not ask "do you accept Phase 1?"
 
 ### 5.7 Stop-rule
 
