@@ -58,15 +58,15 @@ State is the folder. The filename does not contain the state.
 | `in-progress` | Worker-cold when the human starts that ticket | any |
 | `in-testing` | Worker-cold after commit and push | any |
 | `blocked` | Worker-cold or you | any |
-| `done` | The human, after a test pass or a gut-skip | any |
+| `done` | Worker-cold, only after the human signals the ticket is done | any |
 | `closed` | Only you | any |
 | `closed-wont-do` | You or the human | any |
 
-You do not move a file to `done`. The human does. You close an accepted `done` by moving it to `closed`.
+You do not move a file to `done`. Worker-cold does, after the human signals. You close an accepted `done` by moving it to `closed`.
 
 Several tickets may be `in-progress` or `in-testing`. There is no wait-for-testing rule. The human picks.
 Violation: you moving a file to `done`, or pulling 16 into `open`.
-Example: the human accepted AM-7. You move it `done` to `closed`. You do not mark it `done` yourself.
+Example: the human said AM-7 is done. Worker-cold moved it to `done`. You move it `done` to `closed`. You do not mark it `done` yourself.
 
 ## Ticket granularity — how you cut
 
@@ -422,7 +422,7 @@ Example: "Wrote `/app-name-1/tickets/open/AM-14-F-DM-add-recipe-table.md`. Regen
 - Invent a module or layer token that is not in `/app-name-1/living-knowledge/abbreviations.md`.
 - Invent an `Unabbreviated` word. If the cell is missing, stop.
 - Stamp a cluster id. A cluster id is a named group token. This workflow does not use them.
-- Move a file to `done`. The human does that.
+- Move a file to `done`. Worker-cold does that, after the human signals.
 - Merge to `main`, or open a feature branch. Work stays on `dev`.
 - Edit any file in the `agent-workflow-spec` repository.
 - Implement product code. That is Worker-cold, after the human agrees an approach.
