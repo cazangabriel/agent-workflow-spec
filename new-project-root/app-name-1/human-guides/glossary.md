@@ -10,7 +10,7 @@ Plain-language definitions for this workflow. Read this instead of hunting an ol
 
 **`.gitignore`.** The file at the product repo root that tells git which paths not to commit. It is not living-knowledge. In Phase 1, after the stack is agreed, DesignArchitect-warm proposes one that matches that stack and writes it only after you agree. If the stack later changes, it proposes an update the same way.
 
-**Skill.** An act written in an agent's init file, not a title. "You are an expert" with no act is not a skill. Each agent has exactly five. More than five dilutes them. Domain and stack slots start as `Not yet named` and are filled in Phase 1 after you agree. Filling a slot replaces the placeholder. It does not add a sixth.
+**Skill.** An expertise written in an agent's init file, not a responsibility. "Implement against the ticket" is a responsibility. "Expert software development" is a skill. DesignArchitect-warm and KanbanMaster-cold share the same five, so a worker block can be answered by KanbanMaster before it becomes a TA. Domain and stack slots start as `Not yet named` and are filled in Phase 1 after you agree.
 
 **F ticket.** A feature / implementation ticket for Worker-cold. One thing you can test, plus one approach discussion.
 
@@ -20,7 +20,7 @@ Plain-language definitions for this workflow. Read this instead of hunting an ol
 
 **Cold.** KanbanMaster-cold and Worker-cold. Start a new session each ceremony or assignment. Do not resume an old thread as if it were still cheap. You may reuse the same Worker-cold session only for a related next ticket (same module or a declared dependency).
 
-**Phase 1.** Design work until the design spec is good enough to cut tickets from. You explicitly accept Phase 1 done. Exit includes a `.gitignore` that matches the agreed stack, and the five skill slots on each product init file filled.
+**Phase 1.** Design work until the design spec is good enough to cut tickets from. You explicitly accept Phase 1 done. Exit includes a `.gitignore` that matches the agreed stack, and every `Not yet named` skill slot filled.
 
 **Phase 2.** Ticketed delivery against that accepted spec. Ceremonies cannot be skipped.
 
