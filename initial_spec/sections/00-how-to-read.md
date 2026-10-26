@@ -30,6 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 4 binds the writer of the copy, not only the later reader.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -93,7 +94,7 @@ Required shape for a rule written for another agent:
 3. State the violation, so a tidy rewrite cannot hide it.
 4. Anchor it with one concrete example. The example names the inputs, the forbidden output, and the required output. A title with no example is not a rule.
 
-Forbidden: a slogan that needs this conversation to interpret; a bag of duties with no order; a short label used without the definition in the same place; compressing a rule that was discussed with examples into a one-line title.
+Forbidden: a slogan that needs this conversation to interpret; a bag of duties with no order; a short label used without the definition in the same place; compressing a rule that was discussed with examples into a one-line title; copying a locked rule into an init and replacing a closed set with a shorter phrase. If the source names a closed set, the copy names every member. If the source names who, when, and what, the copy keeps all three.
 
 This standard applies to every later edit of this spec, to init files, to `AGENTS.md`, to human guides, and to any starter prompt written for a session that will not have this conversation.
 
