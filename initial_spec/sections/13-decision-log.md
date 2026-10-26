@@ -24,6 +24,7 @@
 20. Gate 1 accepted 2026-10-19. Gate 2 done. Gate 3 accepted 2026-10-19. Comparison is §16. Recommendation: keep this workflow.
 21. Init-file on-disk shape is locked. The product root is the folder `new-project-root/`. Copy its contents into a new product repo. It holds the product `AGENTS.md`, the three product init files (`.grok/agents/design-architect-warm.md`, `kanban-master-cold.md`, `worker-cold.md`), the human guides, empty living-knowledge, the ticket column folders, and `tickets/NEXT` containing `1`. Rename `app-name-1` to the real app name. The steward init file and the root `AGENTS.md` of this repo stay here. Do not copy them into a product repo.
 22. Phase 1 includes a `.gitignore` at the product repo root. A `.gitignore` is the file that tells git which paths not to commit. It is not living-knowledge. After the stack is agreed, DesignArchitect-warm proposes one that matches that stack and writes it only after the human agrees. It is a Phase 1 exit item. If the stack later changes, the architect proposes an update the same way.
+23. Each init file states exactly five skills. A skill is an act, not a title. "You are an expert" with no act is a defect. A sixth skill is a defect. Domain and stack slots start as `Not yet named`. After the human agrees the domain and the stack, DesignArchitect-warm proposes the replacement text and writes it into the product `.grok/agents/` files only after the human agrees. Filling a slot does not add a sixth. The steward has no product domain. See §6.6.
 
 ### 13.2 Still open
 
