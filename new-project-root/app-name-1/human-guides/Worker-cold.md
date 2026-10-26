@@ -6,13 +6,13 @@ This file is for you. Agents do not treat it as living-knowledge.
 
 Worker-cold implements one ticket after you approve the approach. It shows you `kanban.md` first, you pick the ticket, it proposes an approach, you agree, then it implements, commits to `dev`, and moves the ticket to `in-testing`.
 
-You test (or gut-skip). You move the ticket to `done` on pass, or back to `in-progress` on fail.
+You test (or gut-skip). You signal that the ticket is done. The worker then moves it to `done`. You do not have to move the file.
 
 ## What it is not for
 
 - It does not write living-knowledge or the design spec.
 - It does not create tickets.
-- It does not mark a ticket `done` or `closed`.
+- It does not mark a ticket `done` before you signal, and it does not mark `closed`.
 - It does not edit the workflow spec.
 - It must not spawn DesignArchitect-warm or KanbanMaster-cold.
 
@@ -51,7 +51,9 @@ grok --no-memory
 3. It proposes an approach. You approve or change it. Implementation starts only after that.
 4. It commits and pushes to `dev`, moves the ticket to `in-testing`, and tells you the path and the commit.
 5. You pull `dev` and test, or gut-skip.
-6. Pass: you move the file `in-testing` → `done`. Fail: you move it back; the worker increments friction and continues.
+6. Pass: you say the ticket is done. The worker moves the file `in-testing` → `done`. Fail: you say it failed; the worker increments friction and continues.
+
+The done signal is you saying the test passed, gut-skipping, or saying to consider the ticket done. Silence is not a signal. The worker does not move to `done` before you say so. The worker does not move to `closed`. KanbanMaster-cold does that.
 
 If it hits the stop-rule (unsure, missing living-knowledge, looks like a design change), it comments, tells you, and does not invent the rule. You decide whether to spawn KanbanMaster-cold.
 
@@ -62,13 +64,14 @@ A worker ticket that looks enormous is a split request, not a reason to spend a 
 - Application code for the agreed approach
 - Comments on the ticket it is executing
 - Ticket moves among `open` / `in-progress` / `in-testing` / `blocked` for that ticket
+- A move to `done`, only after you signal
 - Commits on `dev`
 
 ## What it must never write
 
 - New tickets
 - Living-knowledge or the design spec
-- `done` or `closed`
+- `done` before you signal, or `closed`
 - The workflow spec
 
 ## Good first message
