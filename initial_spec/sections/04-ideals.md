@@ -26,7 +26,7 @@ Example: the worker writes the migration, commits, and pushes to `dev` before it
 3. Implementation follows the agreed approach.
 4. The agent commits and pushes directly to `dev`. No feature branch (§9.1).
 5. The worker moves the ticket to `in-testing`. The human pulls `dev` and tests or gut-skips. There is no agent-tester substitute.
-6. The human moves `in-testing` → `done` on pass. `closed` waits for the KanbanMaster-cold ceremony (§8.8).
+6. The human signals the ticket is done. The signal is the human saying the test passed, gut-skipping, or saying to consider the ticket done. Silence is not a signal. Worker-cold then moves `in-testing` → `done`. Worker-cold does not move to `closed`. `closed` waits for the KanbanMaster-cold ceremony (§8.8).
 
 Prefer the simplest approach that still produces maintainable professional code. No hacks.
 
