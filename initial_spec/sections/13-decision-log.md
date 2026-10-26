@@ -17,18 +17,19 @@
 13. Grok Build mapping locked in §14: human-spawned roles; no write-capable worker subagents; shared tree on `dev` (no worktrees for this team); DA-warm resumes; KM/Worker are fresh sessions.
 14. **Grok Build Memory is disabled.** It is a simpler automatic cache, not living-knowledge. Start sessions with `grok --no-memory` or `GROK_MEMORY=0`. Living-knowledge and tickets remain the only source of truth.
 15. Shared-tree guards (§14.6): session-start worktree check, commit+push proof, session rename, no subagent worktree isolation.
-16. Human-guide files (§14.7): three role manuals plus `glossary.md` under `/app-name-1/human-guides/`, generated once at project start, for the human only. Canonical copies live in this repo under `human-guides/`.
+16. Human-guide files (§14.7): under `/app-name-1/human-guides/`, for the human only. Canonical copies live in this repo under `human-guides/`: the four role manuals, `glossary.md`, and `project-flow.md`.
 17. Ticket body template and `kanban.md` layout locked in §8.12 and §8.10.
 18. Spec lives as `initial_spec/sections/`.
 19. **WorkflowSteward-warm owns this workflow spec** (§15). Product roles must not edit it and must not spawn the steward. It lives in the workflow-spec repo. A lost conversation is recovered by spawning it there and pointing it at the README and the decision log. Section files are the knowledge.
 20. Gate 1 accepted 2026-10-19. Gate 2 done. Gate 3 accepted 2026-10-19. Comparison is §16. Recommendation: keep this workflow.
+21. Init-file on-disk shape is locked. Product roles: `.grok/agents/design-architect-warm.md`, `.grok/agents/kanban-master-cold.md`, `.grok/agents/worker-cold.md`. Copy those three plus `templates/product/AGENTS.md` into a product repo. `workflow-steward-warm.md` stays in the workflow-spec repo. Do not copy it into a product repo.
 
 ### 13.2 Still open
 
-1. Exact on-disk shape of `.grok/agents/` init files — Gate 4. Includes `WorkflowSteward-warm.md`.
+None. The workflow design is locked. Starting a product repo is use, not an open design item.
 
 ### 13.3 Next
 
-Gate 3 accepted. Gate 4 starts only when the user explicitly says to implement.
+Start a product repo. Copy the product template files listed in `human-guides/project-flow.md`. Work on `dev`. Start DesignArchitect-warm for Phase 1. Do not start KanbanMaster-cold or Worker-cold before Phase 1 is accepted.
 
 A human-only starter prompt lives at `for-human-only/precision-starter.md`. It is not part of this workflow. Agents must not treat it as spec.
