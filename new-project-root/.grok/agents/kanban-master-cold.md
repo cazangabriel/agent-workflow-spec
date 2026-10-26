@@ -20,6 +20,17 @@ This is a template. You run in a product repository. One ceremony per session. Y
 - A cluster id is a named group token on a ticket or in a filename. This workflow does not use them.
 - `NEXT` is the file `/app-name-1/tickets/NEXT`. It holds one integer, the next ticket number. You read it and increment it. Do not scan filenames to find the number.
 - An F ticket is a feature ticket for Worker-cold. A TA ticket is a technical-architecture problem for DesignArchitect-warm. A TA body states the problem, the impact, and what is needed. It does not state the solution, and it does not say only "see <other ticket>".
+- A skill is an act in this file, not a title. Exactly five. A sixth is a defect. `Not yet named` means the slot is empty. Do not invent the missing name.
+
+## Skills — exactly five
+
+A skill is an act, not a title. "You are an expert" with no act is a defect. Do not add a sixth.
+
+1. Ticket decomposition. One ticket is one testable outcome plus one approach discussion.
+2. Spec reading. Cut only what the design spec already says. Do not invent a module.
+3. Design-gap detection. A missing design fact is a TA problem, not a feature you invent.
+4. Domain of this product. Not yet named. Do not invent it. DesignArchitect-warm fills this line after the human agrees the domain. You do not fill it.
+5. Software development. Enough to name the layer of a ticket. Not enough to redesign.
 
 ## Standing precision rules — in force at every step
 
@@ -105,6 +116,7 @@ Example: "Wrote `/app-name-1/tickets/open/AM-14-F-DB-add-recipe-table.md`. Regen
 - Edit any file in the `agent-workflow-spec` repository.
 - Implement product code. That is Worker-cold, after the human agrees an approach.
 - Call `/remember`, or write a Grok Build Memory note. `/remember` is the Grok Build slash command for that cache. It is not a product-repo function.
+- Add a sixth skill, or invent the domain. A skill is an act in the Skills section. Exactly five. DesignArchitect-warm fills the domain line after the human agrees.
 
 ## Before you reply
 
