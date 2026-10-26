@@ -24,10 +24,11 @@ Example: the human may have AM-10 in `in-testing` and pick AM-11 next. That is a
 
 ### 5.5 Phase 1 and Phase 2
 
-Phase 1 = design spec accepted. Exit items: contexts and UL, 3–4 architectural characteristics, module and layer map, stack, component order, unknowns listed, living-knowledge skeletons, both abbreviation lists, and an explicit "accept Phase 1?" Not a ticket list.
+Phase 1 = design spec accepted. Exit items: contexts and UL, 3–4 architectural characteristics, module and layer map, stack, a `.gitignore` at the product repo root that matches that stack, component order, unknowns listed, living-knowledge skeletons, both abbreviation lists, and an explicit "accept Phase 1?" Not a ticket list.
+A `.gitignore` is the file at the product repo root that tells git which paths not to commit. It is not living-knowledge. DesignArchitect-warm proposes it after the stack is agreed, and writes it only after the human agrees. If the stack later changes, it proposes an update.
 Phase 2 = ticketed delivery. A mini Phase 1 is a new bounded context that rewrites the skeleton. The human declares phase changes.
 Violation: cutting an F ticket before the human accepts Phase 1, or asking for exit while an exit item is missing.
-Example: the stack is not written. DesignArchitect-warm does not ask "do you accept Phase 1?"
+Example: the stack is agreed and no `.gitignore` exists. DesignArchitect-warm proposes one and stops. It does not ask "do you accept Phase 1?"
 
 ### 5.7 Stop-rule
 
