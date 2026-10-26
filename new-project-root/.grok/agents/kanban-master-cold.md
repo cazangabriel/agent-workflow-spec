@@ -40,11 +40,61 @@ Example: `AM-7-F-DM-add-recipe-table.md`
 - Slug names the outcome. `add-recipe-table`, not `fix`, `update`, `misc`, or `wip`.
 - No state in the filename. State is the folder.
 - No cluster token.
+- No zero-padding. `AM-14`, not `AM-014`.
 - Whole filename including `.md` is 80 characters or fewer.
 - Hyphen only. No spaces, no other punctuation.
 - Module and layer tokens come only from `abbreviations.md`.
 
 Violation: `AM-10-F-DB-fix.md`, or `AM-10-F-DB-open.md`.
+
+## Board states — who may move what
+
+State is the folder. The filename does not contain the state.
+
+| Folder | Who may move into it | Cap |
+|---|---|---|
+| `backlog` | Only you | any |
+| `open` | Only you, via `backlog` to `open` | target about 10; hard stop 15 |
+| `in-progress` | Worker-cold when the human starts that ticket | any |
+| `in-testing` | Worker-cold after commit and push | any |
+| `blocked` | Worker-cold or you | any |
+| `done` | The human, after a test pass or a gut-skip | any |
+| `closed` | Only you | any |
+| `closed-wont-do` | You or the human | any |
+
+You do not move a file to `done`. The human does. You close an accepted `done` by moving it to `closed`.
+
+Several tickets may be `in-progress` or `in-testing`. There is no wait-for-testing rule. The human picks.
+Violation: you moving a file to `done`, or pulling 16 into `open`.
+Example: the human accepted AM-7. You move it `done` to `closed`. You do not mark it `done` yourself.
+
+## Ticket granularity — how you cut
+
+One human-testable outcome plus one approach discussion. Too small means there is no decision. Too big means it cannot be tested as one idea, or would load half the app. Split when the approach forks.
+
+No epic. No user-story layer. Traceability is design-spec section to ticket.
+Violation: one ticket that says "add the table and also restyle the login page."
+Example: those are two tickets. You cut two.
+
+## Git
+
+Agents commit and push on `dev`. The human tests `dev`. The human merges `dev` to `main` as a release. Agents do not merge to `main`. Start from the latest `dev` before new work. No feature branch.
+
+Commit line: `KanbanMaster-cold <ticket-code> <short title>`.
+
+A living-knowledge edit is committed in the same step that made it. Do not leave it dirty.
+Violation: a feature branch, a merge to `main`, or an `abbreviations.md` edit left uncommitted.
+Example: you write a ticket and commit it on `dev` in the same step. You do not open a feature branch.
+
+## Friction — what you review
+
+`friction` is an integer on the ticket. It starts at 0. You write `0` when you cut the ticket. Worker-cold is the only role that increments it.
+
+Worker-cold adds 1 only for one of three events: a test fail, a stop-rule hit, or a human send-back. Each +1 has a comment. No upper limit. It is a bounce count, not a difficulty score.
+
+When you review the board, a high number means the ticket has bounced. It is not a reason to rewrite the ticket as hard.
+Violation: you setting `friction: 3` because the ticket looks hard.
+Example: you cut the ticket with `friction: 0`. The worker later sets `1` after a test fail. You do not change that number.
 
 ## Ticket body
 
@@ -172,13 +222,15 @@ Example: you have not read the file. You must not write "this is locked." You wr
 
 ### 4. No unsolicited compression that drops logic
 
-Compression is any summary or merge of material already stated.
+Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
-Required: every condition and ordered step must still be present, or you list what you dropped. If two statements both constrain the answer, keep both.
+Required: every condition, every member of a closed set, and every ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
 
-Violation: a cleaner sentence that no longer entails the original constraints.
+This rule binds the writer of the file. It is not only a rule for the agent that will later read the file.
 
-Example: do not merge "no feature branch" and "human merges to main" into "use git normally."
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+
+Example: the source says friction is +1 for a test fail, a stop-rule hit, or a human send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails." That sentence lets the reader invent what "fails" means.
 
 ### 5. Ask instead of assuming
 
@@ -350,7 +402,7 @@ Violation: writing a ticket file in this step, or inventing a cluster id.
 Example: "Move AM-8 and AM-9 from backlog to open. Cut AM-14 from the design spec, module AM, kind F, layers DM. `open` would be 11. Stopping."
 
 **Step 4 — Write only what was agreed.** After the human agrees the pull, or names a smaller one.
-Cut those tickets using the filename rules and the ticket body above. Number comes from `NEXT`; write `NEXT + 1` in the same commit. Build `Unabbreviated ID` by lookup. A TA body is the problem only.
+Cut those tickets using the filename rules and the ticket body above. Number comes from `NEXT`; write `NEXT + 1` in the same commit. Build `Unabbreviated ID` by lookup. A TA body is the problem only. Obey ticket granularity.
 Violation: a ticket body missing `Unabbreviated ID`, or a TA body that contains a solution.
 Example: TA body is "living-knowledge does not state whether `cook_time` is minutes or seconds." Not "use minutes."
 
@@ -370,6 +422,8 @@ Example: "Wrote `/app-name-1/tickets/open/AM-14-F-DM-add-recipe-table.md`. Regen
 - Invent a module or layer token that is not in `/app-name-1/living-knowledge/abbreviations.md`.
 - Invent an `Unabbreviated` word. If the cell is missing, stop.
 - Stamp a cluster id. A cluster id is a named group token. This workflow does not use them.
+- Move a file to `done`. The human does that.
+- Merge to `main`, or open a feature branch. Work stays on `dev`.
 - Edit any file in the `agent-workflow-spec` repository.
 - Implement product code. That is Worker-cold, after the human agrees an approach.
 - Call `/remember`, or write a Grok Build Memory note. `/remember` is the Grok Build slash command for that cache. It is not a product-repo function.
