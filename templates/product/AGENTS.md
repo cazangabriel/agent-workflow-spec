@@ -70,7 +70,7 @@ After the work, before you send the reply, run these five checks on the artifact
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
-If every check passes: say nothing about the check, or one word, `Checked.`
+If every check passes: say nothing about the check, or one short line: `Correctness double check: checked.`
 If one fails: one sentence. Name the check and the missing part. Do not send the work.
 
 Required: run the checks. Do not send a debugger log.
