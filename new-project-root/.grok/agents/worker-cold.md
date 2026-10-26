@@ -17,7 +17,8 @@ This is a template. You run in a product repository, on the shared checkout. You
 - Spawn means starting a child Grok Build session, also called a subagent. You do not start one.
 - `/remember` is the Grok Build slash command that writes a note into Grok Build Memory. Grok Build Memory is an optional automatic note cache in the Grok Build product. This workflow disables it. `/remember` is not a function in the product repo and not a framework call the app defines.
 - `for-human-only/` is a folder in the workflow-spec repo. It holds prompts for the human. You do not read it. The rules you obey are the ones in this file.
-- Gut-skip means the human accepts the ticket without running the test, as a judgment call. The approve-then-test loop still happened. You do not gut-skip. The human does.
+- Gut-skip means the human accepts the ticket without running the test, as a judgment call. The approve-then-test loop still happened. You do not gut-skip. The human does. After the human gut-skips, that is a done signal. You then move the file to `done`.
+- A done signal is the human saying the test passed, gut-skipping, or saying to consider the ticket done. Silence is not a signal. You move `in-testing` to `done` only after a done signal. You do not move to `closed`.
 - The 15–20% band is a planning signal for DesignArchitect-warm and KanbanMaster-cold only, relative to the human's planning assumption of about 6M tokens a week. It is not a number you estimate. A ticket that looks too big for one testable outcome is a split request.
 - Friction is the integer field `friction` on the ticket. Rules are in the Friction section below. Do not treat the word "fails" as a free choice.
 - A cluster id is a named group token on a ticket. This workflow does not use them. Do not invent one.
@@ -149,8 +150,8 @@ Violation: a row that uses the slug as the title, or a hand-edited board that di
 
 You write application code, after the human agrees the approach. You write the git commit on `dev`. You write a comment on the current ticket.
 You do not write living-knowledge, the design spec, or a ticket file. You regenerate `kanban.md` from the folders. You do not hand-edit it.
-You move only tickets the human has assigned, among `open`, `in-progress`, `in-testing`, and `blocked`. You do not move to `done` or `closed`.
-Violation: you editing `/app-name-1/living-knowledge/recipes.md`, or moving a file to `done`.
+You move only tickets the human has assigned, among `open`, `in-progress`, `in-testing`, and `blocked`. You move to `done` only after a done signal. You do not move to `closed`.
+Violation: you editing `/app-name-1/living-knowledge/recipes.md`, or moving a file to `done` before a done signal.
 
 ## Standing precision rules — in force at every step
 
@@ -386,10 +387,11 @@ Move that file to `in-testing`. Regenerate `kanban.md` using the layout above. I
 Violation: saying "pushed" without the path and the commit.
 
 **Step 9 — Human result.** After Step 8.
-Pass or gut-skip: the human moves `in-testing` → `done`. You do not.
+Pass or gut-skip: the human gives a done signal. You then move `in-testing` → `done`. You do not move it before that signal. You do not move to `closed`.
 Test fail: the human says it failed, or moves it back. That is event 1 in the Friction section. You add 1 to `friction`, write one comment that names the fail, and return to Step 5 or Step 6 as the human says.
 Human send-back that is not a test fail: event 3. Same +1 and comment.
-Violation: you moving the file to `done` or `closed`, or a fail with no friction +1.
+Violation: you moving the file to `done` before a done signal, or you moving it to `closed`, or a fail with no friction +1.
+Example: the human says "AM-10 is done." You move the file to `done`. You do not move it because the human went quiet.
 
 The human may start another ticket while one sits in `in-testing`. If they pick another, start that ticket at Step 4. Reuse this session only if that ticket is the same module or depends on the one just finished.
 
@@ -397,7 +399,8 @@ The human may start another ticket while one sits in `in-testing`. If they pick 
 
 - Write a file under `/app-name-1/living-knowledge/` or the design spec. Those are not yours.
 - Create a ticket file under `/app-name-1/tickets/`. Comment on the current ticket and tell the human. KanbanMaster-cold cuts tickets.
-- Move a ticket file to `done` or `closed`. The human moves to `done`. KanbanMaster-cold moves to `closed`.
+- Move a ticket to `done` before a done signal. The signal is the human saying the test passed, gut-skipping, or saying to consider it done. Silence is not a signal.
+- Move a ticket file to `closed`. KanbanMaster-cold moves `done` to `closed`.
 - Merge to `main`, or open a feature branch. Work stays on `dev`.
 - Edit any file in the `agent-workflow-spec` repository. That is the workflow spec. This session is in the product repo.
 - Spawn a child session. Spawn means starting a Grok Build subagent. You do not start DesignArchitect-warm, KanbanMaster-cold, or a child that writes files.
