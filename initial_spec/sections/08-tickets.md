@@ -64,12 +64,13 @@ Rules:
 
 Who may move a ticket file:
 
-- Worker-cold: on tickets the human has assigned — `open` → `in-progress` → `in-testing` or `blocked`.
-- Human: any move, especially `in-testing` → `done` (pass) or `in-testing` → `in-progress` (fail).
+- Worker-cold: on tickets the human has assigned — `open` → `in-progress` → `in-testing` or `blocked`. Also `in-testing` → `done`, but only after the human signals the ticket is done.
+- Human: any move. The human signals done. The human does not have to move the file.
 - KanbanMaster-cold: `backlog` → `open`, `done` → `closed`, `closed-wont-do`, ceremony and blocker moves.
 
-Violation: a filename `AM-10-F-DB-C3-add-recipe-table.md` (cluster token), or `AM-10-F-DB-open.md` (state in the name), or a slug `fix`.
-Example: the file is `AM-10-F-DB-add-recipe-table.md` in the `open` folder. Moving it to `in-progress` changes the folder and the `State:` field. The filename stays the same.
+The done signal is the human saying the test passed, gut-skipping, or saying to consider the ticket done. Silence is not a signal. Worker-cold does not move to `done` before that signal. Worker-cold does not move to `closed`.
+Violation: a filename `AM-10-F-DB-C3-add-recipe-table.md` (cluster token), or `AM-10-F-DB-open.md` (state in the name), or a slug `fix`, or the worker moving to `done` because the human went quiet.
+Example: the file is `AM-10-F-DB-add-recipe-table.md` in the `open` folder. Moving it to `in-progress` changes the folder and the `State:` field. The filename stays the same. The human later says "AM-10 is done." The worker moves it to `done`.
 
 ### 8.4 Board states
 
@@ -80,13 +81,13 @@ Example: the file is `AM-10-F-DB-add-recipe-table.md` in the `open` folder. Movi
 | `in-progress` | Worker-cold when the human starts that ticket | any (human-driven) |
 | `in-testing` | Worker-cold after commit+push | any (human-driven) |
 | `blocked` | Worker-cold or KanbanMaster-cold | any |
-| `done` | Human after test pass or gut-skip accept | any |
+| `done` | Worker-cold, only after the human signals the ticket is done | any |
 | `closed` | Only KanbanMaster-cold | any |
 | `closed-wont-do` | KanbanMaster-cold or human | any |
 
 No rule that only one ticket may be `in-progress` or `in-testing`. No rule that the worker must wait for `in-testing` to clear before pushing another ticket. The human picks the next ticket.
-Violation: the worker moving a file to `done`, or KanbanMaster pulling 16 into `open`.
-Example: AM-10 can sit in `in-testing` while the human starts AM-11. That is allowed. The worker does not move AM-10 to `done`.
+Violation: the worker moving a file to `done` before the human signals it, or KanbanMaster pulling 16 into `open`.
+Example: AM-10 can sit in `in-testing` while the human starts AM-11. That is allowed. The human says "AM-10 is done." The worker moves AM-10 to `done`. The worker does not move it because the human went quiet.
 
 ### 8.8 Kanban ceremony
 
