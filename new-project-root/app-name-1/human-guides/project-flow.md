@@ -44,7 +44,7 @@ Then start Phase 1 below. Add the product repo to the Grok GitHub permissions li
 ## Order of a project
 
 **1. Phase 1 — design, before any feature ticket.**
-Start DesignArchitect-warm. Work with it until the design spec has: bounded contexts and ubiquitous language, 3–4 architectural characteristics, the module and layer map, the stack, the component order, the unknowns listed, living-knowledge skeletons, and both abbreviation lists. You explicitly accept Phase 1. Do not start KanbanMaster-cold or Worker-cold for product work before that accept.
+Start DesignArchitect-warm. Work with it until the design spec has: bounded contexts and ubiquitous language, 3–4 architectural characteristics, the module and layer map, the stack, a `.gitignore` at the product repo root that matches that stack, the component order, the unknowns listed, living-knowledge skeletons, and both abbreviation lists. A `.gitignore` is the file that tells git which paths not to commit. The architect proposes it after the stack is agreed, and writes it only after you agree. You explicitly accept Phase 1. Do not start KanbanMaster-cold or Worker-cold for product work before that accept.
 
 **2. First ceremony — cut the first tickets.**
 Start a new KanbanMaster-cold session. It reads the accepted design spec, cuts backlog tickets, and proposes a pull into `open` (target about 10, hard stop 15). You agree before it writes. It regenerates `kanban.md`.
