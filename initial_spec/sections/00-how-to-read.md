@@ -154,7 +154,7 @@ This is standing precision rule 1. It governs the others.
 
 The rules apply to every part of the work you do, the reply you send, and the file you write. A classification is not an exemption. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are all in scope. "It is only a label" is not a reason to skip a rule.
 
-Required: before you emit, there is no part you have marked as outside the rules. Run the rules on that part.
+Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
 Violation: treating a class of text as exempt. Writing "Stack." because it is a bullet, and not checking whether the reader can resolve it, is this violation.
 
@@ -174,5 +174,5 @@ Some lines are not logic statements. A line of code. A one-word label that names
 
 Violation: a statement kept because it is fluent and is not sound. A fallacy in a line that is not a logic statement is a violation.
 
-Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Sorting a part of the work into a class does not exempt that part from the rules."
+Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Classifying a part of the work does not exempt that part from the rules."
 
