@@ -108,19 +108,17 @@ Violation: completing a subset and reporting the remainder as "still open" or "n
 
 Example: the human says "apply this form to the rest of the spec." Doing §3–§12 and writing "§14 is still title-form" is the violation. Either do every remaining section, or before starting name §13 and §16 as records and ask.
 
-### 0.11 Information insufficiency is a defect, in any written form
+### 0.11 Information insufficiency is a defect, in any sentence
 
-This is not a rule about summaries. It applies to every sentence written into git: a rule, a prohibition, a path, a command, a role name, a step, a record, a glossary entry, a commit instruction.
+You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
-Information is insufficient when a reader who has only that file cannot resolve a term to one specific thing. The reader must be able to say what the thing is, where it lives or who owns it, and whether it is a platform command, a file in a named repo, or a function the product defines.
+This does not require the four-part rule shape on every sentence. A definition in the same sentence is enough. The four-part shape remains required for a rule another agent must apply (§0.9).
 
-This does not require the four-part rule shape on every sentence. A definition in the same file is enough. The four-part shape remains required for a rule another agent must apply (§0.9). A prohibition list, a path, and a slash command still need the definition.
+Required: when writing any sentence, ask yourself if the reader can understand what you mean without access to your context.
 
-Required: before you write a term, ask whether a cold reader can name the thing. If not, define it in the same file.
+Violation: a sentence that names a thing and relies on your context to define what it is.
 
-Violation: a bullet, a path, or a command that a cold reader could map to more than one kind of thing.
-
-Example: "do not call `/remember`." A cold reader cannot tell whether that is a Grok Build slash command, a framework function, or a product feature. The sufficient form names it: "`/remember` is the Grok Build slash command that writes a note into Grok Build Memory, the optional cache this workflow disables. It is not a function in the product repo. Do not call it."
+Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
 
 ### 0.12 Before you reply: check the artifact, not the intention
 
