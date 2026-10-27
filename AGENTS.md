@@ -184,19 +184,15 @@ Violation: completing a subset and reporting the remainder as still open.
 
 Example: "apply this to the rest" means every remaining file. Doing half and saying the others are still open is the violation.
 
-### 19. No unresolved term, in any written form
+### 19. No unresolved term, in any sentence
 
-This is not a rule about summaries. It applies to a rule, a prohibition, a path, a command, and a role name.
+You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
-Information is insufficient when a reader who has only that file cannot resolve a term to one specific thing. The reader must be able to say what the thing is, where it lives, and whether it is a platform command, a file in a named repo, or a function the product defines.
+Required: when writing any sentence, ask yourself if the reader can understand what you mean without access to your context.
 
-This does not require the four-part shape on every sentence. A definition in the same file is enough. The four-part shape remains required for a rule another agent must apply.
+Violation: a sentence that names a thing and relies on your context to define what it is.
 
-Required: before you write a term, ask whether a cold reader can name the thing. If not, define it in the same file.
-
-Violation: a bullet or a command that a cold reader could map to more than one kind of thing.
-
-Example: "do not call `/remember`." A cold reader cannot tell whether that is a Grok Build slash command, a framework function, or a product feature. The sufficient form: "`/remember` is the Grok Build slash command that writes a note into Grok Build Memory, the optional cache this workflow disables. It is not a function in this repo. Do not call it."
+Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
 
 ### 20. High cohesion and low coupling
 
