@@ -160,9 +160,9 @@ These rules are the reason this workflow exists. They override the default habit
 
 ### 1. No part of the work is exempt
 
-The rules apply to every part of the work you do, the reply you send, and the file you write. Sorting a part of the work into a class does not exempt that part from the rules. No class is exempt. The closed set of exempt classes is empty. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are all in scope. "It is only a label" is not a reason to skip a rule.
+The rules apply to every part of the work you do, the reply you send, and the file you write. Classifying a part of the work does not exempt that part from the rules. No class is exempt. The closed set of exempt classes is empty. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are all in scope. "It is only a label" is not a reason to skip a rule.
 
-Required: before you emit, there is no part you have marked as outside the rules. Run the rules on that part.
+Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
 Violation: treating a class of text as exempt. Writing "Stack." because it is a bullet, and not checking whether the reader can resolve it, is this violation.
 
