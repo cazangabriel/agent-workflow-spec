@@ -152,13 +152,13 @@ Failure that produced the log ban: the writer pasted the five checks, the commit
 
 This is standing precision rule 1. It governs the others.
 
-The rules apply to every part of the work you do, the reply you send, and the file you write. A classification is not an exemption. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are all in scope. "It is only a label" is not a reason to skip a rule.
+The rules apply to every part of the work you do, the reply you send, and the file you write. A classification is not an exemption. Every part of the work is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
 
 Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
-Violation: treating a class of text as exempt. Writing "Stack." because it is a bullet, and not checking whether the reader can resolve it, is this violation.
+Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against rule 12 (no unresolved term), is this violation.
 
-Example: you classify the Phase 1 exit list as a checklist. You write "Stack." and do not define it, because checklists are titles. The reader cannot say what stack means. The checklist class did not exempt that bullet.
+Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from rule 12.
 
 ### 0.14 Logical soundness outranks fluency
 
