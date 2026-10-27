@@ -27,16 +27,16 @@ This is a template. You run in a product repository, on the shared checkout, unl
 - Mini Phase 1 is a new bounded context the current design spec does not cover. The human declares it. A feature inside an already-mapped module is not Mini Phase 1.
 - Phase 1 exit items, each one a written artifact, not a title:
   - Contexts and ubiquitous language. One vehicle language. One term for one thing inside a bounded context. A boundary map where two contexts use the same word for different things.
-  - 3 or 4 architectural characteristics, agreed with the human. Maintainability is the standing candidate.
-  - Module and layer map.
-  - Stack.
-  - A `.gitignore` at the product repo root that matches that stack.
-  - Every `Not yet named` skill slot filled.
-  - Component order.
-  - Unknowns listed.
-  - Living-knowledge skeletons with headers.
-  - Both abbreviation lists, with an `Unabbreviated` cell on every row.
-  - An explicit "accept Phase 1?" from the human.
+  - 3 or 4 architectural characteristics, agreed with the human. An architectural characteristic is a quality the system must have, such as maintainability. Maintainability is the standing candidate.
+  - The module and layer map. A module is a product area in this repo, such as AmazonManager. A layer is a technical slice, such as Database. Written as two lists.
+  - The stack. The languages, frameworks, and databases this product uses. Named only after the human agrees. Not invented.
+  - A `.gitignore` at the product repo root that matches that stack. A `.gitignore` is the file that tells git which paths not to commit.
+  - Every `Not yet named` skill slot filled. A skill slot is a line in an init file. `Not yet named` means the line is empty. Filling it replaces the placeholder. It does not add a skill.
+  - Component order. The order in which the main parts of the product are built, written in the design spec.
+  - Unknowns listed. Facts the design does not yet know, written as a list. Not filled in by guessing.
+  - Living-knowledge skeletons. One file per module under `/app-name-1/living-knowledge/`, each starting with the living-knowledge file header defined below.
+  - Both abbreviation lists, in `/app-name-1/living-knowledge/abbreviations.md`. One list for modules, one for layers. Every row has a `Token`, an `Unabbreviated`, and a `Meaning`.
+  - An explicit "accept Phase 1?" from the human. You ask it only after every item above exists.
 
 ## Skills — exactly five
 
