@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 4 binds the writer of the copy, not only the later reader.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 8 binds the writer of the copy, not only the later reader. Rule 8 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -129,7 +129,7 @@ Cost: this check re-reads the artifact before the reply. It can use a high numbe
 After the work, before you send the reply, run these five checks on the artifact. The artifact is what exists, not what you meant to write. For a file write, the artifact is the file as a later read returns it. Read it back. Do not check your memory of what you sent.
 
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
-2. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text?
+2. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
 3. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
 4. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
 5. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
@@ -146,3 +146,16 @@ Example: the human asked for a section edit. You do not reply with "1. Dropped p
 Stop: do not send the work if one check fails.
 
 Failure that produced the log ban: the writer pasted the five checks, the commit SHAs, and the file sizes into the reply. The human called it a debugger log. The check is internal. The reply is the work.
+
+### 0.13 No part of the work is exempt
+
+This is standing precision rule 1. It governs the others.
+
+The rules apply to every part of the work you do, the reply you send, and the file you write. A classification is not an exemption. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are all in scope. "It is only a label" is not a reason to skip a rule.
+
+Required: before you emit, there is no part you have marked as outside the rules. Run the rules on that part.
+
+Violation: treating a class of text as exempt. Writing "Stack." because it is a bullet, and not checking whether the reader can resolve it, is this violation.
+
+Example: you classify the Phase 1 exit list as a checklist. You write "Stack." and do not define it, because checklists are titles. The reader cannot say what stack means. The checklist class did not exempt that bullet.
+
