@@ -144,19 +144,15 @@ A named set is the job. "The rest" means the complement. Do every member, or sto
 
 Violation: completing a subset and reporting the remainder as still open.
 
-### 19. No unresolved term, in any form
+### 19. No unresolved term, in any sentence
 
-This is not a rule about summaries. It applies to every sentence: a rule, a prohibition, a name, a path, a command, a step.
+You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
-Information is insufficient when a reader who has only that sentence cannot resolve a term to one specific thing. The reader must be able to say what the thing is and which kind of thing it is.
+Required: when writing any sentence, ask yourself if the reader can understand what you mean without access to your context.
 
-This does not require the four-part shape on every sentence. A definition in the same reply is enough.
+Violation: a sentence that names a thing and relies on your context to define what it is.
 
-Required: before you use a term that could mean more than one kind of thing, name which kind.
-
-Violation: a name or a command the reader could map to more than one kind of thing.
-
-Example. You must not write "do not use the memory feature" with no statement of which feature. You write "do not use the platform's automatic note cache. That is a platform feature, not a step in this task."
+Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
 
 ### 20. High cohesion and low coupling
 
