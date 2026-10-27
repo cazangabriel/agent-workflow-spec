@@ -37,13 +37,13 @@ A skill is an expertise, not a responsibility. You have the same five as DesignA
 Pattern: `<module>-<n>-<kind>-<layers>-<slug>.md`
 Example: `AM-7-F-DM-add-recipe-table.md`
 
-- Slug names the outcome. `add-recipe-table`, not `fix`, `update`, `misc`, or `wip`.
-- No state in the filename. State is the folder.
-- No cluster token.
-- No zero-padding. `AM-14`, not `AM-014`.
+- The slug names the outcome in words. `add-recipe-table`, not `fix`, `update`, `misc`, or `wip`.
+- No state in the filename. State is the folder the file sits in (`open`, `done`). Do not put the folder name in the filename.
+- No cluster token. A cluster token is a named group id such as `C3`. This workflow does not use group ids. Do not put one in the filename.
+- No zero-padding. The number is `14`, not `014`.
 - Whole filename including `.md` is 80 characters or fewer.
 - Hyphen only. No spaces, no other punctuation.
-- Module and layer tokens come only from `abbreviations.md`.
+- Module and layer tokens come only from `/app-name-1/living-knowledge/abbreviations.md`. Do not invent a token.
 
 Violation: `AM-10-F-DB-fix.md`, or `AM-10-F-DB-open.md`.
 
@@ -51,16 +51,16 @@ Violation: `AM-10-F-DB-fix.md`, or `AM-10-F-DB-open.md`.
 
 State is the folder. The filename does not contain the state.
 
-| Folder | Who may move into it | Cap |
-|---|---|---|
-| `backlog` | Only you | any |
-| `open` | Only you, via `backlog` to `open` | target about 10; hard stop 15 |
-| `in-progress` | Worker-cold when the human starts that ticket | any |
-| `in-testing` | Worker-cold after commit and push | any |
-| `blocked` | Worker-cold or you | any |
-| `done` | Worker-cold, only after the human signals the ticket is done | any |
-| `closed` | Only you | any |
-| `closed-wont-do` | You or the human | any |
+| Folder | Who may move into it |
+|---|---|
+| `backlog` | Only you |
+| `open` | Only you, via `backlog` to `open`. Target about 10 tickets in `open`; hard stop 15 |
+| `in-progress` | Worker-cold when the human starts that ticket |
+| `in-testing` | Worker-cold after commit and push |
+| `blocked` | Worker-cold or you |
+| `done` | Worker-cold, only after the human signals the ticket is done |
+| `closed` | Only you |
+| `closed-wont-do` | You or the human |
 
 You do not move a file to `done`. Worker-cold does, after the human signals. You close an accepted `done` by moving it to `closed`.
 
@@ -72,7 +72,7 @@ Example: the human said AM-7 is done. Worker-cold moved it to `done`. You move i
 
 One human-testable outcome plus one approach discussion. Too small means there is no decision. Too big means it cannot be tested as one idea, or would load half the app. Split when the approach forks.
 
-No epic. No user-story layer. Traceability is design-spec section to ticket.
+No epic. An epic is a parent ticket that groups other tickets. This workflow does not use them. No user-story layer. A user story is an "as a user I want" wrapper around a ticket. This workflow does not use them. Traceability is the design-spec section that the ticket implements, written in the ticket body.
 Violation: one ticket that says "add the table and also restyle the login page."
 Example: those are two tickets. You cut two.
 
@@ -131,7 +131,7 @@ Where the words come from:
 
 - Module and layer expansions come only from `/app-name-1/living-knowledge/abbreviations.md`, column `Unabbreviated`. DesignArchitect-warm writes that column. You read it. You do not invent or approximate the word.
 - Kind expansions are fixed. `F` is `Feature`. `TA` is `TechnicalArchitecture`.
-- The number is copied.
+- The number is copied as digits. `7` stays `7`. It is not expanded into a word.
 
 Example: `abbreviations.md` has `AM` = `AmazonManager` and `DM` = `DataModel`. The code `AM-7-F-DM` becomes `AmazonManager-7-Feature-DataModel`. Not `Amazon manager-7-Feature-data model`.
 
