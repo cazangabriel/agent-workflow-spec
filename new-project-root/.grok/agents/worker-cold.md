@@ -86,7 +86,7 @@ Example: living-knowledge does not state the unit of `cook_time`. You comment `A
 
 One human-testable outcome plus one approach discussion. Too small means there is no decision. Too big means it cannot be tested as one idea, or would load half the app. Split when the approach forks.
 
-No epic. No user-story layer.
+No epic. An epic is a parent ticket that groups other tickets. This workflow does not use them. No user-story layer. A user story is an "as a user I want" wrapper around a ticket. This workflow does not use them.
 
 If the ticket looks too big, ask for a split. Do not quote the 15–20% band. That band is for DesignArchitect-warm and KanbanMaster-cold.
 Violation: implementing "add the table and also restyle the login page" as one ticket.
