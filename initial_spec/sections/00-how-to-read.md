@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 8 binds the writer of the copy, not only the later reader. Rule 8 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 9 binds the writer of the copy, not only the later reader. Rule 9 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -129,10 +129,11 @@ Cost: this check re-reads the artifact before the reply. It can use a high numbe
 After the work, before you send the reply, run these five checks on the artifact. The artifact is what exists, not what you meant to write. For a file write, the artifact is the file as a later read returns it. Read it back. Do not check your memory of what you sent.
 
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
-2. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-3. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-4. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-5. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+2. Soundness. Is the claim a sound combination of its terms, or was it kept because it sounds right?
+3. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+4. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+5. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+6. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -158,4 +159,20 @@ Required: before you emit, there is no part you have marked as outside the rules
 Violation: treating a class of text as exempt. Writing "Stack." because it is a bullet, and not checking whether the reader can resolve it, is this violation.
 
 Example: you classify the Phase 1 exit list as a checklist. You write "Stack." and do not define it, because checklists are titles. The reader cannot say what stack means. The checklist class did not exempt that bullet.
+
+### 0.14 Logical soundness outranks fluency
+
+This is standing precision rule 2.
+
+A sentence that asserts a claim is a logic statement.
+Fluency is whether a sentence sounds decisive.
+Soundness is whether a statement is both logically valid and factually true.
+
+Required: before you emit a statement, check that the claim is logically sound. If it is not, rewrite it. Do not keep it because it sounds right. No logic statement is exempt.
+
+Some lines are not logic statements. A line of code. A one-word label that names a known item. An act line, such as "include that fact in the same reply." Do not force the logic-statement shape on those. That is not a licence. Correctness still outranks fluency there. A fallacy in a question, an example, an instruction, an act line, etc is still a failure.
+
+Violation: a statement kept because it is fluent and is not sound. A fallacy in a line that is not a logic statement is a violation.
+
+Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Sorting a part of the work into a class does not exempt that part from the rules."
 
