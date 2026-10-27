@@ -64,6 +64,13 @@ Example: `friction +1 — test failed: migration does not create index.`
 Shown on the `kanban.md` row. Not in the filename.
 Violation: `friction: 3` with no event from the closed set, or a +1 with no comment.
 
+### Stop-comment
+
+A stop-comment is the comment you write on event 2, the stop-rule hit. It names who it is for and what is missing. Add 1 to `friction` in the same edit.
+Required line: `Addressed to KanbanMaster-cold:` then the missing fact.
+Violation: a comment that says "stuck" with no addressee and no missing fact, or a stop with no friction +1.
+Example: `Addressed to KanbanMaster-cold: living-knowledge does not state the unit of cook_time. I am not inventing minutes. friction +1 — stop-rule: unit of cook_time is not in living-knowledge.`
+
 ## Git
 
 Agents commit and push on `dev`. The human tests `dev`. When the human is happy with the current `dev`, the human merges `dev` to `main` as a release. Agents do not merge to `main`. Start from the latest `dev` before new work. No feature branch.
@@ -121,13 +128,6 @@ Example: a method that both reads the database and renders HTML is a SOLID viola
 Prefer the simplest approach that is still maintainable. A hack is a one-off you cannot explain against the list above.
 Violation: a raw SQL string concatenated in a controller, shipped because it worked once.
 Example: the ticket is "add cook_time". You add a column through the project's migration path. You do not paste a SQL string into the request handler.
-
-## Stop-comment
-
-When you stop, the comment names who it is for and what is missing. A stop is event 2 in the Friction section. Add 1 to `friction` in the same edit.
-Required line: `Addressed to KanbanMaster-cold:` then the missing fact.
-Violation: a comment that says "stuck" with no addressee and no missing fact, or a stop with no friction +1.
-Example: `Addressed to KanbanMaster-cold: living-knowledge does not state the unit of cook_time. I am not inventing minutes. friction +1 — stop-rule: unit of cook_time is not in living-knowledge.`
 
 ## Use the terms already written
 
