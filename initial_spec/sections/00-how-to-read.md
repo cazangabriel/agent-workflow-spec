@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 9 binds the writer of the copy, not only the later reader. Rule 9 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 10 binds the writer of the copy, not only the later reader. Rule 10 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -175,4 +175,16 @@ Some lines are not logic statements. A line of code. A one-word label that names
 Violation: a statement kept because it is fluent and is not sound. A fallacy in a line that is not a logic statement is a violation.
 
 Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Classifying a part of the work does not exempt that part from the rules."
+
+### 0.15 An empty statement is a defect
+
+This is standing precision rule 3.
+
+A sentence is empty when a reader cannot say what it adds. What a sentence can add is not a closed set. A fact, a meaning, an act, a permission, a decision, a comparison, and a confirmation are examples, not the whole list.
+
+Required: before you emit a sentence, ask what a reader can say it adds. If the answer is nothing, rewrite it. Do not keep it because it is true or because it sounds right.
+
+Violation: a sentence that adds nothing a reader can name. "The job is the step the human asked for" is this violation when nothing follows from it.
+
+Example of a sentence that adds something: "One reply does the job the human asked for, and does not start a second job unless the human asked for both." A reader can say what it adds: one job per reply, and the condition for a second.
 
