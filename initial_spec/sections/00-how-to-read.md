@@ -248,7 +248,7 @@ Example of the sufficient form: "I have not read the current documentation for A
 
 This is standing precision rule 5.
 
-A definition places a term in a class and states the trait that separates it from the rest of that class.
+A definition places a term in a class and states the trait that separates it from the rest of that class. The class is a primitive, a term already defined in the text, or an ordinary category. Do not define the class again in order to use it.
 
 Non-circularity: replacing the term with the definition must add information. A different word that denotes the same thing and adds no class and no differentiator is another name. Another name is circular. The test is whether a reader can say what the term contains after the replacement.
 
