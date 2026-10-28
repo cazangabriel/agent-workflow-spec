@@ -226,7 +226,7 @@ Example: "A classification is not an exemption." The form looks like a claim. Th
 
 ### 3. A sentence must be intelligible
 
-A sentence is intelligible when it is syntactically well-formed and evaluates to a proposition with truth-conditions. A reader can say what would make the proposition true and what would make it false.
+A sentence is intelligible when it is syntactically well-formed and evaluates to a proposition with truth-conditions. A reader can say what would make the proposition true and what would make it false. The truth-conditions must be derivable from the sentence and from definitions stated in the text. A truth-condition supplied from the writer's intent does not count.
 
 A sentence is non-intelligible when it does parse but it does not evaluate to a proposition. The composition yields no proposition. Possible causes can include a failed reference, a category mismatch, or a relation that is not defined.
 
