@@ -272,7 +272,7 @@ Example of the sufficient form: "Do not state a fact you did not read in a file,
 
 Examples confirm that a rule can apply. They do not show that nothing outside the list applies.
 
-Required: when you write a rule from examples, do not exclude the cases you did not list. If the set is closed, say it is closed and say why. Otherwise the list is examples.
+Required: when you write a rule from examples, do not exclude the cases you did not list. If the set is closed, say it is closed and say why. Otherwise the list is examples. A later sentence must not treat an example list as closed. "Such as", "including", and "for instance" mark the list as examples. A sentence that then excludes an unlisted member is a violation.
 
 Violation: three sources are named, and the rule says a fact from any other source is invented. The three were examples. The set was not closed.
 
