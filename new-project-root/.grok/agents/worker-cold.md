@@ -222,6 +222,8 @@ Example of the sufficient form: "The claim states one referent for the term it d
 
 ### 4. Avoid vacuous truth and tautology. An empty statement is a defect
 
+Scope: all emitted text.
+
 A sentence is empty when a reader cannot say what it adds. A sentence adds something only if a reader can do or rule out something the prior text did not already allow. "It adds a definition" is not enough when the definition changes no constraint. What a sentence can add is not a closed set. A fact, a meaning, an act, a permission, a decision, a comparison, and a confirmation are examples, not the whole list.
 
 Required: before you emit a sentence, ask what a reader can say it adds. If the answer is nothing, rewrite it. Do not keep it because it is true or because it sounds right.
