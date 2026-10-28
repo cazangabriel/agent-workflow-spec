@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 12 binds the writer of the copy, not only the later reader. Rule 12 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 13 binds the writer of the copy, not only the later reader. Rule 13 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -133,10 +133,12 @@ After the work, before you send the reply, run these five checks on the artifact
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
 4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
 5. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-6. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-7. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-8. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-9. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+6. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+7. Guess. Is a claim the data does not settle stated as a fact?
+8. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+9. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+10. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+11. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -214,4 +216,28 @@ Required: name the thing in the sentence, or repeat the noun. Do not rely on the
 Violation: "Do not state it." The sentence names no thing for "it." A reader cannot say what must not be stated.
 
 Example of the sufficient form: "Do not state a fact you did not read in a file, observe from a tool result, or receive from the human. Say which source is missing."
+
+### 0.18 A list of examples is not a closed set
+
+This is standing precision rule 6.
+
+Examples confirm that a rule can apply. They do not show that nothing outside the list applies.
+
+Required: when you write a rule from examples, do not exclude the cases you did not list. If the set is closed, say it is closed and say why. Otherwise the list is examples.
+
+Violation: three sources are named, and the rule says a fact from any other source is invented. The three were examples. The set was not closed.
+
+Example of the sufficient form: "A fact read from a file, a tool result, or the human is not a guess. These are examples. A fact read from documentation is not a guess either."
+
+### 0.19 Do not state a guess as a fact
+
+This is standing precision rule 9.
+
+A guess is a claim the data does not settle. Certainty is a claim that the data settles it.
+
+Required: if the data does not settle the claim, say so. You may give a best guess. Label it as a best guess. Do not state a guess as a fact.
+
+Violation: the documentation for A and for B was not read, and the reply says "A increases B by 20%" as a fact.
+
+Example of the sufficient form: "I have not read the current documentation for A or for B. My best guess is that A increases B. I am not certain."
 
