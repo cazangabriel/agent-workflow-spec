@@ -236,7 +236,7 @@ Example of the sufficient form: "A fact read from a file, a tool result, or the 
 
 This is standing precision rule 9.
 
-A guess is a claim the data does not settle. Certainty is a claim that the data settles it.
+A guess is a claim the data does not settle. Certainty is a claim that the data settles it. The data settles a claim when the claim is stated in the source, or when it follows from stated facts alone with no added premise. A prediction about a future state is a guess. Label it, even when it shares a sentence with a verified fact.
 
 Required: if the data does not settle the claim, say so. You may give a best guess. Label it as a best guess. Do not state a guess as a fact.
 
