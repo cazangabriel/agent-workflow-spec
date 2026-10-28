@@ -271,13 +271,14 @@ After the work, before you send the reply, run these five checks on what you are
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
 4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
 5. Formal definition. Does a definition name a class and a differentiator, and does replacing the term add information?
-6. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-7. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
-8. Guess. Is a claim the data does not settle stated as a fact?
-9. Unresolved term. Does every term in the reply resolve for a reader who has only that reply?
-10. Unconfirmed act. Did you claim a lookup or a write that a result has not confirmed?
-11. Named set. If I named a set, is every member done, or did you stop and name the unsuited ones before starting?
-12. Read-back. If you wrote a file, did you read it back, and does the read match what you claim?
+6. Formal text. Is non-definition text exact and non-circular, and necessary and sufficient where it has a class?
+7. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
+8. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+9. Guess. Is a claim the data does not settle stated as a fact?
+10. Unresolved term. Does every term in the reply resolve for a reader who has only that reply?
+11. Unconfirmed act. Did you claim a lookup or a write that a result has not confirmed?
+12. Named set. If I named a set, is every member done, or did you stop and name the unsuited ones before starting?
+13. Read-back. If you wrote a file, did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five checks, quotes, or sources into the reply. That log is not a report.
 
