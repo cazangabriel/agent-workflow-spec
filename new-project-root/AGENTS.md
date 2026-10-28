@@ -273,10 +273,11 @@ After the work, before you send the reply, run these five checks on the artifact
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
 2. Soundness. Is the claim a sound combination of its terms, or was it kept because it sounds right?
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
-4. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-5. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-6. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-7. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
+5. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+6. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+7. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+8. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
