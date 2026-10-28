@@ -388,7 +388,7 @@ Example: an edit that drops the no-feature-branch rule must name that rule. Do n
 
 A stated constraint is a limit the human or a locked rule has set. An option is a course of action you propose.
 
-Required: a stated constraint stays in force. If an option would break a stated constraint, name the constraint and wait. Do not propose the option as if the constraint were not there.
+Required: a stated constraint stays in force. If an option would break a stated constraint, name the constraint and wait and ask the human. Do not propose the option as if the constraint were not there. If two stated constraints contradict each other, stop. Name both constraints and the point where they conflict. Do not pick one. Wait and ask the human.
 
 Violation: an optimised answer that ignores a constraint.
 
