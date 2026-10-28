@@ -158,15 +158,15 @@ Failure that produced the log ban: the writer pasted the five checks, the commit
 
 ### 0.13 No part of the work is exempt
 
-This is standing precision rule 1. It governs the others.
+This is standing precision rule 1.
 
-The rules apply to every part of the work you do, the reply you send, and the file you write. A classification is not an exemption. Every part of the work is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
+The rules apply to all emitted text. This includes a reply you give, a file you write, a commit line you add, a comment you add. They do not apply to unemitted reasoning. Classifying a part of the work does not exempt that part from the rules. No class is exempt. The closed set of exempt classes is empty. Every part of the emitted text is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
 
 Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
-Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against rule 12 (no unresolved term), is this violation.
+Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against the rule "no unresolved term, in any sentence", is this violation.
 
-Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from rule 12.
+Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from the rule "no unresolved term, in any sentence".
 
 ### 0.14 Logical soundness outranks fluency
 
