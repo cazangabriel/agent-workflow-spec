@@ -228,7 +228,9 @@ Violation: a statement kept because it is fluent and is not sound. A smuggled pr
 
 Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Sorting a part of the work into a class does not exempt that part from the rules."
 
-### 3. A sentence must be intelligible
+### 3. All emitted text must be intelligible
+
+Scope: all emitted text.
 
 A sentence is intelligible when it is syntactically well-formed and evaluates to a proposition with truth-conditions. A reader can say what would make the proposition true and what would make it false. The truth-conditions must be derivable from the sentence and from definitions stated in the text. A truth-condition supplied from the writer's intent does not count.
 
