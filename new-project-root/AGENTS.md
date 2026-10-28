@@ -188,6 +188,8 @@ Example of the sufficient form: "While writing the migration I found that the un
 
 Scope: all emitted text.
 
+Scope: all emitted text.
+
 Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
 Required: every condition, every member of a closed set, and every ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
