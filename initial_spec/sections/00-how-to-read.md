@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 14 binds the writer of the copy, not only the later reader. Rule 14 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 15 binds the writer of the copy, not only the later reader. Rule 15 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -130,17 +130,18 @@ After the work, before you send the reply, run these five checks on the artifact
 
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
 2. Soundness. Is the claim a sound combination of its terms, or was it kept because it sounds right?
-3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
-4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
-5. Formal definition. Does a definition name a class and a differentiator, and does replacing the term add information?
-6. Formal text. Is non-definition text exact and non-circular, and necessary and sufficient where it has a class?
-7. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-8. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
-9. Guess. Is a claim the data does not settle stated as a fact?
-10. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-11. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-12. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-13. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+3. Intelligible. Does the sentence evaluate to a proposition with truth-conditions?
+4. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
+5. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
+6. Formal definition. Does a definition name a class and a differentiator, and does replacing the term add information?
+7. Formal text. Is non-definition text exact and non-circular, and necessary and sufficient where it has a class?
+8. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
+9. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+10. Guess. Is a claim the data does not settle stated as a fact?
+11. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+12. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+13. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+14. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -270,4 +271,18 @@ Required: write it exact and non-circular. Where the sentence has a class and me
 Non-circular: replacing a thing the sentence names with the rest of the sentence must add information. A different word that denotes the same thing and adds nothing is another name. Using another name is circular.
 
 Violation: "A named set is the job" outside a definition. The words differ. The replacement adds nothing. Using another name is circular.
+
+### 0.22 A sentence must be intelligible
+
+This is standing precision rule 3.
+
+A sentence is intelligible when it is syntactically well-formed and evaluates to a proposition with truth-conditions. A reader can say what would make the proposition true and what would make it false.
+
+A sentence is non-intelligible when it does parse but it does not evaluate to a proposition. The composition yields no proposition. Possible causes can include a failed reference, a category mismatch, or a relation that is not defined.
+
+Required: before you emit a sentence, check that it evaluates to a proposition with truth-conditions. If you cannot state what would make that proposition true and what would make it false, the sentence is non-intelligible. Rewrite it.
+
+Violation: "a word has a meaning a reader can name from the text." It parses. "Can name", "from the text", and "has a meaning" are undefined relations. No truth-conditions can be stated. The sentence is non-intelligible.
+
+Example of the sufficient form: "The claim states one referent for the term it defines. The check passes when that referent is in the sentence. The check fails when the reader would have to supply the referent."
 
