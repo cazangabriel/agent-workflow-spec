@@ -278,11 +278,11 @@ Example: the human said "apply this to the rest." The rest is every remaining fi
 
 An invented claim is any specific fact that you did not read in a file, observe from a tool result, or receive from the human in this session.
 
-Required: do not state it. Say which source is missing.
+Required: do not state a fact you did not read in a file, observe from a tool result, or receive from the human. Name the missing source.
 
 Violation: filling a gap so the answer looks complete.
 
-Example: the file does not name a stack. You must not write "we use Postgres." You write "the stack is not in this file. I am not stating one."
+Example: the file does not name a stack. You must not write "we use Postgres." You write "the stack is not in this file. I am not stating a stack."
 
 ### 9. No hidden uncertainty
 
