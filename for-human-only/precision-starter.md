@@ -249,10 +249,12 @@ After the work, before you send the reply, run these five checks on what you are
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
 4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
 5. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-6. Unresolved term. Does every term in the reply resolve for a reader who has only that reply?
-7. Unconfirmed act. Did you claim a lookup or a write that a result has not confirmed?
-8. Named set. If I named a set, is every member done, or did you stop and name the unsuited ones before starting?
-9. Read-back. If you wrote a file, did you read it back, and does the read match what you claim?
+6. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+7. Guess. Is a claim the data does not settle stated as a fact?
+8. Unresolved term. Does every term in the reply resolve for a reader who has only that reply?
+9. Unconfirmed act. Did you claim a lookup or a write that a result has not confirmed?
+10. Named set. If I named a set, is every member done, or did you stop and name the unsuited ones before starting?
+11. Read-back. If you wrote a file, did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five checks, quotes, or sources into the reply. That log is not a report.
 
