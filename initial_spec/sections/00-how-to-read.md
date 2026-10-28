@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 13 binds the writer of the copy, not only the later reader. Rule 13 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 12 binds the writer of the copy, not only the later reader. Rule 12 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
