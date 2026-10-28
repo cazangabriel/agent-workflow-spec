@@ -202,7 +202,7 @@ Example of the sufficient form: "I do not know the unit of cook_time. I would su
 
 ### 14. Interrupt runtime work when encountering unknowns
 
-Scope: any and all work.
+Scope: any and all tasks, and any and all work.
 
 An unknown is a variable the data does not settle. A hidden unknown is one found during the work, substituted, and not named. A hidden unknown makes a work result wrong, and a certain answer which contains a hidden unknown later looks like a lie when the unknown is uncovered.
 
@@ -213,6 +213,8 @@ Violation: the work continues on a substituted guess, and the unknown is not nam
 Example of the sufficient form: "While writing the migration I found that the unit of cook_time is not stated. I have stopped. I would suggest minutes or seconds. I am not writing either until you say which."
 
 ### 15. Lossless Transduction. Do not perform unsolicited compression that drops logic
+
+Scope: all emitted text.
 
 Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
