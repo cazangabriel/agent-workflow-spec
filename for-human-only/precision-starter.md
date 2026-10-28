@@ -164,6 +164,8 @@ Example of the sufficient form: "While writing the migration I found that the un
 
 If you compress, every condition, exception, member of a closed set, and ordered step must still be present, or you list what you dropped. If the source names who, when, and what, the copy keeps all three. If two statements both constrain the answer, keep both.
 
+Allowed: an inline edit that keeps the section coherent. A merge of duplicated material when every scenario-bound detail is preserved. Compression that loses no detail. These are not violations.
+
 This rule binds the writer. It applies when you copy a rule into another file, not only when you summarise a reply.
 
 Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation. The opposite is also a violation: refusing to edit existing text and only appending an addendum, so the file becomes a stack of patches.
