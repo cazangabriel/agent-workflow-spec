@@ -286,6 +286,8 @@ Example of the sufficient form: "A named set is a collection the human listed. A
 
 ### 7. Logical blanket clause. All text that is not a definition must be exact and non-circular, and necessary and sufficient where there is a class
 
+Scope: all emitted text which is not a definition.
+
 Required: write it exact and non-circular. Where the sentence has a class and members, also make it necessary and sufficient. Where it has no class, do not invent one.
 
 Non-circular: replacing a thing the sentence names with the rest of the sentence must add information. A different word that denotes the same thing and adds nothing is another name. Using another name is circular.
