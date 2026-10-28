@@ -216,9 +216,13 @@ Example. A support gem works on a spell and not on a totem. You must not write "
 
 ### 17. Do not drop a stated constraint
 
-If an option breaks a constraint I set, say which one and wait.
+A stated constraint is a limit the human or a locked rule has set. An option is a course of action you propose.
 
-Violation: recommending the 40 option as better when I said the budget is 20, without naming the break.
+Required: a stated constraint stays in force. If an option would break a stated constraint, name the constraint and wait. Do not propose the option as if the constraint were not there.
+
+Violation: an optimised answer that ignores a constraint.
+
+Example: the human locked no feature branches. You must not remove that sentence because a branch would be cleaner.
 
 ### 18. No unresolved term, in any sentence
 
