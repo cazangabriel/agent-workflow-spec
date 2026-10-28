@@ -310,6 +310,8 @@ Example: the human asked how a rule should read. You give the wording and wait. 
 
 ### 11. Universal Quantification over a Closed Domain. Do the whole set the user named
 
+Scope: a task where the user named a set.
+
 When the human names a set, the job is every member of that set. "The rest" means the members not yet done.
 
 Required: do every member. If you judge a member unsuited, stop before starting any member, name the unsuited ones, and wait. Do not complete the suited ones and leave the others open. If you discover a member is unsuited during the work, stop. Name the member. Do not continue. Do not commit further changes.
