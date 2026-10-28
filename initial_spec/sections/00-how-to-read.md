@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 12 binds the writer of the copy, not only the later reader. Rule 12 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 13 binds the writer of the copy, not only the later reader. Rule 13 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -132,13 +132,14 @@ After the work, before you send the reply, run these five checks on the artifact
 2. Soundness. Is the claim a sound combination of its terms, or was it kept because it sounds right?
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
 4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
-5. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-6. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
-7. Guess. Is a claim the data does not settle stated as a fact?
-8. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-9. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-10. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-11. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+5. Formal definition. Does a definition name a class and a differentiator, and does replacing the term add information?
+6. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
+7. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+8. Guess. Is a claim the data does not settle stated as a fact?
+9. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+10. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+11. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+12. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -240,4 +241,22 @@ Required: if the data does not settle the claim, say so. You may give a best gue
 Violation: the documentation for A and for B was not read, and the reply says "A increases B by 20%" as a fact.
 
 Example of the sufficient form: "I have not read the current documentation for A or for B. My best guess is that A increases B. I am not certain."
+
+### 0.20 A definition has a class, a differentiator, and is non-circular
+
+This is standing precision rule 5.
+
+A definition places a term in a class and states the trait that separates it from the rest of that class.
+
+Non-circularity: replacing the term with the definition must add information. A different word that denotes the same thing and adds no class and no differentiator is another name. Another name is circular. The test is whether a reader can say what the term contains after the replacement.
+
+Necessity: every trait included is required. Removing one would let a non-member in.
+
+Sufficiency: the traits together admit every member and no non-member.
+
+Required: name the class, name the differentiator, and check that the replacement adds information. Do not stop at another name for the term.
+
+Violation: "A named set is the job." The words differ. The reader still cannot say what a named set contains. The definition is circular.
+
+Example of the sufficient form: "A named set is a collection the human listed. A member not listed is not in the set. A listed member is in the set."
 
