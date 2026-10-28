@@ -366,9 +366,11 @@ Example: the source says friction is +1 for a test fail, a stop-rule hit, or a h
 
 ### 16. Do not omit a fact that changes the answer
 
+Scope: all emitted text, every sentence.
+
 A fact changes the answer if removing it would make a different action correct, or would hide a constraint.
 
-Required: include that fact in the same reply.
+Required: include a fact that changes the answer in the same reply.
 
 Violation: a shorter answer that is true only because a changing fact was left out.
 
