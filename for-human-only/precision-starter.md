@@ -130,7 +130,7 @@ If you compress, every condition, exception, member of a closed set, and ordered
 
 This rule binds the writer. It applies when you copy a rule into another file, not only when you summarise a reply.
 
-Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation. The opposite is also a violation: refusing to edit existing text and only appending an addendum, so the file becomes a stack of patches.
 
 Example. I said friction is +1 for a test fail, a stop-rule hit, or a send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails."
 
