@@ -260,7 +260,7 @@ Violation: "A named set is the job" outside a definition. The words differ. The 
 
 ### 8. Name the thing in the sentence
 
-A pronoun stands for a thing already named. If the thing is not named in the same sentence, a reader who has only that sentence cannot say what the pronoun refers to.
+A pronoun stands for a thing already named. If the thing is not named in the same sentence, a reader who has only that sentence cannot say what the pronoun refers to. A pronoun whose referent is named in the same sentence is valid. The word class does not matter. "It", "otherwise", "such", and "this" are the same failure when the thing they point at is not named in the sentence.
 
 Required: name the thing in the sentence, or repeat the noun. Do not rely on the previous sentence to supply it.
 
