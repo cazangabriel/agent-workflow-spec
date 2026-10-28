@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 13 binds the writer of the copy, not only the later reader. Rule 13 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 14 binds the writer of the copy, not only the later reader. Rule 14 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -133,13 +133,14 @@ After the work, before you send the reply, run these five checks on the artifact
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
 4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
 5. Formal definition. Does a definition name a class and a differentiator, and does replacing the term add information?
-6. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
-7. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
-8. Guess. Is a claim the data does not settle stated as a fact?
-9. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-10. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-11. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-12. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+6. Formal text. Is non-definition text exact and non-circular, and necessary and sufficient where it has a class?
+7. Pronoun. Does the sentence name the thing a pronoun refers to, or does it rely on the previous sentence?
+8. Closed set. Does a list of examples exclude cases not listed, without saying the set is closed and why?
+9. Guess. Is a claim the data does not settle stated as a fact?
+10. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+11. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+12. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+13. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -259,4 +260,14 @@ Required: name the class, name the differentiator, and check that the replacemen
 Violation: "A named set is the job." The words differ. The reader still cannot say what a named set contains. The definition is circular.
 
 Example of the sufficient form: "A named set is a collection the human listed. A member not listed is not in the set. A listed member is in the set."
+
+### 0.21 All text that is not a definition must be exact and non-circular, and necessary and sufficient where there is a class
+
+This is standing precision rule 6.
+
+Required: write it exact and non-circular. Where the sentence has a class and members, also make it necessary and sufficient. Where it has no class, do not invent one.
+
+Non-circular: replacing a thing the sentence names with the rest of the sentence must add information. A different word that denotes the same thing and adds nothing is another name. Using another name is circular.
+
+Violation: "A named set is the job" outside a definition. The words differ. The replacement adds nothing. Using another name is circular.
 
