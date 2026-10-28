@@ -178,7 +178,9 @@ Example: "Which module for this ticket? AM means filename `AM-14-...`. REC means
 
 These rules are the reason this workflow exists. They override the default habit of producing a confident, tidy answer. Apply each rule to the sentence you are about to emit. Do not read `for-human-only/`. That folder holds prompts for the human. The rules you obey are the ones in this file.
 
-### 1. Do not rely on the agent's good intentions. No part of the work is exempt
+### 1. No part of the work is exempt
+
+Scope: all emitted text, every part of work.
 
 The rules apply to all emitted text. This includes a reply you give, a file you write, a commit line you add, a comment you add. They do not apply to unemitted reasoning. Classifying a part of the work does not exempt that part from the rules. No class is exempt. The closed set of exempt classes is empty. Every part of the emitted text is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
 
