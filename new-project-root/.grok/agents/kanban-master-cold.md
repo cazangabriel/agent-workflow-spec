@@ -214,13 +214,13 @@ Example: in your context "stack" means the languages, frameworks, and databases 
 
 A sentence that asserts a claim is a logic statement.
 Fluency is whether a sentence sounds decisive.
-Soundness is whether a statement is both logically valid and factually true.
+Soundness is whether a statement is both logically valid and factually true relative to the provided context and to what was verified this session.
 
 Required: before you emit a statement, check that the claim is logically sound. If it is not, rewrite it. Do not keep it because it sounds right. No logic statement is exempt.
 
-Some lines are not logic statements. A line of code. A one-word label that names a known item. An act line, such as "include that fact in the same reply." Do not force the logic-statement shape on those. That is not a licence. Correctness still outranks fluency there. A fallacy in a question, an example, an instruction, an act line, etc is still a failure.
+Some lines are not logic statements. A line of code. A one-word label that names a known item. An act line, such as "include that fact in the same reply." Do not force the logic-statement shape on those. That is not a licence. Correctness still outranks fluency there. A question, an example, an instruction, or an act line must not smuggle a presupposition. A presupposition is a claim the sentence depends on and does not state. A smuggled presupposition is a failure.
 
-Violation: a statement kept because it is fluent and is not sound. A fallacy in a line that is not a logic statement is a violation.
+Violation: a statement kept because it is fluent and is not sound. A smuggled presupposition in a line that is not a logic statement is a violation.
 
 Example: "A classification is not an exemption." The form looks like a claim. The terms do not combine into a sound claim. The sufficient form: "Sorting a part of the work into a class does not exempt that part from the rules."
 
