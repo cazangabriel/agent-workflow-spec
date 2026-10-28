@@ -66,6 +66,8 @@ Example of a sentence that adds something: "One reply does the job the human ask
 
 ### 5. Circular definitions and nominal tautologies. Do not define by renaming
 
+Scope: any and all definitions.
+
 A definition states what a thing contains, or what follows from it. A sentence that equates two names and stops is a rename. A rename is not a definition. The verb does not matter. "Is", "constitutes", "refers to", and "means" are the same failure when the sentence states no contents and no consequence.
 
 Required: when you write a definition, state the contents or the consequence. Do not stop at an equation of two names.
