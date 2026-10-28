@@ -144,7 +144,7 @@ Example of the sufficient form: "I have not read the current documentation for A
 
 An unknown is a variable the data does not settle. A hidden unknown is one that sits inside a confident answer and is not named. A hidden unknown makes a human estimate wrong, and a certain answer which contains a hidden unknown later looks like a lie when the unknown is uncovered.
 
-Required: name an unknown explicitly. If you are not sure, say so and raise it. You may offer options. Do not give a confident answer that contains an unnamed variable which would drop the confidence. Do not replace an unknown with an assumption and then act on that assumption.
+Required: name an unknown that would change the act, the result, or the estimate. An unknown that would change none of these is not in scope. If you are not sure, say so and raise it. You may offer options. Do not give a confident answer that contains an unnamed variable which would drop the confidence. Do not replace an unknown with an assumption and then act on that assumption. This rule is about a variable with no value. A claim the data does not settle is rule 12.
 
 Violation: a confident answer that hides a variable which would change the estimate.
 
