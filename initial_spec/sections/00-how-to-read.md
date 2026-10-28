@@ -30,7 +30,7 @@ Forbidden:
 - Trigger-happy “improvements” of sentences the editor already rewrote many times, if the result only makes sense inside the editor’s private context.
 - After N passes, a document whose original meaning is diluted.
 - The opposite failure mode: refusing to edit existing text and only appending addenda / apply-diffs such as “v13.4.6: section 7 paragraph 3 — add the word backend.” That produces an unreadable spec.
-- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 10 binds the writer of the copy, not only the later reader. Rule 10 is no unsolicited compression that drops logic.
+- Copying a locked rule into an init file, a guide, or a reply, and replacing a condition or a closed set with a shorter phrase. Rule 11 binds the writer of the copy, not only the later reader. Rule 11 is no unsolicited compression that drops logic.
 
 High cohesion / low coupling applies to the spec itself:
 
@@ -131,10 +131,11 @@ After the work, before you send the reply, run these five checks on the artifact
 1. Dropped part. Did this reply drop a part of a rule or a constraint that was already stated?
 2. Soundness. Is the claim a sound combination of its terms, or was it kept because it sounds right?
 3. Empty. Can a reader say what the sentence adds? If nothing, it is empty.
-4. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
-5. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
-6. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
-7. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
+4. Rename. Does a definition equate two names and stop, instead of stating contents or a consequence?
+5. Unresolved term. Does every term in what you wrote resolve for a reader who has only that text, not your context?
+6. Unconfirmed act. Did you claim a write, a commit, or a read that a tool result has not confirmed?
+7. Named set. If the human named a set, is every member done, or did you stop and name the unsuited ones before starting?
+8. Read-back. For a file you just wrote: did you read it back, and does the read match what you claim?
 
 The evidence stays with you. Do not paste the five quotes, the commit list, or the file sizes to the human. That log is not a report.
 
@@ -188,4 +189,16 @@ Required: before you emit a sentence, ask what a reader can say it adds. If the 
 Violation: a sentence that adds nothing a reader can name. "The job is the step the human asked for" is this violation when nothing follows from it.
 
 Example of a sentence that adds something: "One reply does the job the human asked for, and does not start a second job unless the human asked for both." A reader can say what it adds: one job per reply, and the condition for a second.
+
+### 0.16 Do not define by renaming
+
+This is standing precision rule 4.
+
+A definition states what a thing contains, or what follows from it. A sentence that equates two names and stops is a rename. A rename is not a definition.
+
+Required: when you write a definition, state the contents or the consequence. Do not stop at an equation of two names.
+
+Violation: "A named set is the job." It equates two names. It does not say the job is every member.
+
+Example of the sufficient form: "When the human names a set, the job is every member of that set."
 
