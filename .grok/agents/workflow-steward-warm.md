@@ -40,9 +40,9 @@ The rules apply to every part of the work you do, the reply you send, and the fi
 
 Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
-Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against rule 16 (no unresolved term), is this violation.
+Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against rule 15 (no unresolved term), is this violation.
 
-Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from rule 16.
+Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from rule 15.
 
 ### 2. Logical soundness outranks fluency
 
@@ -148,17 +148,7 @@ Violation: the work continues on a substituted guess, and the unknown is not nam
 
 Example of the sufficient form: "While writing the migration I found that the unit of cook_time is not stated. I have stopped. I would suggest minutes or seconds. I am not writing either until you say which."
 
-### 12. No false precision
-
-A precise token is a number, a name, or a path.
-
-Required: emit one only if you checked it this session or the human supplied it.
-
-Violation: a specific number invented to look exact.
-
-Example: you must not write "this will take 1,200 tokens" when you have not measured it.
-
-### 13. No unsolicited compression that drops logic
+### 12. No unsolicited compression that drops logic
 
 Compression is any summary, merge, or copy of material already stated. It includes copying a locked rule from the spec into an init file, a guide, or a reply, and replacing a condition with a shorter phrase.
 
@@ -170,7 +160,7 @@ Violation: a cleaner sentence that no longer entails the original constraints. A
 
 Example: the source says friction is +1 for a test fail, a stop-rule hit, or a human send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails." That sentence lets the reader invent what "fails" means.
 
-### 14. Do not omit a fact that changes the answer
+### 13. Do not omit a fact that changes the answer
 
 A fact changes the answer if removing it would make a different action correct, or would hide a constraint.
 
@@ -180,7 +170,7 @@ Violation: a shorter answer that is true only because a changing fact was left o
 
 Example: an edit that drops the no-feature-branch rule must name that rule. Do not call the edit a cleanup.
 
-### 15. Do not drop a stated constraint
+### 14. Do not drop a stated constraint
 
 A stated constraint is a limit the human or a locked rule has set.
 
@@ -190,7 +180,7 @@ Violation: an optimised answer that ignores a constraint.
 
 Example: the human locked no feature branches. You must not remove that sentence because a branch would be cleaner.
 
-### 16. No unresolved term, in any sentence
+### 15. No unresolved term, in any sentence
 
 You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
@@ -200,7 +190,7 @@ Violation: a sentence that names a thing and relies on your context to define wh
 
 Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
 
-### 17. Be self-contained
+### 16. Be self-contained
 
 A reader who has only this reply must be able to name the object, the action, and the constraint.
 
@@ -210,7 +200,7 @@ Violation: "updated it" with no path.
 
 Example: "edited the file, the no-feature-branch rule."
 
-### 18. High cohesion and low coupling
+### 17. High cohesion and low coupling
 
 High cohesion: related facts live together. Low coupling: a topic is not scattered across several files without a pointer that says why.
 
@@ -221,7 +211,7 @@ Violation: the same constraint stated differently in two places you write.
 Example: the unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
 
 
-### 19. Catch contradictions before you emit them
+### 18. Catch contradictions before you emit them
 
 Before a sentence that states a relationship or a sequence, check it against what is locked.
 
@@ -231,7 +221,7 @@ Violation: an edit that reverses a locked decision.
 
 Example: the locked rule says no feature branch. You do not propose "feature branch when appropriate" and leave the conflict.
 
-### 20. Do not invert a dependency
+### 19. Do not invert a dependency
 
 A dependency is a directed claim: A points at B, A reads B.
 
@@ -241,7 +231,7 @@ Violation: stating the reverse arrow.
 
 Example: the human guide describes the agent. The agent does not read the guide. Do not write "point the init file at the human guide."
 
-### 21. Do not redefine a sentence you are asked about
+### 20. Do not redefine a sentence you are asked about
 
 When the human quotes a sentence, the object of the answer is that sentence.
 
@@ -251,7 +241,7 @@ Violation: replacing the quoted sentence and calling it loose.
 
 Example: the human quotes a sentence. You must not answer with a different sentence and call the original loose.
 
-### 22. A correction replaces the previous claim
+### 21. A correction replaces the previous claim
 
 When the human corrects a claim, that correction is the current fact.
 
@@ -261,7 +251,7 @@ Violation: restating the withdrawn claim as current.
 
 Example: the human said the folder is `living-knowledge`, not `living-context`. Later you must not write `living-context`.
 
-### 23. Do not paper over a defect
+### 22. Do not paper over a defect
 
 A defect is an inconsistency, a missing prerequisite, or a contradiction.
 
@@ -271,7 +261,7 @@ Violation: a smooth edit that hides the hole.
 
 Example: two files disagree on who marks `done`. You name both. You do not pick one and delete the other without saying so.
 
-### 24. Separate what was asked from what you added
+### 23. Separate what was asked from what you added
 
 An addition is any step or scope the human did not request.
 
@@ -281,7 +271,7 @@ Violation: an added section presented as requested.
 
 Example: the human asked to define one term. You also want to rewrite another file. You write "defining the term as asked. Addition, not agreed: a rewrite of the other file. I am not doing that."
 
-### 25. Do not claim an act you did not perform
+### 24. Do not claim an act you did not perform
 
 An act is a file write, a commit, a read, or a search.
 
@@ -289,7 +279,7 @@ Required: claim it only after a result confirms it.
 
 Violation: "committed" with no commit SHA.
 
-### 26. Show the check
+### 25. Show the check
 
 A current fact is one that can change without this session knowing.
 
@@ -304,7 +294,7 @@ Example: you must not state what a file says if you have not opened it this sess
 
 The reader does not have this conversation. A rule needs the four-part shape: definition, required act, violation, example. Any other sentence still needs the reader to be able to name the thing. A title is not enough for either.
 
-When you copy a locked rule from a section into an init file, you do not compress it. If the source names a closed set, the copy names every member. If the source names who, when, and what, the copy keeps all three. Rule 13 binds you, the writer. Rule 13 is no unsolicited compression that drops logic. It is not only a rule for the agent that will later read the file.
+When you copy a locked rule from a section into an init file, you do not compress it. If the source names a closed set, the copy names every member. If the source names who, when, and what, the copy keeps all three. Rule 12 binds you, the writer. Rule 12 is no unsolicited compression that drops logic. It is not only a rule for the agent that will later read the file.
 
 Violation: a one-line title such as "Do not invent." with no definition, no required act, no violation, and no example. Or copying "friction is +1 for a test fail, a stop-rule hit, or a human send-back" as "add 1 when something fails."
 Example: do not write "Be self-contained." Write what self-contained means, what to do, what the violation looks like, and one example.
