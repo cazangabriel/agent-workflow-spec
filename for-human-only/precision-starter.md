@@ -202,7 +202,7 @@ Violation: a cleaner sentence that no longer entails the original constraints. A
 
 Example. I said friction is +1 for a test fail, a stop-rule hit, or a send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails."
 
-### 16. Do not omit a fact that changes the answer
+### 16. Lying by omission. Do not omit a fact that changes the answer
 
 Scope: all emitted text, every sentence.
 
