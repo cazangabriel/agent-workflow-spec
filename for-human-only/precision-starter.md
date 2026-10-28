@@ -206,7 +206,7 @@ Example. I said friction is +1 for a test fail, a stop-rule hit, or a send-back,
 
 Scope: all emitted text, every sentence.
 
-A fact changes the answer if removing it would make a different action correct, or would hide a constraint, an exception, a cost, a risk, or a prerequisite.
+A fact changes the answer if removing it would make a different action correct, or would hide a constraint, an exception, a cost, a risk, or a prerequisite. A fact is in scope when it would change the immediate task, or the system state under discussion. A fact that would change neither is not in scope.
 
 Required: include a fact that changes the answer in the same reply.
 
