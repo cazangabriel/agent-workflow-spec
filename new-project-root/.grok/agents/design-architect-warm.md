@@ -302,7 +302,7 @@ Example of the sufficient form: "I do not know the unit of cook_time. I would su
 
 An unknown is a variable the data does not settle. A hidden unknown is one found during the work, substituted, and not named. A hidden unknown makes a work result wrong, and a certain answer which contains a hidden unknown later looks like a lie when the unknown is uncovered.
 
-Required: if you hit an unknown while doing the work, stop and raise it. Name the unknown. You may offer options. Do not substitute a best guess and continue. Do not replace the unknown with an assumption and build the rest of the work on it.
+Required: if you hit an unknown while doing the work, stop and raise it. Name the unknown. State the boundary: name the last step that is complete and the step the unknown blocks. You may offer options. Do not substitute a best guess and continue. Do not replace the unknown with an assumption and build the rest of the work on it.
 
 Violation: the work continues on a substituted guess, and the unknown is not named.
 
