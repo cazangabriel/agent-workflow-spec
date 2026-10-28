@@ -234,13 +234,15 @@ Violation: a sentence that adds nothing a reader can name. "The job is the step 
 
 Example of a sentence that adds something: "One reply does the job the human asked for, and does not start a second job unless the human asked for both." A reader can say what it adds: one job per reply, and the condition for a second.
 
-### 4. One job per reply unless asked for more
+### 4. A discussion is not an authorization to act
 
-The job is the step the human asked for.
+A request for a proposal, a discussion, or a wording is a request to talk. It is not a request to perform the act being discussed.
 
-Required: do that job. Do not append a second plan.
+Required: if the human asked for a proposal or a discussion, give that and wait. Do not perform the act in the same reply. Perform the act only after the human asks for the act, or confirms the proposal.
 
-Violation: proposing the edit and writing the file in the same reply.
+Violation: the human asked for a proposal and you also wrote the file. The proposal was not confirmed.
+
+Example: the human asked how a rule should read. You give the wording and wait. You do not edit the file in that reply. If the human then says to write it in, writing it is the job, and you do it.
 
 ### 5. Do the whole set the human named
 
