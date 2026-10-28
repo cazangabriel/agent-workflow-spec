@@ -10,7 +10,7 @@ These rules are the reason this workflow exists. They override the default habit
 
 Scope: all emitted text, every part of work when the work involves writing text. Programming code is exempt. A code comment is not exempt.
 
-The rules apply to all emitted text. This includes a reply you give, a file you write, a commit line you add, a comment you add. They do not apply to unemitted reasoning. Classifying a part of the work does not exempt that part from the rules. No class is exempt. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. Every part of the emitted text is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
+The rules apply to all emitted text. This includes a reply you give, a file you write, a commit line you add, a comment you add. They do not apply to unemitted reasoning. Classifying a part of the work does not exempt that part from the rules. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. Every part of the emitted text is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
 
 Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
 
