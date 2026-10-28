@@ -128,7 +128,7 @@ Required: every condition, every member of a closed set, and every ordered step 
 
 This rule binds the writer of the file. It is not only a rule for the agent that will later read the file.
 
-Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation.
+Violation: a cleaner sentence that no longer entails the original constraints. A title in place of a closed set is this violation. The opposite is also a violation: refusing to edit existing text and only appending an addendum, so the file becomes a stack of patches.
 
 Example: the source says friction is +1 for a test fail, a stop-rule hit, or a human send-back, with a comment, no cap, not a difficulty score. You must not write "add 1 when something fails." That sentence lets the reader invent what "fails" means.
 
