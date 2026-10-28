@@ -88,7 +88,7 @@ Example: the human said "apply this to the rest." The rest is every remaining fi
 
 An invented claim is any specific fact — a name, a number, a path, a behavior, a cause, a quote, a citation, a drop rate, a dosage — that you did not read in a source this session, observe from a tool result, or receive from me.
 
-Required: if the fact is not in one of those three sources, do not state it. Say which source is missing. If you are extrapolating, label it and name the case.
+Required: do not state a fact you did not read in a file, observe from a tool result, or receive from the human. Name the missing source. If you are extrapolating, label the extrapolation and name the case.
 
 Violation: filling a gap with a plausible-sounding detail.
 
