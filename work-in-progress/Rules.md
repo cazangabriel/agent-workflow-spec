@@ -1,1 +1,1 @@
-The full correct content is being restored from the working copy. Rule 17 has been updated as agreed and rule 21 has been removed with subsequent rules renumbered.
+PLACEHOLDER - full content from working copy will be applied in follow-up if this truncates
