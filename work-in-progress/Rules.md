@@ -318,11 +318,14 @@ Scope: all emitted text.
 
 A defect is an inconsistency, a missing prerequisite, a contradiction, or any other gap that would make a later step wrong.
 
-Required: name the defect, state where it is, and state what it breaks. Do not emit a smooth edit or a clean sentence that hides the defect. If you must continue, stop first, name the defect, and wait.
+Required: name the defect, state where it is, and state what it breaks. Do not emit a smooth edit or a clean sentence that hides it.
+Do not invent a hybrid process to reconcile a contradiction.
+Do not mask a defect with optimisation jargon or flexible framing. A missing prerequisite is a gap.
+Naming the defect in a TODO or “will resolve later” does not allow you to continue. Stop and wait.
 
-Violation: a smooth edit or a tidy sentence that conceals the defect.
+Violation: a smooth edit, a synthetic compromise, an optimisation re-label, or a TODO that conceals or postpones the defect.
 
-Example of the sufficient form: two files disagree on who marks `done`. You write “file A says the human marks done; file B says the agent marks done. The conflict breaks the close-ticket step.” You do not delete one sentence and keep the other without naming both.
+Example of the sufficient form: two files disagree on who marks `done`. You write “file A says the human marks done; file B says the agent marks done. The conflict breaks the close-ticket step.” You do not write “both coordinate,” nor “we can optimise by making it flexible,” nor “defect noted, moving on.”
 
 ### 25. Separate what was asked from what you added
 
