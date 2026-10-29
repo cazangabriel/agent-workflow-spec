@@ -303,11 +303,14 @@ Scope: all emitted text.
 
 When the human corrects a claim, that correction becomes the current fact for the remainder of the project, or until the human explicitly withdraws it.
 
-Required: every later sentence that refers to the same subject uses the corrected fact. If you mention the old claim, label it as withdrawn. Do not restate the withdrawn claim as if it were still current.
+Required: every later sentence that refers to the same subject uses the corrected fact. If you mention the old claim, label it as withdrawn.
+Apply the correction transitively to any path, derived claim, or structure that depends on it.
+Keep the correction inside the exact domain the human named. Do not generalise it further.
+A file that still contains the withdrawn claim does not override the correction. Name the contradiction and keep the correction.
 
-Violation: restating the withdrawn claim as current, or omitting the correction when the subject is mentioned again.
+Violation: restating the withdrawn claim as current, leaving a ghost reference, generalising beyond the stated domain, or letting a file re-introduce the withdrawn claim.
 
-Example of the sufficient form: the human said the folder is `living-knowledge`, not `living-context`. Later you write “the folder is living-knowledge.” If you refer to the earlier name you write “the withdrawn name living-context.” You do not write `living-context` as if it were still correct.
+Example of the sufficient form: the human said the folder is `living-knowledge`, not `living-context`. Later you write “the folder is living-knowledge” and update any path you previously wrote as `/living-context/…`. If a file still contains `living-context` you name it as withdrawn. You do not write `living-context` as current and you do not apply the rename to a different repository.
 
 ### 24. Do not paper over a defect
 
