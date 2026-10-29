@@ -4,15 +4,15 @@ These rules are the reason this workflow exists. They override the default habit
 
 ### 1. No part of the work is exempt
 
-Emitted text is every sequence of characters an agent writes in a reply or in a file. The closed set of exempt classes contains exactly one member. That member is programming code. Programming code is text a compiler or interpreter executes as instructions. A code comment is text a compiler or interpreter ignores. A code comment is not programming code. A code comment is not exempt.
+You are the agent. Emitted text is every sequence of characters an agent writes in a reply or in a file. The closed set of exempt classes contains exactly one member. That member is programming code. Programming code is text a compiler or an interpreter executes as instructions. A compiler is a program that translates source text into executable instructions. An interpreter is a program that executes source text directly. A code comment is text a compiler or an interpreter ignores. A code comment is not programming code. A code comment is not exempt.
 
-Required: before an agent emits any sequence of characters, the agent runs every rule in this file on that sequence. The agent does not classify any sequence as outside the rules.
+Required: before an agent emits any sequence of characters, the agent runs every rule that appears in the file work-in-progress/Rules.md on that sequence. The agent does not classify any sequence as outside the rules that appear in the file work-in-progress/Rules.md.
 
-Every character that appears inside the text of a numbered rule is emitted text. The closed set of characters that must be checked against every rule therefore contains every character that appears inside that numbered rule. No character inside a numbered rule is exempt.
+Every character that appears inside the text of a numbered rule is emitted text. The closed set of characters that must be checked against every rule that appears in the file work-in-progress/Rules.md therefore contains every character that appears inside that numbered rule. No character inside a numbered rule is exempt.
 
-Violation: an agent treats any emitted sequence as exempt because the sequence is structure or the remainder of a labeled field. An agent writes the remainder of a Scope, Description, Violation or Example label and fails to check that remainder against the rules. An agent writes the single word “Stack.” because the word is a bullet and fails to check the word against the rules.
+Violation: an agent treats any emitted sequence as exempt because the sequence is structure or the remainder of a labeled field. An agent writes the remainder of a Scope, Description, Violation or Example label and fails to check that remainder against the rules that appear in the file work-in-progress/Rules.md. An agent writes the single word “Stack.” because the word is a bullet and fails to check the word against the rules that appear in the file work-in-progress/Rules.md.
 
-Example: an agent knows that the term “stack” names the languages, frameworks and databases this product uses. The agent adds the single word “Stack.” to a checklist. A reader who has only the checklist falls back to the dictionary definition of the word stack. The reader does not recover the agent’s meaning.
+Example: an agent knows that the term “stack” names the languages, frameworks and databases the product under development uses. The agent adds the single word “Stack.” to a checklist. A reader who has only the checklist falls back to the dictionary definition of the word stack. The reader does not recover the agent’s meaning.
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
