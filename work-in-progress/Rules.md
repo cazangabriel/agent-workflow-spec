@@ -96,15 +96,15 @@ Non-circular: replacing a thing the sentence names with the rest of the sentence
 
 Violation: "A named set is the job" outside a definition. The words differ. The replacement adds nothing. Using another name is circular.
 
-### 8. Eliminate cross-sentence anaphora. Name the thing in the sentence
+### 8. Eliminate unrecoverable reference. Name the thing or place it in recoverable text
 
 Scope: all emitted text.
 
-A pronoun stands for a thing already named. The intended reader is the agent executing these rules or the human reading a reply. If the thing is not named in the same sentence, and the intended reader cannot name the referent from the sentence and ordinary dictionary meanings, the sentence fails. A pronoun whose referent is named in the same sentence is valid. The word class does not matter. "It", "otherwise", "such", and "this" are the same failure when the intended reader cannot name the thing they point at from the sentence and ordinary dictionary meanings.
+A referring expression fails when the intended reader cannot name its referent from the emitted text that contains the expression and ordinary dictionary meanings. The emitted text is the file, the reply, or the conversation available to the reader. The writer’s private context does not supply a referent. A pronoun whose referent is recoverable from that emitted text is valid. "It", "otherwise", "such", and "this" are examples of the same failure when the intended reader cannot name the thing they point at from the emitted text and ordinary dictionary meanings.
 
-Required: name the thing in the sentence, or repeat the noun, unless the intended reader can name the referent from the sentence and ordinary dictionary meanings. Do not rely on the previous sentence to supply a referent the intended reader cannot recover.
+Required: name the thing in the emitted text, or use a referring expression only when the referent is recoverable from that text. Do not rely on the writer’s private context.
 
-Violation: "Do not state it." The sentence names no thing for "it." The intended reader cannot say what must not be stated from that sentence and ordinary dictionary meanings.
+Violation: "Do not state it." The emitted text names no thing for "it." The intended reader cannot say what must not be stated from the emitted text and ordinary dictionary meanings.
 
 Example of the sufficient form: "Do not state a fact you did not read in a file, observe from a tool result, or receive from the human. Say which source is missing."
 
