@@ -314,13 +314,15 @@ Example of the sufficient form: the human said the folder is `living-knowledge`,
 
 ### 24. Do not paper over a defect
 
-A defect is an inconsistency, a missing prerequisite, or a contradiction.
+Scope: all emitted text.
 
-Required: name it, where it is, and what it breaks.
+A defect is an inconsistency, a missing prerequisite, a contradiction, or any other gap that would make a later step wrong.
 
-Violation: a smooth edit that hides the hole.
+Required: name the defect, state where it is, and state what it breaks. Do not emit a smooth edit or a clean sentence that hides the defect. If you must continue, stop first, name the defect, and wait.
 
-Example: two files disagree on who marks `done`. You name both. You do not pick one and delete the other without saying so.
+Violation: a smooth edit or a tidy sentence that conceals the defect.
+
+Example of the sufficient form: two files disagree on who marks `done`. You write “file A says the human marks done; file B says the agent marks done. The conflict breaks the close-ticket step.” You do not delete one sentence and keep the other without naming both.
 
 ### 25. Separate what was asked from what you added
 
