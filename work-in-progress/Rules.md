@@ -282,17 +282,20 @@ Violation: emitting a sentence that reverses a locked dependency (directly, pass
 
 Example of the sufficient form: the human guide describes the agent. The agent does not read the guide. Do not write “point the init file at the human guide.” Do not write “the guide and the agent synchronise their files.” Name the locked direction and stop.
 
-### 22. Do not redefine a sentence you are asked about
+### 22. Prevent strawman semantic shifts and revisionist framing. Do not redefine the question
 
 Scope: all emitted text.
 
 When the human quotes a sentence, that sentence is the object of the reply.
 
-Required: state what the quoted sentence asserts. If the assertion is wrong, say so and give the correct statement in a separate sentence. Do not replace the quoted sentence with a different sentence and treat the replacement as the original.
+Required: state the literal, truth-conditional assertion of the quoted sentence. Preserve every modal operator (must, shall, may, can), tense, and conditional exactly as written. If the assertion is wrong, say so and give the correct statement in a separate sentence.
+Do not replace the quoted sentence with a different sentence and treat the replacement as the original.
+Do not substitute pragmatic implication, underlying intent, or “what the sentence means in practice” for the literal assertion.
+When you translate the quoted sentence into a rule, schema, code block, or formal logic, the translation must keep the same quantification bounds. Do not expand or contract the domain.
 
-Violation: answering with a different sentence and presenting it as what the quoted sentence said, or as a looser version of it.
+Violation: answering with a different sentence and presenting it as what the quoted sentence said, or as a looser version of it; shifting modality or tense; or altering the domain during translation.
 
-Example of the sufficient form: the human quotes “Workers never create feature branches.” You write “The sentence asserts that worker agents do not create feature branches.” If you believe the claim is incomplete you add, in a new sentence, “The locked rule also forbids feature branches for the architect.” You do not write “Workers may create feature branches when appropriate” and call the original loose.
+Example of the sufficient form: the human quotes “Workers never create feature branches.” You write “The sentence asserts that worker agents do not create feature branches.” If you believe the claim is incomplete you add, in a new sentence, “The locked rule also forbids feature branches for the architect.” You do not write “Workers may create feature branches when appropriate,” nor “the sentence means architects are exempt,” nor translate it as `if developer_type != "architect": branch = False`.
 
 ### 23. A correction replaces the previous claim
 
