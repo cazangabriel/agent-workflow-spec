@@ -8,7 +8,7 @@ All emitted text is in scope. The closed set of exempt classes has one member: p
 
 Required: before you emit any part, run the rules on that part. Do not classify any part as outside the rules.
 
-=IMPORTANT= in the context of a rule, absolutely every unicode/ascii character that is part of that rule is considered to be emitted. there are Absolutely no exceptions. you MUST skip no more than 0 characters when interpreting a rule. absolutely every single character that exists in a rule must be processed. 0 exceptions, 0 exemptions, 0 skips.
+=IMPORTANT= in the context of a rule, absolutely every unicode/ascii character that is part of that rule is considered to be emitted. there are Absolutely no exceptions. you MUST skip no more than 0 characters when interpreting a rule. absolutely every single character that exists in a rule must be processed.
 
 Violation: treating any emitted part of text as exempt because it is structure or the remainder of a labeled field. Writing the remainder of a Rule's Scope, Description, Violation, Example label and failing to check that remainder against rules is this violation. Writing "Stack." because it is a bullet, and not checking it against the rules is this violation.
 
