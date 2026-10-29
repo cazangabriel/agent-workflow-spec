@@ -12,7 +12,7 @@ Required: before you emit any part, run the rules on that part. Do not evaluate 
 
 Violation: treating any emitted part as exempt because it functions as structure, metadata, front-matter, or scaffolding. Writing the Scope line of a rule and failing to check that line against rule 9 because the line sits under a structural label is this violation. Writing "Stack." because it is a bullet, and not checking it against the rule "no unresolved term, in any sentence", is this violation.
 
-Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from the rule "no unresolved term, in any sentence".
+Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. The meaning of "stack" as the languages, frameworks, and databases this product uses exists only in your context. The reader does not have the meaning of "stack" as the languages, frameworks, and databases this product uses and falls back to the dictionary word. The checklist class did not exempt the bullet "Stack." from the rule "no unresolved term, in any sentence".
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
