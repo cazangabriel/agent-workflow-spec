@@ -442,7 +442,7 @@ Violation: "updated it" with no name for what was updated.
 
 Example of the sufficient form: "Edited new-project-root/.grok/agents/worker-cold.md. The constraint was no feature branches. The edit did not add one."
 
-### 20. High cohesion and low coupling
+### 20. Reduce semantic drift. High cohesion and low coupling
 
 Scope: all emitted text, any file you write, and any task you structure. Programming code is in scope for this rule.
 
