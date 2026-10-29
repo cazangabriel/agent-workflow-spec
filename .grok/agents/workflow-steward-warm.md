@@ -266,13 +266,15 @@ Example: in your current context "stack" means a collection of programming langu
 
 ### 19. Be self-contained
 
-A reader who has only this reply must be able to name the object, the action, and the constraint.
+Scope: all agent replies.
 
-Required: name the file and the rule.
+A reply is self-contained when a reader who has only that reply can name what was done, to what, and under what constraint.
 
-Violation: "updated it" with no path.
+Required: name the thing acted on and the constraint that governed it. Do not write "updated it."
 
-Example: "edited the file, the no-feature-branch rule."
+Violation: "updated it" with no name for what was updated.
+
+Example of the sufficient form: "Edited new-project-root/.grok/agents/worker-cold.md. The constraint was no feature branches. The edit did not add one."
 
 ### 20. High cohesion and low coupling
 
