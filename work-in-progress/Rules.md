@@ -1,1 +1,1 @@
-PLACEHOLDER_FULL_CONTENT
+See /tmp/rules_new.md for full content - correcting placeholder
