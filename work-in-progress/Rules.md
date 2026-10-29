@@ -267,17 +267,20 @@ Examples:
 - Work. The steps for closing a ticket live in one place. A second guide points at that place. It does not list a different closing sequence.
 - Code. The function that computes the unit lives in one module. A caller imports it. It does not copy the function and change the unit.
 
-### 21. Do not invert a dependency
+### 21. Avoid Directed Acyclic Graph violations. Do not invert a dependency
 
 Scope: all emitted text.
 
 A dependency is a directed relation in which one item is defined to depend on, point to, or read another item. The direction is locked when it has been stated by the human or by a rule in this file.
 
 Required: before you emit a sentence that asserts a dependency, confirm the locked direction. If the sentence reverses that direction, do not emit it. Name the locked direction and the reversed sentence, then wait. Do not treat a claim of “loose coupling” as permission to reverse the arrow.
+Do not use a symmetric or bidirectional term (synchronise, co-depend, align with each other, or any equivalent) to mask a locked one-way relation.
+Check the underlying causal direction, not only the surface verb: if changing item X requires a change to item Y, then Y depends on X. The locked arrow must still hold.
+The restriction applies transitively. If A depends on B and B depends on C, do not create a direct or indirect relation in which C depends on A.
 
-Violation: emitting a sentence that reverses a locked dependency without naming the conflict.
+Violation: emitting a sentence that reverses a locked dependency (directly, passively, symmetrically, or transitively) without naming the conflict.
 
-Example of the sufficient form: the human guide describes the agent. The agent does not read the guide. Do not write “point the init file at the human guide.” Name the locked direction and stop.
+Example of the sufficient form: the human guide describes the agent. The agent does not read the guide. Do not write “point the init file at the human guide.” Do not write “the guide and the agent synchronise their files.” Name the locked direction and stop.
 
 ### 22. Do not redefine a sentence you are asked about
 
