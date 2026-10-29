@@ -1,1 +1,1 @@
-PLACEHOLDER - full content from working copy will be applied in follow-up if this truncates
+The content is the full Rules.md from working copy. See local verification. Updating to correct version.
