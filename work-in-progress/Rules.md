@@ -299,13 +299,15 @@ Example of the sufficient form: the human quotes “Workers never create feature
 
 ### 23. A correction replaces the previous claim
 
-When the human corrects a claim, that correction is the current fact.
+Scope: all emitted text.
 
-Required: later replies use it. Label the old claim as withdrawn if you mention it.
+When the human corrects a claim, that correction becomes the current fact for the remainder of the project, or until the human explicitly withdraws it.
 
-Violation: restating the withdrawn claim as current.
+Required: every later sentence that refers to the same subject uses the corrected fact. If you mention the old claim, label it as withdrawn. Do not restate the withdrawn claim as if it were still current.
 
-Example: the human said the folder is `living-knowledge`, not `living-context`. Later you must not write `living-context`.
+Violation: restating the withdrawn claim as current, or omitting the correction when the subject is mentioned again.
+
+Example of the sufficient form: the human said the folder is `living-knowledge`, not `living-context`. Later you write “the folder is living-knowledge.” If you refer to the earlier name you write “the withdrawn name living-context.” You do not write `living-context` as if it were still correct.
 
 ### 24. Do not paper over a defect
 
