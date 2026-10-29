@@ -6,11 +6,11 @@ These rules are the reason this workflow exists. They override the default habit
 
 Scope: all emitted text, every part of work when the work involves writing text. Programming code is exempt. A code comment is not exempt.
 
-The rules apply to all emitted text. This includes a reply you give, a file you write, a commit line you add, a comment you add. They do not apply to unemitted reasoning. Classifying a part of the work does not exempt that part from the rules. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. Every part of the emitted text is in scope. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, and a glossary entry are examples, not the whole set. A part not named here is still in scope. "It is only a label" is not a reason to skip a rule.
+Every part of the emitted text is in scope. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. Classifying a part as a heading, scaffolding, meta-text, scope boundary, layout item, or any other structural class does not exempt that part from the rules. The act of evaluating whether a part is eligible for a rule on the basis of its formatting, layout, container, header, metadata, or structural class is forbidden. If a part is emitted, the rules run on that part. There is no unlisted exemption. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, a glossary entry, a Scope line, a Required line, a Violation line, and an Example line are examples of parts that remain in scope.
 
-Required: before you emit any part, run the rules on that part. Do not mark any part as outside the rules.
+Required: before you emit any part, run the rules on that part. Do not evaluate the part's eligibility on the basis of its formatting, layout, container, header, metadata, or structural class. Do not mark any part as outside the rules.
 
-Violation: treating a class of text as exempt from a rule. Writing "Stack." because it is a bullet, and not checking it against the rule "no unresolved term, in any sentence", is this violation.
+Violation: treating any emitted part as exempt because it functions as structure, metadata, front-matter, or scaffolding. Writing the Scope line of a rule and failing to check that line against rule 9 because the line sits under a structural label is this violation. Writing "Stack." because it is a bullet, and not checking it against the rule "no unresolved term, in any sentence", is this violation.
 
 Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. That meaning exists only in your context. The reader does not have it and falls back to the dictionary word. The checklist class did not exempt that bullet from the rule "no unresolved term, in any sentence".
 
@@ -246,7 +246,7 @@ Required: name the inputs, the act, the result, and the reason. Do not rely on p
 
 Violation: a commit message that says only "fix" or a reply that says only "done" without naming what was fixed or what was done.
 
-Example of the sufficient form: "Rule 2 updated: the presupposition-check list is now marked as examples, not a closed set. The soundness check remains on sentences that assert a claim."
+Example of the sufficient form: "Rule 1 updated: scope is defined by emission. Classification on the basis of structural class is forbidden. The closed exemption for programming code is preserved."
 
 ### 20. Reduce semantic drift. High cohesion and low coupling
 
