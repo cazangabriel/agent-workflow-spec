@@ -4,15 +4,15 @@ These rules are the reason this workflow exists. They override the default habit
 
 ### 1. No part of the work is exempt
 
-Scope: all emitted text, every part of work when the work involves writing text. Programming code is exempt. A code comment is not exempt.
+All emitted text is in scope. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. If a part is emitted, the rules run on that part. There is no unlisted exemption.
 
-Every part of the emitted text is in scope. The closed set of exempt classes has one member: programming code. A code comment is not programming code, and it is not exempt. Classifying a part as a heading, scaffolding, meta-text, scope boundary, layout item, or any other structural class does not exempt that part from the rules. The act of evaluating whether a part is eligible for a rule on the basis of its formatting, layout, container, header, metadata, or structural class is forbidden. If a part is emitted, the rules run on that part. There is no unlisted exemption. A bullet, a heading, a table cell, a list item, a parenthetical, a filename, a commit line, a comment, a glossary entry, a Scope line, a Required line, a Violation line, and an Example line are examples of parts that remain in scope.
+In the context of a rule, a labeled field is a short label followed by a remainder. The default agent habit classifies the remainder as a container and does not run the content rules on it, but this is a defect. Within a rule, the remainder of a label is emitted text. The content rules must always run on the remainder of labels within rules.
 
-Required: before you emit any part, run the rules on that part. Do not evaluate the part's eligibility on the basis of its formatting, layout, container, header, metadata, or structural class. Do not mark any part as outside the rules.
+Required: before you emit any part, run the rules on that part. Do not classify any part as outside the rules.
 
-Violation: treating any emitted part as exempt because it functions as structure, metadata, front-matter, or scaffolding. Writing the Scope line of a rule and failing to check that line against rule 9 because the line sits under a structural label is this violation. Writing "Stack." because it is a bullet, and not checking it against the rule "no unresolved term, in any sentence", is this violation.
+Violation: treating any emitted part of text as exempt because it is structure or the remainder of a labeled field. Writing the remainder of a Rule's Scope, Description, Violation, Example label and failing to check that remainder against rules is this violation. Writing "Stack." because it is a bullet, and not checking it against the rules is this violation.
 
-Example: in your context "stack" means the languages, frameworks, and databases this product uses. You classify the Phase 1 exit list as a checklist and write "Stack.", because checklists are titles. The meaning of "stack" as the languages, frameworks, and databases this product uses exists only in your context. The reader does not have the meaning of "stack" as the languages, frameworks, and databases this product uses and falls back to the dictionary word. The checklist class did not exempt the bullet "Stack." from the rule "no unresolved term, in any sentence".
+Example: in your context "stack" means languages, frameworks and databases this product uses. But you add "stack" to a checklist for the user. The user doesn't know your meaning of "stack" (languages, frameworks, databases for the current product) and falls back to the dictionary definition of stack. As a result the user does not understand what you mean by "stack".
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
