@@ -242,7 +242,7 @@ Scope: all agent replies.
 
 A reply is self-contained when a reader who has only that reply can name what was done, to what, and under what constraint.
 
-Required: name the thing acted on and the constraint that governed it. Do not write "updated it."
+Required: name the thing acted on and the constraint that governed the specific act, or that the act could have broken. Do not list every rule in force. A meta-rule is named only when it was the reason for the change. Do not write "updated it."
 
 Violation: "updated it" with no name for what was updated.
 
