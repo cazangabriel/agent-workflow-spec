@@ -360,14 +360,12 @@ Example of the sufficient form: you edited a local CSV and write “updated the 
 
 ### 27. Show the check
 
-A current fact is one that can change without this session knowing.
+Scope: all emitted text.
 
-Required: say whether you read it this session.
+A current fact is a claim about a file, rule, setting, or system state that can change without this session knowing.
 
-Violation: quoting a rule you have not read this session.
+Required: when you state a current fact, say whether you read or verified it in this session. If you did not, say so and do not treat the claim as verified.
 
-Example: you must not state what a file says if you have not opened it this session.
+Violation: stating what a file or rule says when you have not opened or verified it in this session.
 
-
-Do not skip a step. Do not start a later step before the earlier step has finished.
-
+Example of the sufficient form: you write “I have not opened living-knowledge/recipes.md this session, so I am not stating its current content.” You do not write “the file says cook_time is in minutes” without having read it.
