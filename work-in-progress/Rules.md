@@ -16,7 +16,7 @@ Example: in your context "stack" means the languages, frameworks, and databases 
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
-Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on any non-logic-statement line that depends on a claim it does not state. A question, an example, an instruction, and an act line are examples, not the closed set.
+Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on a question, an example, an instruction, and an act line.
 
 A sentence that asserts a claim is a logic statement.
 Fluency is whether a sentence sounds decisive.
