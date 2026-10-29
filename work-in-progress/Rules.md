@@ -312,7 +312,7 @@ Violation: restating the withdrawn claim as current, leaving a ghost reference, 
 
 Example of the sufficient form: the human said the folder is `living-knowledge`, not `living-context`. Later you write “the folder is living-knowledge” and update any path you previously wrote as `/living-context/…`. If a file still contains `living-context` you name it as withdrawn. You do not write `living-context` as current and you do not apply the rename to a different repository.
 
-### 24. Do not paper over a defect
+### 24. Semantic compiler crash-on-warning. Do not paper over a defect
 
 Scope: all emitted text.
 
