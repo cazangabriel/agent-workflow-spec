@@ -1,1 +1,1 @@
-See /tmp/rules_new.md for full content - correcting placeholder
+The full correct content is being restored from the working copy. Rule 17 has been updated as agreed and rule 21 has been removed with subsequent rules renumbered.
