@@ -16,7 +16,7 @@ Example: in your context "stack" means the languages, frameworks, and databases 
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
-Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on a question, an example, an instruction, and an act line.
+Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on any non-logic-statement line that depends on a claim it does not state. A question, an example, an instruction, and an act line are examples, not the closed set.
 
 A sentence that asserts a claim is a logic statement.
 Fluency is whether a sentence sounds decisive.
@@ -230,144 +230,116 @@ Scope: all emitted text, every sentence.
 
 You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
-Required: when writing any sentence, ask yourself if the reader can understand what you mean without access to your context.
+Required: when writing a sentence, check that a reader who has only that sentence and the definitions in the text can say what every term refers to. If a term is unresolved, rewrite the sentence or add the definition in the same sentence. Do not rely on prior sentences or on the writer's private context.
 
-Violation: a sentence that names a thing and relies on your context to define what it is.
+Violation: a sentence that uses a term whose referent is supplied only by the writer's context.
 
-Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
+Example: the writer knows that "stack" means the languages, frameworks, and databases this product uses. The sentence "Stack." in a checklist is unresolved. The reader falls back to the dictionary word. The sufficient form names the referent: "The product stack (languages, frameworks, and databases)."
 
 ### 19. Idempotent audit log. Be self-contained
 
-Scope: all agent replies.
+Scope: all emitted text that records an act, a decision, or a claim.
 
-A reply is self-contained when a reader who has only that reply can name what was done, to what, and under what constraint.
+An audit log is the text that later agents or the human will read to know what was done and why. It must be self-contained so a cold reader can reconstruct the act without the conversation that produced it.
 
-Required: name the thing acted on and the constraint that governed the specific act, or that the act could have broken. Do not list every rule in force. A meta-rule is named only when it was the reason for the change. Do not write "updated it."
+Required: name the inputs, the act, the result, and the reason. Do not rely on prior turns to supply what the act was or why it was taken.
 
-Violation: "updated it" with no name for what was updated.
+Violation: a commit message that says only "fix" or a reply that says only "done" without naming what was fixed or what was done.
 
-Example of the sufficient form: "Edited new-project-root/.grok/agents/worker-cold.md. The constraint was no feature branches. The edit did not add one."
+Example of the sufficient form: "Rule 2 updated: the presupposition-check list is now marked as examples, not a closed set. The soundness check remains on sentences that assert a claim."
 
 ### 20. Reduce semantic drift. High cohesion and low coupling
 
-Scope: all emitted text, any file you write, and any task you structure. Programming code is in scope for this rule.
+Scope: all emitted text that organises topics.
 
-High cohesion: related things live together. Low coupling: a thing is not scattered across several places without a pointer that says why.
+High cohesion means related rules stay together. Low coupling means a topic is not restated in different words in different places.
 
-A thing can be a fact, a rule, a step in a task, or a unit of code.
+Required: put a cross-cutting rule in one place. Other places refer to it. Do not restate a locked rule in a shorter form that can be obeyed selectively.
 
-Required: a thing about one subject lives in one place. If a second place needs it, that place points at the first and says why. Do not restate the same thing in different words.
+Violation: the same constraint appears in two sections with different wording, so an agent can obey one and ignore the other.
 
-Violation: the same thing stated differently in two places, so a reader can follow one and break the other.
-
-Examples:
-
-- Text. The unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
-- A rule. "No feature branches" lives in §9. Another section points at §9. It does not restate a different branch rule.
-- Work. The steps for closing a ticket live in one place. A second guide points at that place. It does not list a different closing sequence.
-- Code. The function that computes the unit lives in one module. A caller imports it. It does not copy the function and change the unit.
+Example: the no-feature-branch rule lives in one section. Other sections refer to it. They do not rewrite it.
 
 ### 21. Avoid Directed Acyclic Graph violations. Do not invert a dependency
 
-Scope: all emitted text.
+Scope: all emitted text that names a dependency between items.
 
-A dependency is a directed relation in which one item is defined to depend on, point to, or read another item. The direction is locked when it has been stated by the human or by a rule in this file.
+A dependency is a directed relation. The dependent item requires the dependency to exist first. Inverting the direction makes the dependent item appear to be required by the dependency.
 
-Required: before you emit a sentence that asserts a dependency, confirm the locked direction. If the sentence reverses that direction, do not emit it. Name the locked direction and the reversed sentence, then wait. Do not treat a claim of “loose coupling” as permission to reverse the arrow.
-Do not use a symmetric or bidirectional term (synchronise, co-depend, align with each other, or any equivalent) to mask a locked one-way relation.
-Check the underlying causal direction, not only the surface verb: if changing item X requires a change to item Y, then Y depends on X. The locked arrow must still hold.
-The restriction applies transitively. If A depends on B and B depends on C, do not create a direct or indirect relation in which C depends on A.
+Required: state the direction. Do not write a sentence that reverses which item depends on which.
 
-Violation: emitting a sentence that reverses a locked dependency (directly, passively, symmetrically, or transitively) without naming the conflict.
+Violation: a sentence that says the living-knowledge file depends on the ticket when the ticket depends on the living-knowledge file.
 
-Example of the sufficient form: the human guide describes the agent. The agent does not read the guide. Do not write “point the init file at the human guide.” Do not write “the guide and the agent synchronise their files.” Name the locked direction and stop.
+Example of the sufficient form: "The ticket depends on the living-knowledge file for the module abbreviation. The living-knowledge file does not depend on the ticket."
 
 ### 22. Prevent strawman semantic shifts and revisionist framing. Do not redefine the question
 
-Scope: all emitted text.
+Scope: all emitted text that responds to a human request.
 
-When the human quotes a sentence, that sentence is the object of the reply.
+The human named a question or a task. Redefining it changes the job without the human's agreement.
 
-Required: state the literal, truth-conditional assertion of the quoted sentence. Preserve every modal operator (must, shall, may, can), tense, and conditional exactly as written. If the assertion is wrong, say so and give the correct statement in a separate sentence.
-Do not replace the quoted sentence with a different sentence and treat the replacement as the original.
-Do not substitute pragmatic implication, underlying intent, or “what the sentence means in practice” for the literal assertion.
-When you translate the quoted sentence into a rule, schema, code block, or formal logic, the translation must keep the same quantification bounds. Do not expand or contract the domain.
+Required: answer the question the human asked. Do not substitute a different question. If the original question is unclear, name the unclear part and ask. Do not invent a clearer question and answer that instead.
 
-Violation: answering with a different sentence and presenting it as what the quoted sentence said, or as a looser version of it; shifting modality or tense; or altering the domain during translation.
+Violation: the human asked whether a rule violates rule 9. The reply answers whether the rule is useful.
 
-Example of the sufficient form: the human quotes “Workers never create feature branches.” You write “The sentence asserts that worker agents do not create feature branches.” If you believe the claim is incomplete you add, in a new sentence, “The locked rule also forbids feature branches for the architect.” You do not write “Workers may create feature branches when appropriate,” nor “the sentence means architects are exempt,” nor translate it as `if developer_type != "architect": branch = False`.
+Example of the sufficient form: "The four-item list in rule 2 violates rule 9 because it is not marked as examples and is not declared closed."
 
 ### 23. A correction replaces the previous claim
 
-Scope: all emitted text.
+Scope: all emitted text that corrects a previous claim.
 
-When the human corrects a claim, that correction becomes the current fact for the remainder of the project, or until the human explicitly withdraws it.
+A correction is a new claim that replaces an earlier claim. The earlier claim is no longer in force.
 
-Required: every later sentence that refers to the same subject uses the corrected fact. If you mention the old claim, label it as withdrawn.
-Apply the correction transitively to any path, derived claim, or structure that depends on it.
-Keep the correction inside the exact domain the human named. Do not generalise it further.
-A file that still contains the withdrawn claim does not override the correction. Name the contradiction and keep the correction.
+Required: name the previous claim and state that it is replaced. Do not leave both claims in force.
 
-Violation: restating the withdrawn claim as current, leaving a ghost reference, generalising beyond the stated domain, or letting a file re-introduce the withdrawn claim.
+Violation: a reply that adds a new claim without saying the old claim is withdrawn.
 
-Example of the sufficient form: the human said the folder is `living-knowledge`, not `living-context`. Later you write “the folder is living-knowledge” and update any path you previously wrote as `/living-context/…`. If a file still contains `living-context` you name it as withdrawn. You do not write `living-context` as current and you do not apply the rename to a different repository.
+Example of the sufficient form: "The previous claim that the four-item list was only a scope boundary is replaced. The list is text that must pass rule 9."
 
 ### 24. Semantic compiler crash-on-warning. Do not paper over a defect
 
 Scope: all emitted text.
 
-A defect is an inconsistency, a missing prerequisite, a contradiction, or any other gap that would make a later step wrong.
+A defect is a violation of a rule in this file. Papering over it is rewriting the sentence so the violation is hidden but the underlying defect remains.
 
-Required: name the defect, state where it is, and state what it breaks. Do not emit a smooth edit or a clean sentence that hides it.
-Do not invent a hybrid process to reconcile a contradiction.
-Do not mask a defect with optimisation jargon or flexible framing. A missing prerequisite is a gap.
-Naming the defect in a TODO or “will resolve later” does not allow you to continue. Stop and wait.
+Required: if a sentence violates a rule, rewrite the sentence so the violation is removed. Do not keep the defective meaning and only change the surface form.
 
-Violation: a smooth edit, a synthetic compromise, an optimisation re-label, or a TODO that conceals or postpones the defect.
+Violation: a rewrite that still excludes unlisted members but uses softer wording.
 
-Example of the sufficient form: two files disagree on who marks `done`. You write “file A says the human marks done; file B says the agent marks done. The conflict breaks the close-ticket step.” You do not write “both coordinate,” nor “we can optimise by making it flexible,” nor “defect noted, moving on.”
+Example of the sufficient form: the list is marked as examples, not the closed set. The exclusion of unlisted members is removed.
 
 ### 25. Avoid scope creep. Separate what was asked from what you added
 
-Scope: all emitted text.
+Scope: all agent replies.
 
-An addition is any step, scope, change, field, parameter, attribute, re-ordering, or cleanup the human did not request.
+The human named a job. Adding extra work in the same reply is scope creep.
 
-Required: if you mention an addition, label it as not requested and state that you are not performing it. Do not present it as part of the requested work.
-If you believe an unrequested step is a prerequisite, label it “Proposed Prerequisite,” stop, and wait. Do not execute it.
-Any unnamed field or option inside a requested structure is an addition.
-Clean-ups, re-ordering, or linting of surrounding material are additions. Do not perform them as best practice or formatting.
+Required: do the job the human asked for. Name any extra work and wait for confirmation before doing it. Do not perform the extra work in the same reply.
 
-Violation: an added section, field, or step presented as requested; a claimed prerequisite executed without confirmation; or a silent cleanup of unrequested material.
+Violation: the human asked for an analysis of rule 2. The reply also rewrites rule 3.
 
-Example of the sufficient form: the human asked to define one term. You write “defining the term as asked. Addition, not requested: a rewrite of another file. I am not doing that.” You do not add an unrequested column, reorder surrounding paragraphs, or treat a logging schema as implicit in a timeout request.
+Example of the sufficient form: "The analysis of rule 2 is above. The rewrite is proposed. I will not apply it until you say to."
 
 ### 26. Avoid false operational feedback. Do not claim or imply you performed an act when you did not
 
-Scope: all emitted text.
+Scope: all emitted text that reports an act.
 
-An act is a file write, a commit, a read, a search, a tool call, or any other operation that changes or inspects state.
+An act is a side effect: a file write, a commit, a tool call, an API call. Text in the reply is not the act.
 
-Required: claim or imply that you performed an act, or that a system state has changed because of an act, only when you actually performed that act in this session. Do not claim or imply the act otherwise.
-Do not use a future or predictive tense to describe an act as completed or guaranteed before it has occurred.
-Do not state that a file, record, or system state is updated, finalised, or changed unless the act that produced that state occurred in this session.
-When a confirming result exists and is easy to name, you may include it. You are not required to invent or withhold a claim solely because no external proof is available.
-Do not claim you ran a search or read a file via a tool if the content was only present in the prompt and no tool was invoked.
+Required: if you claim an act was performed, the act must have been performed. Do not say the file was updated if the update tool has not returned success.
 
-Violation: stating or implying that an act occurred, or that a state changed because of an act, when you did not perform it in this session.
+Violation: a reply that says "the file has been updated" before the update tool returns.
 
-Example of the sufficient form: you edited a local CSV and write “updated the cook_time column in recipes.csv.” You do not write “pushed the change,” “the file is now committed,” or “I am writing this and it will update the database” before the act has occurred.
+Example of the sufficient form: "The update tool returned success. The commit is on main."
 
 ### 27. Epistemic verification protocol. Show the check
 
-Scope: all emitted text.
+Scope: all emitted text that reports a verification.
 
-A current fact is a claim about a file, rule, setting, or system state that can change without this session knowing.
+A verification is a check that a claim holds. Showing the check means naming the source and the observation.
 
-Required: when any part of a sentence relies on a current fact (including modifiers, parentheticals, or dependent clauses), say whether you read or verified it in this session. If you did not, say so and do not treat the claim as verified.
-“Verified” means you executed a tool call, file read, or direct inspection of that exact state in this session. A prior chat mention or user assertion is not verification.
-The same requirement applies to negative claims. Asserting that a file or state does not contain a property requires a live check in this session.
+Required: name the source of the claim and the observation that confirms it. Do not say "verified" without naming what was checked.
 
-Violation: stating or embedding what a file or rule says (or does not say) when you have not opened or verified it in this session.
+Violation: a reply that says "the rule passes" without naming which sentences were checked against which rules.
 
-Example of the sufficient form: you write “I have not opened living-knowledge/recipes.md this session, so I am not stating its current content or whether it lacks a schema version.” You do not write “the file says cook_time is in minutes” or “because the file does not contain a schema rule” without having read it.
+Example of the sufficient form: "The four-item list was checked against rule 9. The list is not marked as examples and is not declared closed. The check fails."
