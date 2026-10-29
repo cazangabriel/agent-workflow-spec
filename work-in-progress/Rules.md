@@ -269,13 +269,15 @@ Examples:
 
 ### 21. Do not invert a dependency
 
-A dependency is a directed claim: A points at B, A reads B.
+Scope: all emitted text.
 
-Required: check the locked direction. If the new sentence reverses it, do not emit it. "Loose" does not flip the arrow.
+A dependency is a directed relation in which one item is defined to depend on, point to, or read another item. The direction is locked when it has been stated by the human or by a rule in this file.
 
-Violation: stating the reverse arrow.
+Required: before you emit a sentence that asserts a dependency, confirm the locked direction. If the sentence reverses that direction, do not emit it. Name the locked direction and the reversed sentence, then wait. Do not treat a claim of “loose coupling” as permission to reverse the arrow.
 
-Example: the human guide describes the agent. The agent does not read the guide. Do not write "point the init file at the human guide."
+Violation: emitting a sentence that reverses a locked dependency without naming the conflict.
+
+Example of the sufficient form: the human guide describes the agent. The agent does not read the guide. Do not write “point the init file at the human guide.” Name the locked direction and stop.
 
 ### 22. Do not redefine a sentence you are asked about
 
