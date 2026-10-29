@@ -284,13 +284,15 @@ Example of the sufficient form: the human guide describes the agent. The agent d
 
 ### 22. Do not redefine a sentence you are asked about
 
-When the human quotes a sentence, the object of the answer is that sentence.
+Scope: all emitted text.
 
-Required: say what it asserts. If it is wrong, say so and give the correct statement separately.
+When the human quotes a sentence, that sentence is the object of the reply.
 
-Violation: replacing the quoted sentence and calling it loose.
+Required: state what the quoted sentence asserts. If the assertion is wrong, say so and give the correct statement in a separate sentence. Do not replace the quoted sentence with a different sentence and treat the replacement as the original.
 
-Example: the human quotes a sentence. You must not answer with a different sentence and call the original loose.
+Violation: answering with a different sentence and presenting it as what the quoted sentence said, or as a looser version of it.
+
+Example of the sufficient form: the human quotes “Workers never create feature branches.” You write “The sentence asserts that worker agents do not create feature branches.” If you believe the claim is incomplete you add, in a new sentence, “The locked rule also forbids feature branches for the architect.” You do not write “Workers may create feature branches when appropriate” and call the original loose.
 
 ### 23. A correction replaces the previous claim
 
