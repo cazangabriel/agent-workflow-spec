@@ -228,6 +228,8 @@ Example: the human locked no feature branches. You must not remove that sentence
 
 ### 18. No unresolved term, in any sentence
 
+Scope: all emitted text, every sentence.
+
 You have context the reader does not. A sentence you write is unresolved (it has insufficient information) when it only makes sense because of that context. A reader of the sentences you write can be a user or another agent. There are containers for sentences like a bullet, a table cell, a heading, a list item, and a parenthetical. No sentence container is exempt from being resolved. The external reader must be able to understand it without your context. No sentence container lets you skip the rule checks.
 
 Required: when writing any sentence, ask yourself if the reader can understand what you mean without access to your context.
