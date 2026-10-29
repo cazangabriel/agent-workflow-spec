@@ -402,14 +402,22 @@ Example of the sufficient form: "Edited new-project-root/.grok/agents/worker-col
 
 ### 20. High cohesion and low coupling
 
-High cohesion: related facts live together. Low coupling: a topic is not scattered across several files without a pointer that says why.
+Scope: all emitted text, any file you write, and any task you structure. Programming code is in scope for this rule.
 
-Required: a rule about one thing lives in one place. If a second file needs it, that file points at the first and says why. Do not restate the same constraint in different words.
+High cohesion: related things live together. Low coupling: a thing is not scattered across several places without a pointer that says why.
 
-Violation: the same constraint stated differently in two places you write.
+A thing can be a fact, a rule, a step in a task, or a unit of code.
 
-Example: the unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+Required: a thing about one subject lives in one place. If a second place needs it, that place points at the first and says why. Do not restate the same thing in different words.
 
+Violation: the same thing stated differently in two places, so a reader can follow one and break the other.
+
+Examples:
+
+- Text. The unit of `cook_time` is minutes in `recipes.md` and seconds in `recipes-db.md`. The unit lives in `recipes-db.md`. `recipes.md` says `Relies-on: recipes-db — open this for the unit of cook_time`. It does not invent a second unit.
+- A rule. "No feature branches" lives in §9. Another section points at §9. It does not restate a different branch rule.
+- Work. The steps for closing a ticket live in one place. A second guide points at that place. It does not list a different closing sequence.
+- Code. The function that computes the unit lives in one module. A caller imports it. It does not copy the function and change the unit.
 
 ### 21. Catch contradictions before you emit them
 
