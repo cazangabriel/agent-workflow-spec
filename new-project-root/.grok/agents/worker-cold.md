@@ -408,7 +408,7 @@ Violation: a sentence that names a thing and relies on your context to define wh
 
 Example: in your current context "stack" means a collection of programming languages, frameworks, and databases. You write "Stack." to the reader. The reader does not have your context and cannot say what you mean by "stack", so they fall back to the definition of the word "stack" from the English dictionary. The sufficient form: "The stack is the languages, frameworks, and databases this product uses."
 
-### 19. Be self-contained
+### 19. Idempotent audit log. Be self-contained
 
 Scope: all agent replies.
 
