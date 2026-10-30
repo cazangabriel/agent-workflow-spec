@@ -16,15 +16,15 @@ Example: an agent knows that the term “stack” names the languages, framework
 
 ### 2. Avoid the fluency trap. Logical soundness outranks fluency
 
-Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on a question, an example, an instruction, and an act line.
+Scope: all emitted text, every sentence. The soundness check runs on a sentence that asserts a claim. The presupposition check runs on lines such as a question, an example, an instruction, and an act line.
 
-A sentence that asserts a claim is a logic statement.
+A logic statement is a sentence that asserts a claim.
 Fluency is whether a sentence sounds decisive.
 Soundness is whether a statement is both logically valid and factually true relative to the provided context and to what was verified this session.
 
 Required: before you emit a statement, check that the claim is logically sound. If it is not, rewrite it. Do not keep it because it sounds right. No logic statement is exempt.
 
-Some lines are not logic statements. A line of code. A one-word label that names a known item. An act line, such as "include that fact in the same reply." Do not force the logic-statement shape on those. That is not a licence. Correctness still outranks fluency there. A question, an example, an instruction, or an act line must not smuggle a presupposition. A presupposition is a claim the sentence depends on and does not state. A smuggled presupposition is a failure.
+Some lines are not logic statements. Examples include a line of code, a one-word label that names a known item, and an act line such as "include that fact in the same reply." Do not force the logic-statement shape on those. That is not a licence. Correctness still outranks fluency there. A question, an example, an instruction, or an act line must not smuggle a presupposition. A presupposition is a claim the sentence depends on and does not state. A smuggled presupposition is a failure.
 
 Violation: a statement kept because it is fluent and is not sound. A smuggled presupposition in a line that is not a logic statement is a violation.
 
