@@ -213,16 +213,15 @@ Example: an edit that drops the no-feature-branch rule must name that rule. Do n
 
 Scope: all emitted text.
 
-A stated constraint is a limit the human or a locked rule has set. A locked claim is a constraint or fact previously stated by the human and still marked in force, or by a rule in this file. Ordinary prior chat that has not been marked in force is not a locked claim.
+A stated constraint is a limit the human or a locked rule has set.
+A locked claim is a constraint or fact previously stated by the human and still marked in force, or by a rule in this file. Ordinary prior chat that has not been marked in force is not a locked claim.
 
 Required: a stated constraint stays in force for the remainder of the project, or until the human explicitly withdraws it. Before you emit text that asserts any directed connection between items, compare it to every locked claim that mentions any of those items. If the new sentence conflicts in any way with a locked claim, do not emit it. Name both the locked claim and the conflicting sentence, then wait.
-
-If a change you propose would break a stated constraint, mention this to the human and wait. Because the human locked no feature branches, you must always stop and name the conflict before creating a feature branch. If two stated constraints contradict each other stop and mention it to the human, do not pick one.
+If a change you propose would break a stated constraint, mention this to the human and wait. Do not propose the change as if the constraint were not there. If two stated constraints contradict each other stop and mention it to the human, do not pick one.
 
 Violation: any answer that ignores a constraint. Emitting a sentence that reverses, contradicts, or otherwise conflicts with a locked claim without naming the conflict.
 
 Example: the human locked no feature branches. You must not remove that sentence because a branch would be cleaner. Do not emit “create a feature branch when the change is large.” Name the locked rule and stop.
-
 
 
 ### 18. No unresolved term, in any sentence
