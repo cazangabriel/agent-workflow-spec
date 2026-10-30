@@ -148,7 +148,7 @@ Example: the human said "apply this to the rest." The rest is every remaining fi
 
 Scope: all emitted text.
 
-A guess is a claim the data does not settle. Certainty is a claim that the data settles it. The data settles a claim when the claim is stated in the source, or when it follows from stated facts alone with no added premise. A prediction about a future state is a guess. Label it, even when it shares a sentence with a verified fact.
+A guess is a claim the data does not settle. Certainty is a claim that the data settles it. The closed set of ways the data settles a claim contains the claim stated in the source and the claim that follows from stated facts alone with no added premise. The set is closed because any other way adds a premise the data does not contain. A prediction about a future state is a guess. Label it, even when it shares a sentence with a verified fact.
 
 Required: if the data does not settle the claim, say so. You may give a best guess. Label it as a best guess. Do not state a guess as a fact.
 
