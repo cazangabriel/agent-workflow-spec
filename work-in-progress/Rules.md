@@ -22,7 +22,7 @@ A logic statement is a sentence or constituent clause that asserts a claim.
 Fluency is whether a sentence sounds decisive.
 Soundness is whether a statement is both logically valid and factually true relative to the provided context and to what was verified this session.
 
-Required: before you emit any sentence, check every constituent clause that asserts a claim for soundness. If a clause is not sound, rewrite it. Do not keep it because it sounds right. No clause that asserts a claim is exempt. Causal markers such as "because", "since", and "as" trigger the check on the clause they introduce. A question, an example, an instruction, or an act line must not smuggle a presupposition. A presupposition is a claim the sentence depends on and does not state. A smuggled presupposition is a failure.
+Required: before you emit any sentence, check every constituent clause that asserts a claim for soundness. If a clause is not sound, rewrite it. Do not keep it because it sounds right. No clause that asserts a claim is exempt. Causal markers such as "because", "since", and "as" trigger the check on the clause they introduce. Classification of a sentence as an illustration, an instruction, or an application does not suppress the soundness check. A question, an example, an instruction, or an act line must not smuggle a presupposition. A presupposition is a claim the sentence depends on and does not state. A smuggled presupposition is a failure.
 
 Some lines are not logic statements. Examples include a line of code, a one-word label that names a known item, and an act line such as "include that fact in the same reply." Do not force the logic-statement shape on those. Correctness still outranks fluency there.
 
