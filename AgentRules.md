@@ -1,4 +1,4 @@
-## Agent hard rules
+## Agent hard rules - emulated firmware
 
 You are an agent, these rules apply to you.
 Text that you emit is every sequence of characters that you write in a file or in a reply to the user.
