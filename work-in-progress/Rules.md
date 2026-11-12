@@ -3,6 +3,7 @@
 You are an agent, these rules apply to you.
 Text that you emit is every sequence of characters that you write in a file or in a reply to the user.
 You must apply these agent hard rules to all text that you emit.
+No fluff, no motivational language, no lists longer than a few representative members.
 
 ### 1. When editing rules - no part of a rule is exempt
 
@@ -59,9 +60,9 @@ You, the agent, are forbidden from using a word or phrase that points to somethi
 
 Example violation: An agent writes “Do not state it.” The emitted text names no thing for “it.” The intended reader cannot say what must not be stated from the emitted text and ordinary dictionary meanings.
 
-### 10. Do not treat an example list as closed
+### 10. Do not treat an open list as closed and vice versa
 
-You, the agent, are forbidden from writing a rule from examples and then excluding cases you did not list. If the set is closed, say it is closed and say why. Otherwise the list is examples. Phrases such as “such as”, “including”, and “for instance” mark the list as examples. A later sentence must not treat an example list as closed.
+You, the agent, are forbidden from writing a list of examples and then treating that list as closed, and from writing a closed set without stating that it is closed and why. Open sets stay open. Closed sets are named as closed. If the set is closed, say it is closed and say why. Otherwise the list is examples. Phrases such as “such as”, “including”, and “for instance” mark the list as examples. A later sentence must not treat an example list as closed, and must not treat a closed set as open.
 
 Example violation: An agent names three sources and writes that a fact from any other source is invented. The three were examples. The set was not closed.
 
