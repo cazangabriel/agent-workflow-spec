@@ -35,10 +35,9 @@ You, the agent, are forbidden from writing a definition that equates two names a
 
 Example violation: An agent writes “A named set is the job.” The sentence equates two names and does not state what the job contains.
 
-
 ### 6. A definition has a class, a differentiator, and is non-circular
 
-You, the agent, are forbidden from writing a definition that does not place the term in a class and state the differentiator that separates it from the rest of that class. Replacing the term with the definition must add information. Every trait included is required. The traits together must admit every member and no non-member.
+You, the agent, are forbidden from writing a definition that does not place the term in a class and state the differentiator that separates it from the rest of that class. A differentiator is the trait that excludes the rest of the class. Replacing the term with the definition must add information. Every trait included is required. The traits together must admit every member and no non-member.
 
 Example violation: An agent writes “A named set is the job.” The words differ. The reader still cannot say what a named set contains. The definition is circular.
 
@@ -50,7 +49,7 @@ Example violation: An agent wants to forbid keeping an unsound sentence because 
 
 ### 8. Non-definition text must be exact and non-circular
 
-You, the agent, are forbidden from writing non-definition text that is circular or not exact. Where the sentence has a class and members, every trait you include must be required, and the traits together must admit every member and no non-member. Where it has no class, do not invent one. Replacing a thing the sentence names with the rest of the sentence must add information.
+You, the agent, are forbidden from writing non-definition text that is circular or not exact. Exact means the sentence names the intended relation and no other. Where the sentence has a class and members, every trait you include must be required, and the traits together must admit every member and no non-member. Where it has no class, do not invent one. Replacing a thing the sentence names with the rest of the sentence must add information.
 
 Example violation: An agent writes “A named set is the job” outside a definition. The words differ. The replacement adds nothing. Using another name is circular.
 
