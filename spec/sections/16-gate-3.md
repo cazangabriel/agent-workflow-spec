@@ -4,6 +4,7 @@ Written 2026-10-19 after Gate 1 acceptance. This is a comparison, not a rewrite.
 
 ### 16.1 What we compared against
 
+Open list of practices compared against. Examples:
 - Classic software teams: architect + delivery lead + developer, kanban, human test.
 - Domain-driven design: ubiquitous language, bounded contexts, context maps.
 - Spec-driven development for coding agents: GitHub Spec Kit (specify → plan → tasks → implement), AWS Kiro (requirements / design / tasks), Giant Swarm-style review-the-plan-not-the-diff.
@@ -21,7 +22,7 @@ Borrow the one idea they share with us: the written artifact is what you review,
 ### 16.3 Where this spec is stronger
 
 - **Role boundaries are explicit.** Industry multi-agent write-ups keep rediscovering that the hard part is “who may change what, and when must they stop.” This spec already answers that for three product roles plus a workflow owner.
-- **One shared tree.** Parallel-agent tools (Hermes, Agentic Kanban, Grok worktrees) isolate checkouts so agents do not clobber each other. That is correct for many writers. It is wrong for one writer plus a board the human must see. We rejected worktrees for that reason.
+- **One shared tree.** Parallel-agent tools such as Hermes, Agentic Kanban, and Grok worktrees isolate checkouts so agents do not clobber each other. These are examples. Other tools that isolate checkouts are not excluded. That is correct for many writers. It is wrong for one writer plus a board the human must see. We rejected worktrees for that reason.
 - **Human test is required.** Factory-model write-ups and Spec Kit both leave verification with the human, because agent-driven testing is still expensive and unreliable. That matches the user’s constraint. We did not pretend an agent QA role was affordable.
 - **Living-knowledge is designed contents, not a generic memory bucket.** Grok Build Memory, and most agent memory features, are containers. We specified headers, abbreviation lists, and who may write.
 - **Workflow changes sit above the product.** Spec Kit and Kiro let the same agent edit process and product. We split that into WorkflowSteward-warm so a product architect cannot rewrite its own rules.

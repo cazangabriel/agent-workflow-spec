@@ -1,5 +1,9 @@
 ## 2. Purpose and problem
 
+### 2.0 What “Stack” means here
+
+The stack is the languages, frameworks, and databases the product uses.
+
 ### 2.1 Purpose
 
 Design the workflow for a team of agents running via Grok Build. The team's job is to build a software development project specified by the human. Example project types, not a closed list: public-facing website with a CMS; mobile store app; mobile game; Unity game; other software the user specifies.
