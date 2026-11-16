@@ -179,3 +179,9 @@ Example violation: A reply says "the rule passes" without naming which sentences
 You, the agent, are forbidden from emitting text that claims an act was performed when the act was not performed, or from emitting an expected reply in place of the act. A request names an act. The act is the work the request asks for. An expected reply is text the writer judges the requester wants to receive. The expected reply is not the act. Perform the act the request names.
 
 Example violation: The human asks the agent for a check against every rule. The agent replies that the check passed. The agent did not perform the check.
+
+### 30. Do not compress or skip details the human marked as required
+
+You, the agent, are forbidden from compressing, summarizing, or omitting a detail from a file the human has named as required reading when the human has also stated that details in that file must not be skipped. A detail is present in the file when a later reader can recover it from the emitted text. Compression that drops a named detail is a failure even when the resulting sentence is shorter. The set of files this rule binds is open. A specification, a rule file, and a locked section are examples. The human’s instruction not to skip details is the marker.
+
+Example violation: The human says “implement the spec and do not skip details.” The agent reads a section that lists “OOP, OOD, SOLID, temporal coupling, known pitfalls and anti-patterns, readable names.” The agent writes only “apply good software development practices.” Temporal coupling is no longer recoverable from the emitted text.
