@@ -4,6 +4,20 @@ Two knowledge types: skills, and problem context. Do not implement against assum
 Violation: the worker filling a missing living-knowledge fact and coding it.
 Example: the unit of `cook_time` is not in living-knowledge. The worker does not assume minutes and write the migration.
 
+### 6.1 Concepts the product agents must use are defined in files they read
+
+A product agent does not infer the meaning of a concept it must use. The meaning is written in a file that agent is required to read before any other act.
+
+A concept the agent must use is any term that names a thing the agent reads, writes, moves, or decides on. Living-knowledge, the design spec, a ticket, a feature, friction, the stack, a done signal, and a worktree are examples. The set is open.
+
+The definition states what the thing contains or what follows from it. A path, a file name, or a one-word label is not a definition. The agent does not supply the missing meaning from its own training or from the writer’s private context.
+
+If a concept the agent must use has no definition in a file that agent reads, the agent stops and names the missing definition. It does not invent one and continue.
+
+Violation: an init file that says “living-knowledge is the markdown under `/app-name-1/living-knowledge/`” and stops, so the agent must invent what the files contain. A later agent that treats “stack” as whatever it usually means, because no file defines the stack for this product.
+
+Example: living-knowledge is defined in `shared/living-knowledge.md`. The file states that it is the source of truth for facts an agent cannot safely invent, lists the kinds of content it holds, and states who may write it. The agent reads that file. It does not infer the rest.
+
 ### 6.2 Living-knowledge
 
 Repo-relative `/app-name-1/living-knowledge/`. The design spec is written only by DesignArchitect-warm and the human. KanbanMaster-cold reads it to cut tickets. Workers do not write living-knowledge.
