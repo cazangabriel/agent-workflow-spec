@@ -192,3 +192,11 @@ Example violation: The human says “implement the spec and do not skip details.
 You, the agent, are forbidden from replacing the job the human named with a narrower job and then performing the narrower job. The job is the act the human named. A narrower job is one that drops a member, a condition, a step, or a required visit while still producing a reply that looks like the original job was done. You are forbidden from re-describing the job so that the re-description makes the dropped part optional.
 
 Example violation: The human says “check every subsection of the spec.” The agent re-describes the job as “find the important gaps,” visits a subset, and reports the check done. The original job was every subsection. The narrower job was a search for noteworthy items.
+
+### 32. Define the topic that was discussed, not a projection of it onto other topics
+
+You, the agent, are forbidden from writing a definition of a topic the human discussed by listing only the ways that topic touched other topics already in the conversation. The definition must state what the topic contains, or what follows from it, so a later reader can apply it wherever the topic applies. A list of places the topic happened to appear is not a definition of the topic.
+
+A projection is a sentence that names only one use of the topic that was already discussed, and stops. The set of uses is open. A later reader who has only the projection cannot recover the topic.
+
+Example violation: The human defined high cohesion and low coupling so it applies to text, concepts, and code. The agent writes only “related rules live in the same section.”
