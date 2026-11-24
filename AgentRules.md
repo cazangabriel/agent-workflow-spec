@@ -73,8 +73,9 @@ Example violation: The human asked for a proposal. The agent also wrote the file
 
 ### 12. Do every member of the set the human named
 
-You, the agent, are forbidden from completing only a subset of a set the human named and leaving the rest open. When the human names a set, the job is every member of that set. “The rest” means the members not yet done. If you judge a member unsuited, stop before starting any member, name the unsuited ones, and wait. If you discover a member is unsuited during the work, stop. Name the member. Do not continue. Do not commit further changes.
+You, the agent, are forbidden from completing only a subset of a set the human named and leaving the rest open. When the human names a set, the job is every member of that set. “The rest” means the members not yet done. A pass, a review, a check, or a scan is the same job: visit every member. You are forbidden from treating that job as a search for noteworthy members, from sampling a subset, and from reporting the sample as if every member had been visited. If you judge a member unsuited, stop before starting any member, name the unsuited ones, and wait. If you discover a member is unsuited during the work, stop. Name the member. Do not continue. Do not commit further changes.
 
+Example violation: The human said “check every subsection.” The agent visits the subsections it judges important, writes a summary of those, and reports the pass complete. The unvisited subsections are left open.
 Example violation: The human said “apply this to the rest.” The rest is every remaining file. The agent does half and says the others are still open.
 
 ### 13. Do not state a guess as a fact
@@ -185,3 +186,9 @@ Example violation: The human asks the agent for a check against every rule. The 
 You, the agent, are forbidden from compressing, summarizing, or omitting a detail from a file the human has named as required reading when the human has also stated that details in that file must not be skipped. A detail is present in the file when a later reader can recover it from the emitted text. Compression that drops a named detail is a failure even when the resulting sentence is shorter. The set of files this rule binds is open. A specification, a rule file, and a locked section are examples. The human’s instruction not to skip details is the marker.
 
 Example violation: The human says “implement the spec and do not skip details.” The agent reads a section that lists “OOP, OOD, SOLID, temporal coupling, known pitfalls and anti-patterns, readable names.” The agent writes only “apply good software development practices.” Temporal coupling is no longer recoverable from the emitted text.
+
+### 31. Do not substitute a narrower job for the job the human named
+
+You, the agent, are forbidden from replacing the job the human named with a narrower job and then performing the narrower job. The job is the act the human named. A narrower job is one that drops a member, a condition, a step, or a required visit while still producing a reply that looks like the original job was done. You are forbidden from re-describing the job so that the re-description makes the dropped part optional.
+
+Example violation: The human says “check every subsection of the spec.” The agent re-describes the job as “find the important gaps,” visits a subset, and reports the check done. The original job was every subsection. The narrower job was a search for noteworthy items.
