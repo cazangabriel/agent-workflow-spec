@@ -10,6 +10,32 @@ Repo-relative `/app-name-1/living-knowledge/`. The design spec is written only b
 Violation: the worker editing a file under `/app-name-1/living-knowledge/`.
 Example: the worker comments on the ticket. It does not open `recipes.md` for write.
 
+### 6.2.1 What living-knowledge contains
+
+Living-knowledge is the product’s source of truth for facts an agent cannot safely invent. It is not chat, not Grok Build Memory, and not the design spec.
+
+A living-knowledge file holds, for one module or one layer:
+
+- conventions the product uses
+- guidelines an agent must follow when it writes in that module or layer
+- gotchas and pitfalls that are not obvious from the code or the design spec
+- tips that prevent a known mistake
+- facts the ticket or the design spec does not state and that an agent must not guess
+
+These are examples. The set is open.
+
+Workers read living-knowledge. Workers do not write it. If a needed fact is missing, the worker comments and stops.
+
+### 6.2.2 What a worker loads
+
+When the human assigns a ticket, the worker loads the living-knowledge files for the modules and layers that ticket spans. A module file and a layer file are separate. If the ticket names more than one module or more than one layer, the worker loads each of those files.
+
+If during the work the worker finds it needs another living-knowledge file, it may read that file.
+
+The worker does not load every living-knowledge file on every prompt. It does not load the whole repo or the whole board to start the ticket.
+
+Violation: a worker that pastes every living-knowledge file “for context,” or that invents a missing fact instead of loading the file that states it or stopping.
+
 ### 6.3 File types
 
 Overview versus detail, per module and layer. Size cap: 3–4 detail files must not become a ~30k-token beast.
